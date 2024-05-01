@@ -235,8 +235,23 @@ header .botoes-acesso{
   margin-top: 5em;
 }
 
+.img-seta-carros{
+  width: 50px;
+  height: 50px;
+  
+}
 
 
+.section-carros{
+  width: 100vw;
+  height: 90vh;
+  padding-top: 10vh;
+  background-color: var(--GavaPurpleSecondary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 
 
@@ -244,6 +259,59 @@ header .botoes-acesso{
   width: 100vw;
   height: 100vh;
   background-color: var(--GavaPurpleSecondary);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carros article{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: start;
+  width: 50%;
+  margin: 5em;
+}
+
+.carros article h1{
+  margin: 0;
+  font-size: 56px;
+  color: var(--GavaWhite);
+}
+
+.carros article p{
+  margin: 0;
+  font-size: 24px;
+  color: var(--GavaWhite);
+}
+
+.carros article button{
+  margin-top: 1em;
+  background-color: var(--GavaWhite);
+  color: var(--GavaPurpleSecondary);
+  width: 10em;
+  height: 2em;
+  border: none;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 20px;
+
+  transition: ease-in-out 0.2s;
+}
+
+.carros img{
+  width: 35%;
+
+  border: var(--GavaWhite) 5px solid;
+  border-radius: 50px;
+
+  margin: 2em;
+}
+.carros .seta{
+  width: 70px;
+  border: none;
+  margin: 3em;
 }
 
 
