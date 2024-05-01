@@ -41,8 +41,9 @@ header img{
 nav{
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content:center;
   align-items: center;
+  
   width: 50vw;
   margin-left: 5em;
 }
@@ -51,12 +52,12 @@ nav li{
   text-decoration: none;
   list-style: none;
   width: 6rem;
-  padding: 10px;
+  padding: 5px;
 }
 
 nav a{
   color: var(--GavaPurpleDark);
-  padding: 10px;
+  
   border-bottom: transparent 4px solid;
   font-size: 20px;
   font-weight: 600;
