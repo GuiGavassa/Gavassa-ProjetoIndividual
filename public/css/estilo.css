@@ -48,12 +48,62 @@ nav{
   margin-left: 5em;
 }
 
+li a {
+  font-size: 17px;
+  background: transparent;
+  border: none;
+  padding: 0.5em 1em;
+  color: #ffedd3;
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+li a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: var(--GavaPurpleDark);
+  transition: 0.5s ease;
+}
+
+li a:hover {
+  color: var(--GavaWhite);
+  transition-delay: 0.5s;
+}
+
+li a:hover::before {
+  width: 100%;
+}
+
+li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background-color: var(--GavaPurpleDark);
+  transition: 0.4s ease;
+  z-index: -1;
+}
+
+li a:hover::after {
+  height: 100%;
+  transition-delay: 0.4s;
+  color: aliceblue; 
+}
+
+
 nav li{
-  text-decoration: none;
   list-style: none;
-  width: 6rem;
   padding: 5px;
 }
+
 
 nav a{
   color: var(--GavaPurpleDark);
@@ -65,14 +115,14 @@ nav a{
   transition: ease-in-out 0.2s;
 }
 
-nav a:hover{
-  color: var(--GavaPurpleDark);
-  border-bottom: var(--GavaPurplePrincipal) 4px solid;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: 600;
-  transition: ease-in-out 0.2s;
-}
+  /* nav a:hover{
+    color: var(--GavaPurpleDark);
+    border-bottom: var(--GavaPurplePrincipal) 4px solid;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    transition: ease-in-out 0.2s;
+  } */
 
 header .botoes-acesso{
   display: flex;
@@ -103,7 +153,7 @@ header .botoes-acesso{
   font-weight: 600;
   font-size: 20px;
 
-  width:50%;
+  width:40%;
   height: 3rem;
 }
 
@@ -128,7 +178,7 @@ header .botoes-acesso{
 
   color: var(--GavaWhite);
   
-  width:70%;
+  width:50%;
   height: 3rem;
 }
 
