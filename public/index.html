@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="./css/estilo.css">
   <link rel="icon" href="./assets/icon/icon-GavaMotors.png">
   <link rel="preconnect" href="https://fonts.gstatic.com">
+  <script src="./js/carrossel.js"></script>
 </head>
 
 <body>
@@ -123,19 +124,73 @@
 
   <!-- Carrossel de Carros -->
   <section id="carros" class="section-carros">
-    <div class="carros">
-      <img class="seta" src="assets/icon/seta-Esquerda.png" alt="">
-      <article>
-        <h1>Muscle Cars</h1>
-        <p>Carros potentes com muita cavalaria em seu motor, e um ronco forte e barulhento, mostra que está chegando, e
-          chega rápido.</p>
-        <button>Saiba mais</button>
-      </article>
-      <img src="assets/imgs/img-carros/img-carro01.png" alt="">
-      <img class="seta" src="assets/icon/seta-direita.png" alt="">
+
+    <div class="carousel" id="carros">
+      <button class="prev" onclick="prevSlide()">&#10094;</button>
+      <div class="carousel-content">
+        <div class="slide">
+          <article>
+            <h1>Muscle Cars</h1>
+            <p>Carros potentes com muita cavalaria em seu motor, e um ronco forte e barulhento, mostra que está
+              chegando, e chega rápido.</p>
+            <button onclick="alert('Botão do Slide 1 clicado')">Saiba Mais</button>
+          </article>
+          <img src="./assets/imgs/img-carros/img-carro01.png" alt="Imagem 1">
+        </div>
+
+
+        <div class="slide">
+          <article>
+            <h1>JDM Cars</h1>
+            <p>Carros vendidos inicialmente no Japão, sempre muito equipados e com uma potência inimaginável.</p>
+            <button onclick="alert('Botão do Slide 1 clicado')">Saiba Mais</button>
+          </article>
+          <img src="./assets/imgs/img-carros/img-carro02.png" alt="Imagem 1">
+        </div>
+        <div class="slide">
+          <article>
+            <h1>Drift Cars</h1>
+            <p>Potentes e focados em “Drift”, fazendo curvas fechadas e soltando muita fumaça por onde passa.</p>
+            <button onclick="alert('Botão do Slide 1 clicado')">Saiba Mais</button>
+          </article>
+          <img src="./assets/imgs/img-carros/img-carro03.png" alt="Imagem 1">
+        </div>
+        <div class="slide">
+          <article>
+            <h1>Muscle Cars (Antigos)</h1>
+            <p>Verdadeiro significado de “Raíz”, carros fortes e sem limites de velocidade, muito barulhentos e
+              chamativos.</p>
+            <button onclick="alert('Botão do Slide 1 clicado')">Saiba Mais</button>
+          </article>
+          <img src="./assets/imgs/img-carros/img-carro04.png" alt="Imagem 1">
+        </div>
+        <div class="slide">
+          <article>
+            <h1>Carros de Luxo</h1>
+            <p>Só tem, quem pode. E quem pode, quer ter! Carros velozes, furiosos e muito lindos, e muita performance
+              envolvida.</p>
+            <button onclick="alert('Botão do Slide 1 clicado')">Saiba Mais</button>
+          </article>
+          <img src="./assets/imgs/img-carros/img-carro05.png" alt="Imagem 1">
+        </div>
+        <div class="slide">
+          <article>
+            <h1>Carros Elétricos</h1>
+            <p>Futuro do automobilismo, carros eficientes e rápidos. Cheios de tecnologia de última geração e economia
+              gigantesca.</p>
+            <button onclick="alert('Botão do Slide 1 clicado')">Saiba Mais</button>
+          </article>
+          <img src="./assets/imgs/img-carros/img-carro06.png" alt="Imagem 1">
+        </div>
+        <!-- Adicione mais slides conforme necessário -->
+      </div>
+      <button class="next" onclick="nextSlide()">&#10095;</button>
     </div>
+    <div class="slide-indicators"></div>
     <a href="#footer"><img class="img-seta-carros" src="assets/icon/chevron-down-solid.svg" alt=""></a>
   </section>
+
+
 
 
 

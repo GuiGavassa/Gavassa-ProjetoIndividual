@@ -44,6 +44,7 @@ header {
   width: 100vw;
   background-color: var(--GavaWhite);
   position: fixed;
+  z-index: 1000;
 }
 
 header img {
@@ -510,9 +511,9 @@ header .botoes-acesso {
 
 
 
-.carros {
+.slide {
   width: 100vw;
-  height: 100vh;
+  height: 60vh;
   background-color: var(--GavaPurpleSecondary);
 
   display: flex;
@@ -520,7 +521,7 @@ header .botoes-acesso {
   align-items: center;
 }
 
-.carros article {
+.slide article {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -529,19 +530,19 @@ header .botoes-acesso {
   margin: 5em;
 }
 
-.carros article h1 {
+.slide article h1 {
   margin: 0;
   font-size: 56px;
   color: var(--GavaWhite);
 }
 
-.carros article p {
+.slide article p {
   margin: 0;
   font-size: 24px;
   color: var(--GavaWhite);
 }
 
-.carros article button {
+.slide article button {
   margin-top: 1em;
   background-color: var(--GavaWhite);
   color: var(--GavaPurpleSecondary);
@@ -555,17 +556,84 @@ header .botoes-acesso {
   transition: ease-in-out 0.2s;
 }
 
-.carros img {
-  width: 35%;
-
+.slide img {
+  width: 20vw;
   border: var(--GavaWhite) 5px solid;
   border-radius: 50px;
-
-  margin: 2em;
+  margin-right: 10em;
 }
 
 .carros .seta {
   width: 70px;
   border: none;
   margin: 3em;
+}
+
+
+
+.carousel {
+  position: relative;
+  width: 80vw;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-content {
+  display: flex;
+  align-items: center;
+  width: 80vw;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 100%; 
+  
+  text-align: center;
+}
+
+.prev, .next {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  background-color: var(--GavaWhite);
+  color: var(--GavaBlack);
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  width: 4vw;
+  height: 4vh;
+  z-index: 1;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.slide-indicators {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.slide-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--GavaPurpleDark);
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.slide-indicator.active {
+  background-color: var(--GavaWhite);
 }
