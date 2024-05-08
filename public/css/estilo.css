@@ -6,6 +6,7 @@
   --GavaPurplePrincipal: #7101FF;
   --GavaPurpleSecondary: #7341B2;
   --GavaPurpleDark: #4F00B2;
+  --GavaGrey: #d1d1d1;
 }
 
 * {
@@ -664,15 +665,15 @@ header .botoes-acesso {
 
 /* -----------------------------------------CONTATO---------------------------------------------- */
 
-.contato{
+.section-contato{
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
 
-  background-color: var(--GavaBlack);
+  background-color: var(--GavaPurpleSecondary);
 }
 
 .container-contato{
@@ -681,15 +682,69 @@ header .botoes-acesso {
   justify-content: center;
   align-items: center;
 
+
   width: 50vw;
+  height: 80vh;
+ 
+  
+  border-radius: 20px 20px 0 0;
 
-  background-color: var(--GavaPurpleDark);
+  background-color: var(--GavaWhite);
 }
 
-.contato p{
+.section-contato p{
   margin: 0;
+  font-weight: 600;
 }
 
-.contato input{
-
+.section-contato h1{
+  font-size: 50px;
 }
+
+.section-contato input{
+  margin: 0;
+  width: 24vw;
+  height: 2em;
+  
+  border: none;
+  border-left: var(--GavaPurpleDark) 5px solid;
+
+  background-color: var(--GavaGrey);
+  
+  -webkit-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
+  -moz-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
+  box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
+}
+
+.section-contato textarea{
+  resize: none;
+
+  margin: 0;
+  width: 24vw;
+
+  border: none;
+  border-left: var(--GavaPurpleDark) 5px solid;
+
+  background-color: var(--GavaGrey);
+
+  -webkit-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
+  -moz-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
+  box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
+}
+
+
+
+footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  background-color: var(--GavaBlack);
+}
+
+footer img{
+  width: 10vw;
+  height: 10vh;
+}
+
+
