@@ -8,13 +8,14 @@
   --GavaPurpleDark: #4F00B2;
 }
 
-*{
+* {
   scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
 }
 
 
 ::-webkit-scrollbar {
-  width: 12px; 
+  width: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -22,41 +23,40 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--GavaPurpleDark); 
+  background-color: var(--GavaPurpleDark);
 }
 
 body {
   margin: 0;
   padding: 0;
   width: 100vw;
-  font-family: "Poppins", sans-serif;
   background-color: var(--GavaWhite);
   overflow-x: hidden;
 
 }
 
-header{
+header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   height: 12vh;
   width: 100vw;
-  background-color: var(--GavaWhite);  
+  background-color: var(--GavaWhite);
   position: fixed;
 }
 
-header img{
+header img {
   padding: 3rem;
 }
 
 
-nav{
+nav {
   display: flex;
   flex-direction: row;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
-  
+
   width: 50vw;
   margin-left: 5em;
 }
@@ -108,19 +108,19 @@ li a::after {
 li a:hover::after {
   height: 100%;
   transition-delay: 0.4s;
-  color: aliceblue; 
+  color: aliceblue;
 }
 
 
-nav li{
+nav li {
   list-style: none;
   padding: 5px;
 }
 
 
-nav a{
+nav a {
   color: var(--GavaPurpleDark);
-  
+
   border-bottom: transparent 4px solid;
   font-size: 20px;
   font-weight: 600;
@@ -128,14 +128,14 @@ nav a{
   transition: ease-in-out 0.2s;
 }
 
-header .botoes-acesso{
+header .botoes-acesso {
   display: flex;
   justify-content: center;
   width: 20rem;
   gap: 1rem;
 }
 
-.botoes-acesso .btn-login{
+.botoes-acesso .btn-login {
   border: var(--GavaPurplePrincipal) 2px solid;
   background-color: var(--GavaWhite);
 
@@ -143,12 +143,13 @@ header .botoes-acesso{
   font-weight: 600;
   font-size: 20px;
 
-  width:30%;
+  width: 30%;
   height: 3rem;
 
   transition: ease-in-out 0.3s;
 }
-.botoes-acesso .btn-login:hover{
+
+.botoes-acesso .btn-login:hover {
   cursor: pointer;
   border: var(--GavaPurpleDark) 2px solid;
   background-color: var(--GavaPurpleDark);
@@ -157,12 +158,12 @@ header .botoes-acesso{
   font-weight: 600;
   font-size: 20px;
 
-  width:40%;
+  width: 40%;
   height: 3rem;
 }
 
 
-.botoes-acesso .btn-cadastro{
+.botoes-acesso .btn-cadastro {
   border: var(--GavaPurplePrincipal) 2px solid;
   background-color: var(--GavaPurplePrincipal);
 
@@ -170,25 +171,26 @@ header .botoes-acesso{
   font-weight: 500;
   font-size: 20px;
 
-  width:40%;
+  width: 40%;
   height: 3rem;
 
   transition: ease-in-out 0.3s;
 }
-.botoes-acesso .btn-cadastro:hover{
+
+.botoes-acesso .btn-cadastro:hover {
   cursor: pointer;
   border: var(--GavaPurpleDark) 2px solid;
   background-color: var(--GavaPurpleDark);
 
   color: var(--GavaWhite);
-  
-  width:50%;
+
+  width: 50%;
   height: 3rem;
 }
 
 /* -------------------------------------- SECTION BANNER --------------------------------------------------- */
 
-.banner{
+.banner {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -200,11 +202,11 @@ header .botoes-acesso{
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  
-  
+
+
 }
 
-.main-section{
+.main-section {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -212,50 +214,46 @@ header .botoes-acesso{
   gap: 2em;
 }
 
-.card{
+.card {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin-top: 2em;
-  background-color: var(--GavaWhite);
   width: 30vw;
   height: 60vh;
-
+  background-image: url('../assets/imgs/img-carros/img-carro06.png');
+  background-position: center;
+  background-size: cover;
   border-radius: 20px;
+  border: var(--GavaWhite) 4px solid;
+  color: var(--GavaWhite);
 }
 
-.img-card{
-  
-  display: flex;
-  border-radius: 20px;
-  width: 70%;
-  height: 70%;
-}
-
-.card .btn-saiba-mais{
+.card .btn-saiba-mais {
   background-color: var(--GavaPurplePrincipal);
   color: var(--GavaWhite);
-  width: 50%;
-  height: 6%;
+  padding: 1em 4em;
+
   border: none;
   border-radius: 50px;
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 16px;
 
   margin: 1em;
+  box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.54);
 
-  transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.3s;
 }
 
-.card .btn-saiba-mais:hover{
+.card .btn-saiba-mais:hover {
   cursor: pointer;
-  background-color: var(--GavaPurpleDark);
-  color: var(--GavaWhite);
-  width: 60%;
+  background-color: var(--GavaWhite);
+  color: var(--GavaPurplePrincipal);
   font-weight: 700;
 }
 
-.informacao{
+.informacao {
   margin-top: 2em;
   display: flex;
   flex-direction: column;
@@ -265,51 +263,161 @@ header .botoes-acesso{
   gap: 0px;
 }
 
-.informacao h1{
-  
+.informacao h1 {
+
   font-size: 32px;
   color: var(--GavaWhite);
   margin: 0%;
 }
-.informacao p{
+
+.informacao p {
   margin: 0;
   color: var(--GavaWhite);
-  background-color: rgba(0,0,0,0.7);
-  
+  background-color: rgba(0, 0, 0, 0.7);
+
   font-size: 28px;
   height: 80vh;
-  
+
   padding-left: 1em;
   padding-top: 1em;
   text-align: start;
   border-top: #7101FF 10px solid;
 }
 
-.img-seta{
+.img-seta {
   width: 50px;
   height: 50px;
   margin-top: 5em;
 }
 
-.img-seta-carros{
+.img-seta-carros {
   width: 50px;
   height: 50px;
-  
+}
+
+.img-seta-jogos {
+  width: 50px;
+  height: 50px;
 }
 
 
 /* -------------------------------------- SECTION FILMES --------------------------------------------------- */
 
-.section-filmes{
+.section-filmes {
   width: 100vw;
   height: 90vh;
   padding-top: 10vh;
-  background-color: var(--GavaPurpleSecondary);
+  background-color: var(--GavaBlack);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  color: var(--GavaWhite);
 }
+
+.section-filmes .cards {
+  display: flex;
+  justify-content: space-evenly;
+  width: 70vw;
+
+}
+
+.card-filmes {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  height: 60vh;
+  background-position: center;
+  background-size: contain;
+  border: var(--GavaWhite) 4px solid;
+  border-radius: 30px;
+  overflow: hidden;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-filmes .titulos {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 7em;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--GavaWhite);
+  border-radius: 0 0 30px 30px;
+}
+
+.card-filmes .titulos h1 {
+  margin: 0;
+  text-align: center;
+
+  color: var(--GavaPurpleDark);
+}
+
+.card-filmes .titulos p {
+  margin: 0;
+
+  text-align: center;
+  color: var(--GavaPurpleDark);
+}
+
+.card-filmes button {
+  margin: 0;
+  margin-bottom: 2em;
+  padding: 1em 0.2em;
+  width: 70%;
+
+  font-weight: 800;
+  font-size: 18px;
+  text-align: center;
+
+  border: none;
+  border-radius: 20px;
+  color: var(--GavaPurpleDark);
+  background-color: var(--GavaWhite);
+
+  box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.54);
+
+  transition: ease-in-out 0.3s;
+}
+
+.card-filmes button:hover {
+  background-color: var(--GavaPurplePrincipal);
+  color: var(--GavaWhite);
+}
+
+
+
+
+#card-filme-1 {
+  background-image: url('../assets/imgs/img-filmes/filmes01.png');
+  transition: ease-in-out 0.2s;
+}
+
+#card-filme-1:hover,
+#card-filme-2:hover,
+#card-filme-3:hover {
+  border: var(--GavaPurpleDark) 4px solid;
+}
+
+
+
+#card-filme-2 {
+  background-image: url('../assets/imgs/img-filmes/filmes02.png');
+  transition: ease-in-out 0.2s;
+}
+
+
+
+
+
+#card-filme-3 {
+  background-image: url('../assets/imgs/img-filmes/filmes03.png');
+  transition: ease-in-out 0.2s;
+}
+
+
 
 
 
@@ -318,21 +426,78 @@ header .botoes-acesso{
 
 
 
-.section-jogos{
+.section-jogos {
+  display: flex;
+  flex-direction: column;
   width: 100vw;
   height: 90vh;
   padding-top: 10vh;
-  background-color: var(--GavaPurpleSecondary);
+  background-color: var(--GavaWhite);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--GavaPurpleDark);
+  font-size: 20px;
+}
+
+.jogos {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.list-jogos {
+  display: flex;
+  flex-direction: row;
+  width: 80vw;
+  height: 60vh;
+  background-color: var(--GavaPurpleSecondary);
+  border-radius: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+
+  -webkit-box-shadow: inset 0px 0px 26px 0px rgba(0, 0, 0, 0.54);
+  -moz-box-shadow: inset 0px 0px 26px 0px rgba(0, 0, 0, 0.54);
+  box-shadow: inset 0px 0px 26px 0px rgba(0, 0, 0, 0.54);
+
+  overflow-y: scroll;
+}
+
+.list-jogos::-webkit-scrollbar {
+  display: none;
+}
+
+.list-jogos::-webkit-scrollbar-thumb {
+  background-color: var(--GavaPurplePrincipal);
+}
+
+.list-jogos::-webkit-scrollbar-track {
+  background-color: var(--GavaPurpleDark);
+}
+
+.card-jogos{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-jogos img{
+  
+  margin: 1em 1em;
+  width: 20vw;
+  height: 50vh;
+
+  border-radius: 20px;
+  border: var(--GavaWhite) 4px solid;
+}
 
 /* -------------------------------------- SECTION CARROS --------------------------------------------------- */
 
-.section-carros{
+.section-carros {
   width: 100vw;
   height: 90vh;
   padding-top: 10vh;
@@ -345,7 +510,7 @@ header .botoes-acesso{
 
 
 
-.carros{
+.carros {
   width: 100vw;
   height: 100vh;
   background-color: var(--GavaPurpleSecondary);
@@ -355,7 +520,7 @@ header .botoes-acesso{
   align-items: center;
 }
 
-.carros article{
+.carros article {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -364,19 +529,19 @@ header .botoes-acesso{
   margin: 5em;
 }
 
-.carros article h1{
+.carros article h1 {
   margin: 0;
   font-size: 56px;
   color: var(--GavaWhite);
 }
 
-.carros article p{
+.carros article p {
   margin: 0;
   font-size: 24px;
   color: var(--GavaWhite);
 }
 
-.carros article button{
+.carros article button {
   margin-top: 1em;
   background-color: var(--GavaWhite);
   color: var(--GavaPurpleSecondary);
@@ -390,7 +555,7 @@ header .botoes-acesso{
   transition: ease-in-out 0.2s;
 }
 
-.carros img{
+.carros img {
   width: 35%;
 
   border: var(--GavaWhite) 5px solid;
@@ -398,12 +563,9 @@ header .botoes-acesso{
 
   margin: 2em;
 }
-.carros .seta{
+
+.carros .seta {
   width: 70px;
   border: none;
   margin: 3em;
 }
-
-
-
-
