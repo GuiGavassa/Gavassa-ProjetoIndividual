@@ -64,13 +64,14 @@ nav {
 
 li a {
   font-size: 17px;
+  height: 100%;
   background: transparent;
   border: none;
   padding: 0.5em 1em;
   color: #ffedd3;
   text-transform: uppercase;
   position: relative;
-  transition: 0.5s ease;
+  transition: 0.2s ease;
   cursor: pointer;
 }
 
@@ -82,12 +83,12 @@ li a::before {
   height: 2px;
   width: 0;
   background-color: var(--GavaPurpleDark);
-  transition: 0.5s ease;
+  transition: 0.2s ease;
 }
 
 li a:hover {
   color: var(--GavaWhite);
-  transition-delay: 0.5s;
+  transition-delay: 0.2s;
 }
 
 li a:hover::before {
@@ -102,14 +103,21 @@ li a::after {
   height: 0;
   width: 100%;
   background-color: var(--GavaPurpleDark);
-  transition: 0.4s ease;
+  transition: 0.2s ease;
   z-index: -1;
 }
 
 li a:hover::after {
   height: 100%;
-  transition-delay: 0.4s;
-  color: aliceblue;
+  transition-delay: 0.2s;
+  color: var(--GavaWhite);
+}
+
+
+li a.active{
+  height: 100%;
+  color: var(--GavaWhite);
+  background-color: var(--GavaPurpleDark);
 }
 
 
