@@ -661,3 +661,35 @@ header .botoes-acesso {
 .slide-indicator.active {
   background-color: var(--GavaWhite);
 }
+
+/* -----------------------------------------CONTATO---------------------------------------------- */
+
+.contato{
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--GavaBlack);
+}
+
+.container-contato{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 50vw;
+
+  background-color: var(--GavaPurpleDark);
+}
+
+.contato p{
+  margin: 0;
+}
+
+.contato input{
+
+}
