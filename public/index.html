@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <script src="./js/carrossel.js"></script>
   <script src="./js/navbar.js"></script>
+  <script src="./js/cards.js"></script>
 </head>
 
 <body>
@@ -22,11 +23,11 @@
   <header id="home">
     <img src="assets/imgs/Logo-Header.png" alt="Imagem de Logo GavaMotors Roxa">
     <nav>
-        <li><a href="#banner">Home</a></li>
-        <li><a href="#filmes">Filmes</a></li>
-        <li><a href="#jogos">Jogos</a></li>
-        <li><a href="#carros">Carros</a></li>
-        <li><a href="#contato">Contato</a></li>
+      <li><a href="#banner">Home</a></li>
+      <li><a href="#filmes">Filmes</a></li>
+      <li><a href="#jogos">Jogos</a></li>
+      <li><a href="#carros">Carros</a></li>
+      <li><a href="#contato">Contato</a></li>
     </nav>
     <div class="botoes-acesso">
       <button href="./login.html" class="btn-login">Login</button>
@@ -92,31 +93,8 @@
   <section id="jogos" class="section-jogos">
     <div class="jogos">
       <h1>JOGOS IMPORTANTES</h1>
-      <div class="list-jogos">
-        <div class="card-jogos">
-          <img src="assets/imgs/img-jogos/Jogos (1).png" alt="">
-        </div>
-        <div class="card-jogos">
-          <img src="assets/imgs/img-jogos/Jogos (2).png" alt="">
-        </div>
-        <div class="card-jogos">
-          <img src="assets/imgs/img-jogos/Jogos (3).png" alt="">
-        </div>
-        <div class="card-jogos">
-          <img src="assets/imgs/img-jogos/Jogos (4).png" alt="">
-        </div>
-        <div class="card-jogos">
-          <img src="assets/imgs/img-jogos/Jogos (5).png" alt="">
-        </div>
-        <div class="card-jogos">
-          <img src="assets/imgs/img-jogos/Jogos (6).png" alt="">
-        </div>
-        <div class="card-jogos">
-          <img src="assets/imgs/img-jogos/Jogos (7).png" alt="">
-        </div>
-        <div class="card-jogos">
-          <img src="assets/imgs/img-jogos/Jogos (8).png" alt="">
-        </div>
+      <div class="list-jogos" id="imagens-container">
+
       </div>
     </div>
     <a href="#carros"><img class="img-seta-jogos" src="assets/icon/(dark)chevron-down-solid 2.svg" alt=""></a>
@@ -195,6 +173,8 @@
 
 
 
+
+
   <!-- Footer do Site -->
   <footer id="footer">
     footer kkkkkkkkkkkkkkkkkk<br>
@@ -208,3 +188,27 @@
 </body>
 
 </html>
+
+<script>
+
+  var imagens = [
+    "assets/imgs/img-jogos/Jogos (1).png",
+    "assets/imgs/img-jogos/Jogos (2).png",
+    "assets/imgs/img-jogos/Jogos (3).png",
+    "assets/imgs/img-jogos/Jogos (4).png",
+    "assets/imgs/img-jogos/Jogos (5).png",
+    "assets/imgs/img-jogos/Jogos (6).png",
+    "assets/imgs/img-jogos/Jogos (7).png",
+    "assets/imgs/img-jogos/Jogos (8).png"
+  ];
+
+  var container = document.getElementById("imagens-container");
+
+  for (var i = 0; i < imagens.length; i++) {
+    var imagem = document.createElement("img");
+    imagem.src = imagens[i];
+    imagem.alt = "Descrição da imagem " + (i + 1);
+    container.appendChild(imagem);
+  }
+
+</script>
