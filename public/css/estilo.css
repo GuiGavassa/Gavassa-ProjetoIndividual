@@ -10,6 +10,8 @@
 }
 
 * {
+  margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
   font-family: "Poppins", sans-serif;
 }
@@ -143,11 +145,17 @@ header .botoes-acesso {
   justify-content: center;
   width: 20rem;
   gap: 1rem;
+
+  text-decoration: none;
 }
 
 .botoes-acesso .btn-login {
   border: var(--GavaPurplePrincipal) 2px solid;
   background-color: var(--GavaWhite);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   color: var(--GavaPurplePrincipal);
   font-weight: 600;
@@ -155,6 +163,7 @@ header .botoes-acesso {
 
   width: 30%;
   height: 3rem;
+  text-decoration: none;
 
   transition: ease-in-out 0.3s;
 }
@@ -167,6 +176,7 @@ header .botoes-acesso {
   color: var(--GavaWhite);
   font-weight: 600;
   font-size: 20px;
+  text-decoration: none;
 
   width: 40%;
   height: 3rem;
@@ -177,10 +187,15 @@ header .botoes-acesso {
   border: var(--GavaPurplePrincipal) 2px solid;
   background-color: var(--GavaPurplePrincipal);
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   color: var(--GavaWhite);
   font-weight: 500;
   font-size: 20px;
-
+  text-decoration: none;
+  
   width: 40%;
   height: 3rem;
 
@@ -193,6 +208,8 @@ header .botoes-acesso {
   background-color: var(--GavaPurpleDark);
 
   color: var(--GavaWhite);
+
+  text-decoration: none;
 
   width: 50%;
   height: 3rem;
@@ -748,3 +765,27 @@ footer img{
 }
 
 
+/* -------------------------------------------------------------------- */
+/* -------------------------------------------------------------------- */
+/* -------------------------------------------------------------------- */
+
+/* ---------------------------Cadastro--------------------------------- */
+
+/* -------------------------------------------------------------------- */
+/* -------------------------------------------------------------------- */
+/* -------------------------------------------------------------------- */
+
+.section-cadastro{
+  width: 100vw;
+  height: 90vh;
+
+  background-color: #7341B2;
+}
+
+.footer-cadastro{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  background-color: var(--GavaBlack);
+}
