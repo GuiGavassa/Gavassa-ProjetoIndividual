@@ -19,29 +19,68 @@
 
     <!--Header-->
 
-    <div class="header">
-        <div class="container">
-            <h1 class="titulo">AquaTech</h1>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Inicial</a>
-                </li>
-                <li>
-                    <a href="simulador.html">Simulador</a>
-                </li>
-                <li>|</li>
-                <li class="agora">
-                    <a href="#">Login</a>
-                </li>
-                <li>
-                    <a href="cadastro.html">Cadastro</a>
-                </li>
-            </ul>
-        </div>
+    <!--header inicio-->
+  <header id="home">
+    <img src="assets/imgs/Logo-Header.png" alt="Imagem de Logo GavaMotors Roxa">
+    <nav>
+      <li><a href="#banner">Home</a></li>
+      <li><a href="#filmes">Filmes</a></li>
+      <li><a href="#jogos">Jogos</a></li>
+      <li><a href="#carros">Carros</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </nav>
+    <div class="botoes-acesso">
+      <a href="./login.html" class="btn-login">Login</a>
+      <a href="./cadastro.html" class="btn-cadastro">Cadastro</a>
+    </div>
+  </header>
+  <!--header fim-->
+
+  <section class="section-cadastro">
+    <div class="alerta_erro">
+      <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+      </div>
     </div>
 
+    <div class="card-cadastro">
+      <h1>Entre em sua conta!</h1>
+     
 
-    <div class="login">
+      <div class="ipts">
+        <p>Insira seu e-mail:</p>
+        <input type="text" placeholder="email@email.com" id="email_input">
+      </div>
+
+      <div class="ipts">
+        <p>Insira sua senha:</p>
+        <input type="text" placeholder="Senha." id="senha_input">
+      </div>
+
+      
+      <div id="div_erros_login"></div>
+      <button class="btn-cadastro" onclick="entrar()">Entrar</button>
+      
+      <p>Esqueceu a senha? <span>Redefina-a</span></p>
+    </div>
+
+    <!-- <div id="div_aguardar" class="loading-div">
+        <img src="./assets/circle-loading.gif" id="loading-gif">
+    </div> -->
+  </section>
+
+  
+
+  <!--footer inicio-->
+  <footer class="footer-cadastro">
+    
+    <img src="assets/imgs/Logo-GavaMotors-White.png" alt="">
+    
+  </footer>
+  <!--footer fim-->
+
+
+    <!-- <div class="login">
         <div class="alerta_erro">
             <div class="card_erro" id="cardErro">
                 <span id="mensagem_erro"></span>
@@ -69,16 +108,9 @@
                 <div id="div_erros_login"></div>
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-            <span class="version">v1.0.0</span>
-        </div>
-    </div>
-    <!--footer fim-->
+   
 
 </body>
 

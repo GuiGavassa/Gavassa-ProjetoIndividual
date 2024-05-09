@@ -43,7 +43,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 12vh;
+  height: 10vh;
   width: 100vw;
   background-color: var(--GavaWhite);
   position: fixed;
@@ -51,6 +51,7 @@ header {
 }
 
 header img {
+  width: 6vw;
   padding: 3rem;
 }
 
@@ -412,6 +413,7 @@ header .botoes-acesso {
 .card-filmes button:hover {
   background-color: var(--GavaPurplePrincipal);
   color: var(--GavaWhite);
+  cursor: pointer;
 }
 
 
@@ -598,6 +600,12 @@ header .botoes-acesso {
   transition: ease-in-out 0.2s;
 }
 
+.slide article button:hover{
+  background-color: var(--GavaPurplePrincipal);
+  color: var(--GavaWhite);
+  cursor: pointer;
+}
+
 .slide img {
   width: 20vw;
   border: var(--GavaWhite) 5px solid;
@@ -749,6 +757,25 @@ header .botoes-acesso {
   box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
 }
 
+.section-contato button{
+  border: none;
+  border-radius: 20px;
+
+  margin-top: 1em;
+
+  background-color: var(--GavaPurpleDark);
+  color: var(--GavaWhite);
+  font-weight: 500;
+  box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.54);
+
+  padding: 0.5em 2em;
+  transition: ease-in-out 0.2s;
+}
+
+.section-contato button:hover{
+  background-color: var(--GavaPurpleSecondary);
+  cursor: pointer;
+}
 
 
 footer{
@@ -776,11 +803,126 @@ footer img{
 /* -------------------------------------------------------------------- */
 
 .section-cadastro{
+  padding-top: 10vh;
   width: 100vw;
-  height: 90vh;
+  height: 80vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
 
   background-color: #7341B2;
+
 }
+
+.alerta_erro{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_erro {
+  display: none;
+  
+  background-color: var(--GavaWhite);
+  color: black;
+  width: fit-content;
+  height: fit-content;
+
+  max-width: 15vw;
+  max-height: 20vh;
+  position: fixed;
+  border-radius: 10px;
+  border: var(--GavaBlack) 2px solid;
+  padding: 10px;
+  margin-right: 20vw;
+}
+
+.card_erro #mensagem_erro{
+  font-weight: 500;
+  font-size: 20px;
+  flex-wrap: wrap;
+}
+
+#div_erros_login {
+  display: none
+}
+
+
+
+.card-cadastro{
+  width: 30vw;
+  height: 50vh;
+  padding: 2.5em;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-evenly;
+  align-items: center;
+
+  border-radius: 20px;
+
+  background-color: var(--GavaWhite);
+
+}
+
+.card-cadastro input{
+  margin: 0;
+  width: 24vw;
+  height: 2em;
+  padding: 0.3em;
+  
+  border: none;
+  border-left: var(--GavaPurpleDark) 5px solid;
+
+  background-color: var(--GavaGrey);
+  
+  -webkit-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
+  -moz-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
+  box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
+}
+
+.card-cadastro button{
+  border: none;
+  border-radius: 20px;
+
+  margin-top: 1em;
+
+  background-color: var(--GavaPurpleDark);
+  color: var(--GavaWhite);
+  font-weight: 500;
+  box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.54);
+
+  padding: 0.5em 2em;
+  transition: ease-in-out 0.2s;
+}
+
+.card-cadastro button:hover{
+  background-color: var(--GavaPurpleSecondary);
+  cursor: pointer;
+}
+
+.card-cadastro p{
+  font-weight: 600;
+  margin-top: 1em;
+}
+
+.card-cadastro span{
+  color: var(--GavaPurpleDark);
+  font-weight: 700;
+  font-size: 18px;
+  transition: ease-in-out 0.2s;
+}
+
+.card-cadastro span:hover{
+  cursor: pointer;
+  color: var(--GavaPurplePrincipal);
+}
+
+
+
 
 .footer-cadastro{
   display: flex;
@@ -789,3 +931,9 @@ footer img{
   height: 10vh;
   background-color: var(--GavaBlack);
 }
+
+.footer-cadastro img{
+  width: 6vw;
+  height: 6vh;
+}
+

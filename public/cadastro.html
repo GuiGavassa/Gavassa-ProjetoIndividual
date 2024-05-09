@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>AquaTech | Cadastro</title>
+  <title>GavaMotors | Cadastro</title>
 
   <script src="./js/sessao.js"></script>
 
   <link rel="stylesheet" href="./css/estilo.css" />
-  <link rel="icon" href="./assets/icon/favicon2.ico" />
+  <link rel="icon" href="./assets/icon/icon-GavaMotors.png">
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
-<body onload="listar()">
+<body>
   <!--header inicio-->
   <header id="home">
     <img src="assets/imgs/Logo-Header.png" alt="Imagem de Logo GavaMotors Roxa">
@@ -34,65 +34,50 @@
   <!--header fim-->
 
   <section class="section-cadastro">
-    <div class="card-cadastro"></div>
-  </section>
-
-  <!-- <div class="login">
     <div class="alerta_erro">
       <div class="card_erro" id="cardErro">
         <span id="mensagem_erro"></span>
       </div>
     </div>
-    <div class="container">
-      <div class="card card-cadastro">
-        <h2>Bem-vindo!</h2>
-        <div class="formulario"> -->
-          <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
-          <!-- <div class="campo">
-            <span>Empresa:</span>
-            <select name="empresas" id="listaEmpresas">
-              <option selected>Selecione uma empresa</option>
-            </select>
-          </div>
-          <div class="campo">
-            <span>Nome:</span>
-            <input id="nome_input" type="text" placeholder="Seu nome" />
-          </div>
-          <div class="campo">
-            <span>CPF:</span>
-            <input id="cpf_input" type="number" placeholder="Seu CPF" />
-          </div>
-          <div class="campo">
-            <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-          </div>
-          <div class="campo">
-            <span>Senha:</span>
-            <input id="senha_input" type="password" placeholder="******" />
-          </div>
-          <div class="campo">
-            <span>Confirmação da Senha:</span>
-            <input id="confirmacao_senha_input" type="password" placeholder="******" />
-          </div>
-          <button class="botao" onclick="cadastrar()">Cadastrar</button>
-        </div>
-        <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
-        </div>
 
-        <div id="div_erros_login"></div>
+    <div class="card-cadastro">
+      <h1>Cadastre-se</h1>
+      <div class="ipts">
+        <p>Insira seu nome:</p>
+        <input type="text" placeholder="Nome completo." id="nome_input">
       </div>
+
+      <div class="ipts">
+        <p>Insira seu e-mail:</p>
+        <input type="text" placeholder="email@email.com" id="email_input">
+      </div>
+
+      <div class="ipts">
+        <p>Insira sua senha:</p>
+        <input type="text" placeholder="Senha." id="senha_input">
+      </div>
+
+      <div class="ipts">
+        <p>Confirme sua senha:</p>
+        <input type="text" placeholder="Confirme sua senha." id="confirmacao_senha_input">
+      </div>
+      <div id="div_erros_login"></div>
+      <button class="btn-cadastro" onclick="cadastrar()">Cadastrar</button>
+      
+      <p>Já possui conta? <span>Entrar</span></p>
     </div>
+
+    <!-- <div id="div_aguardar" class="loading-div">
+      <img src="./assets/circle-loading.gif" id="loading-gif">
   </div> -->
+  </section>
+
+  
 
   <!--footer inicio-->
   <footer class="footer-cadastro">
     
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-      <span class="version">v1.0.0</span>
+    <img src="assets/imgs/Logo-GavaMotors-White.png" alt="">
     
   </footer>
   <!--footer fim-->
@@ -107,28 +92,22 @@
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
-    var cpfVar = cpf_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var empresaVar = listaEmpresas.value
     if (
       nomeVar == "" ||
-      cpfVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      empresaVar == ""
+      confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
-      finalizarAguardar();
+        "(Todos os campos devem estar preenchidos!)";
+        setInterval(sumirMensagem, 5000);
+      // finalizarAguardar();
       return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
+    } 
 
     if (nomeVar.length <= 1) {
       cardErro.style.display = "block";
@@ -146,13 +125,9 @@
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "(A senha não coincide)";
-    } else if (cpfVar.length != 11) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(O CPF está incorreto.)";
     } else {
 
-      aguardar();
+      
 
 
       // Enviando o valor da nova input
@@ -166,9 +141,7 @@
           // Agora vá para o arquivo routes/usuario.js
           nomeServer: nomeVar,
           emailServer: emailVar,
-          senhaServer: senhaVar,
-          empresaServer: empresaVar,
-          cpfServer: cpfVar
+          senhaServer: senhaVar
         }),
       })
         .then(function (resposta) {
@@ -185,33 +158,17 @@
             }, "2000");
 
             limparFormulario();
-            finalizarAguardar();
+            // finalizarAguardar();
           } else {
             throw "Houve um erro ao tentar realizar o cadastro!";
           }
         })
         .catch(function (resposta) {
           console.log(`#ERRO: ${resposta}`);
-          finalizarAguardar();
+          // finalizarAguardar();
         });
     }
     return false;
-  }
-
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
   }
 
   function sumirMensagem() {
