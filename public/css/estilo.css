@@ -134,7 +134,7 @@ nav li {
 nav a {
   color: var(--GavaPurpleDark);
 
-  border-bottom: transparent 4px solid;
+  
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
@@ -563,6 +563,9 @@ header .botoes-acesso {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  flex: 0 0 100%; 
+  text-align: center;
 }
 
 .slide article {
@@ -635,14 +638,6 @@ header .botoes-acesso {
   transition: transform 0.5s ease;
 }
 
-.slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 0 0 100%; 
-  
-  text-align: center;
-}
 
 .prev, .next {
   display: flex;

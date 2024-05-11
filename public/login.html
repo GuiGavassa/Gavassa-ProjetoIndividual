@@ -23,11 +23,11 @@
   <header id="home">
     <img src="assets/imgs/Logo-Header.png" alt="Imagem de Logo GavaMotors Roxa">
     <nav>
-      <li><a href="#banner">Home</a></li>
-      <li><a href="#filmes">Filmes</a></li>
-      <li><a href="#jogos">Jogos</a></li>
-      <li><a href="#carros">Carros</a></li>
-      <li><a href="#contato">Contato</a></li>
+        <li><a href="./index.html#banner">Home</a></li>
+        <li><a href="./index.html#filmes">Filmes</a></li>
+        <li><a href="./index.html#jogos">Jogos</a></li>
+        <li><a href="./index.html#carros">Carros</a></li>
+        <li><a href="./index.html#contato">Contato</a></li>
     </nav>
     <div class="botoes-acesso">
       <a href="./login.html" class="btn-login">Login</a>
@@ -120,7 +120,7 @@
 
 
     function entrar() {
-        aguardar();
+        // aguardar();
 
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
@@ -173,7 +173,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
+                    // finalizarAguardar(texto);
                 });
             }
 
