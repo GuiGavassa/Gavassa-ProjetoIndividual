@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --GavaWhite: #F8F8F8;
+  --GavaBlack: #242424;
+  --GavaPurplePrincipal: #7101FF;
+  --GavaPurpleSecondary: #7341B2;
+  --GavaPurpleDark: #4F00B2;
+  --GavaGrey: #d1d1d1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--GavaPurplePrincipal);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--GavaPurpleDark);
+}
+
+
+body{
+    display: flex;
+    flex-direction: row;
+}
+
+.menu-lateral{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    background-color: var(--GavaPurpleSecondary);
+
+    width: 16vw;
+    height: 100vh;
+}
+
+.menu-lateral img {
+    width: 10vw;
+}
+
+.botoes-menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-lateral a{
+    text-decoration: none;
+}
+
+.btn-sair{
+    color: var(--GavaPurpleSecondary);
+    font-size: 16px;
+    font-weight: 600;
+    border: var(--GavaWhite) 2px solid;
+    border-radius: 5px;
+    background-color: var(--GavaWhite);
+    margin: 0.4em;
+    width: 6em;
+    height: 3em;
+    transition: ease-in-out 0.2s;
+} 
+.btn-sair:hover{
+    color: var(--GavaPurpleSecondary);
+    border: var(--GavaWhite) 2px solid;
+    background-color: var(--GavaWhite);
+    
+    width: 8em;
+    height: 3em;
+    cursor: pointer;
+} 
+
+.botoes-menu button{
+    color: var(--GavaWhite);
+    font-size: 16px;
+    border: var(--GavaWhite) 2px solid;
+    border-radius: 5px;
+    background-color: var(--GavaPurpleSecondary);
+    margin: 0.4em;
+    width: 10em;
+    height: 3em;
+
+    transition: ease-in-out 0.2s;
+}
+
+.botoes-menu button:hover{
+    color: var(--GavaPurpleDark);
+    background-color: var(--GavaWhite);
+    cursor: pointer;
+}
+
+.main-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    background-image: url('../assets/imgs/LancerFundo.png');
+    background-position: center;
+    background-size: cover;
+
+    width: 84vw;
+    height: 100vh;
+}
+
+.section-conteudo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: start;
+
+    width: 84vw;
+    height: 100vh;
+}
+
+.card{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgba(239, 227, 255, 0.8);
+    border: var(--GavaPurplePrincipal) 3px solid;
+    border-radius: 30px;
+
+    width: 30vw;
+    height: 80vh;
+
+    margin-top: 10vh;
+}
+
+.grafico{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgba(239, 227, 255, 0.8);
+    border: var(--GavaPurplePrincipal) 3px solid;
+
+
+    border-radius: 30px;
+
+    width: 40vw;
+    height: 35vh;
+    margin-top: 10vh;
+}
+
+#dashboard-btn, #carros-btn, #filmes-btn, #jogos-btn{
+    color: var(--GavaPurpleDark);
+    background-color: var(--GavaWhite);
+}
