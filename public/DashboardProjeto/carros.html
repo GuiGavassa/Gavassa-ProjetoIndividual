@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Carros | GavaMotors</title>
 </head>
+
 <body>
     <div class="menu-lateral">
         <img src="../assets/imgs/Logo-GavaMotors-White.png" alt="">
@@ -18,9 +20,40 @@
         <a href=""><button class="btn-sair">Sair</button></a>
     </div>
     <div class="main-section">
+        <div class="section-carros">
+            <div class="card-carros"></div>
+            <div class="card-carros"></div>
+            <div class="card-carros"></div>
+            <div class="card-carros"></div>
+            <div class="card-carros"></div>
+            <div class="card-carros"></div>
+            
 
-        
+        </div>
+
 
     </div>
 </body>
+
 </html>
+
+<script>
+
+    var imagens = [
+        "assets/imgs/FundoCarros/FundoCarros-1.png",
+        "assets/imgs/FundoCarros/FundoCarros-1.png",
+        "assets/imgs/FundoCarros/FundoCarros-1.png",
+        "assets/imgs/FundoCarros/FundoCarros-1.png",
+        "assets/imgs/FundoCarros/FundoCarros-1.png",
+        "assets/imgs/FundoCarros/FundoCarros-1.png"
+    ];
+
+    const cards = document.querySelectorAll(".card-carros");
+
+    for (var i = 0; i < cards.length && i < imagens.length; i++) {
+        cards[i].style.backgroundImage = `url(${imagens[i]})`;
+    }
+
+
+
+</script>

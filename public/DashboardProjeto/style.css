@@ -115,7 +115,11 @@ body{
 
     width: 84vw;
     height: 100vh;
+
+    
 }
+
+
 
 .section-conteudo{
     display: flex;
@@ -159,4 +163,27 @@ body{
 #dashboard-btn, #carros-btn, #filmes-btn, #jogos-btn{
     color: var(--GavaPurpleDark);
     background-color: var(--GavaWhite);
+}
+
+.card-carros{
+    
+    border: #d1d1d1 2px solid;
+    width: 70vw;
+    height: 30vh;
+    margin-top: 2em;
+}
+
+.section-carros{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: scroll;
+
+    width: fit-content;
+    height: 100vh;
+}
+
+.section-carros::-webkit-scrollbar {
+    display: none;
 }
