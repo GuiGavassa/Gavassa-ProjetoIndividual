@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Esqueceu a Senha | GavaMotors</title>
+
+    <link rel="stylesheet" href="../css/estilo.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./assets/icon/icon-GavaMotors.png" />
+
+    <script src="./js/navbar.js"></script>
+  </head>
+  <body>
+    <header id="home">
+      <img
+        src="../assets/imgs/Logo-Header.png"
+        alt="Imagem de Logo GavaMotors Roxa"
+      />
+      <nav>
+        <li><a href="#banner">Home</a></li>
+        <li><a href="#filmes">Filmes</a></li>
+        <li><a href="#jogos">Jogos</a></li>
+        <li><a href="#carros">Carros</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </nav>
+      <div class="botoes-acesso">
+        <a href="../login.html" class="btn-login">Login</a>
+        <a href="../cadastro.html" class="btn-cadastro">Cadastro</a>
+      </div>
+    </header>
+    <section class="section-cadastro">
+      <div class="card-section">
+        <h1>Esqueceu a sua senha?</h1>
+        <p>Insira o seu e-mail, e enviaremos um código para que você possa redefini-la!</p>
+
+        <div class="ipts">
+          <p>Insira seu e-mail:</p>
+          <input type="text" placeholder="email@email.com" id="email_input" />
+        </div>
+
+        <div id="div_erros_login"></div>
+        <button class="btn-cadastro" onclick="entrar()">Enviar E-mail</button>
+        
+      </div>
+    </section>
+
+    <footer class="footer-cadastro">
+    
+      <img src="../assets/imgs/Logo-GavaMotors-White.png" alt="">
+      
+    </footer>
+  </body>
+</html>

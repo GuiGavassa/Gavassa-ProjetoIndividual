@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
 
-    function highlightNavItem() {
+    function selecionaItemNavBar() {
         const scrollPosition = window.scrollY;
 
         sections.forEach(section => {
@@ -10,13 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (scrollPosition >= top && scrollPosition < bottom) {
                 const id = section.getAttribute('id');
-                const navItem = document.querySelector(`nav a[href="#${id}"]`);
+                const ItemNavBar = document.querySelector(`nav a[href="#${id}"]`);
                 document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
-                navItem.classList.add('active');
+                ItemNavBar.classList.add('active');
             }
         });
     }
 
-    window.addEventListener('scroll', highlightNavItem);
-    highlightNavItem(); // Chama a função inicialmente para destacar o botão correto ao carregar a página
+    window.addEventListener('scroll', selecionaItemNavBar);
+    selecionaItemNavBar(); // Chama a função inicialmente para destacar o botão correto ao carregar a página
 });

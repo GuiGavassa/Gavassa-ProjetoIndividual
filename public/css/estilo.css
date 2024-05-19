@@ -353,11 +353,12 @@ header .botoes-acesso {
 
 .card-filmes {
   display: flex;
+  
   flex-direction: column;
   width: 20vw;
   height: 60vh;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   border: var(--GavaWhite) 4px solid;
   border-radius: 30px;
   overflow: hidden;
@@ -365,7 +366,18 @@ header .botoes-acesso {
   align-items: center;
 }
 
-.card-filmes .titulos {
+
+.card-content{
+  flex-direction: column;
+  display: none;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  transition: ease-in-out 0.3s;
+}
+
+.card-filmes .titulos{
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -846,7 +858,7 @@ footer img{
 
 
 
-.card-cadastro{
+.card-section{
   width: 30vw;
   height: 50vh;
   padding: 2.5em;
@@ -863,7 +875,7 @@ footer img{
 
 }
 
-.card-cadastro input{
+.card-section input{
   margin: 0;
   width: 24vw;
   height: 2em;
@@ -879,7 +891,7 @@ footer img{
   box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
 }
 
-.card-cadastro button{
+.card-section button{
   border: none;
   border-radius: 20px;
 
@@ -894,27 +906,30 @@ footer img{
   transition: ease-in-out 0.2s;
 }
 
-.card-cadastro button:hover{
+.card-section button:hover{
   background-color: var(--GavaPurpleSecondary);
   cursor: pointer;
 }
 
-.card-cadastro p{
+.card-section p{
   font-weight: 600;
   margin-top: 1em;
 }
 
-.card-cadastro span{
+.card-section a{
   color: var(--GavaPurpleDark);
   font-weight: 700;
   font-size: 18px;
+  text-decoration: none;
   transition: ease-in-out 0.2s;
 }
 
-.card-cadastro span:hover{
+.card-section a:hover{
   cursor: pointer;
   color: var(--GavaPurplePrincipal);
 }
+
+
 
 
 
