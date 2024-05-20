@@ -27,9 +27,9 @@
             <div class="card-carros"></div>
             <div class="card-carros"></div>
             <div class="card-carros"></div>
-            
-
         </div>
+
+        
 
 
     </div>
@@ -38,22 +38,22 @@
 </html>
 
 <script>
-
+    // Array de URLs de imagens, cada uma diferente
     var imagens = [
-        "assets/imgs/FundoCarros/FundoCarros-1.png",
-        "assets/imgs/FundoCarros/FundoCarros-1.png",
-        "assets/imgs/FundoCarros/FundoCarros-1.png",
-        "assets/imgs/FundoCarros/FundoCarros-1.png",
-        "assets/imgs/FundoCarros/FundoCarros-1.png",
-        "assets/imgs/FundoCarros/FundoCarros-1.png"
+        "../assets/imgs/FundoCarros/FundoCarros-1.png",
+        "../assets/imgs/FundoCarros/FundoCarros-2.png",
+        "../assets/imgs/FundoCarros/FundoCarros-3.png",
+        "../assets/imgs/FundoCarros/FundoCarros-4.png",
+        "../assets/imgs/FundoCarros/FundoCarros-5.png",
+        "../assets/imgs/FundoCarros/FundoCarros-6.png"
     ];
+    
 
+    // Seleciona todos os elementos com a classe "card-carros"
     const cards = document.querySelectorAll(".card-carros");
 
+    // Loop através dos cards e define o background para cada um
     for (var i = 0; i < cards.length && i < imagens.length; i++) {
         cards[i].style.backgroundImage = `url(${imagens[i]})`;
     }
-
-
-
 </script>
