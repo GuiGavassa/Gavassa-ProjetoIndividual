@@ -55,8 +55,6 @@
       </div>
 
       
-
-      
       <div id="div_erros_login"></div>
       <button class="btn-cadastro" onclick="entrar()">Entrar</button>
       
@@ -158,10 +156,10 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "./DashboardProjeto/dashboard.html";
                     }, 1000); // apenas para exibir o loading
 
                 });

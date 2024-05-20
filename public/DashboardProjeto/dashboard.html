@@ -1,36 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="../js/sessao.js"></script>
     <title>Dashboard | GavaMotors</title>
-</head>
+  </head>
 
-<body>
+  <body onload="validarSessao()">
     <div class="menu-lateral">
-        <img src="../assets/imgs/Logo-GavaMotors-White.png" alt="">
-        <div class="botoes-menu">
-            <a href="dashboard.html"><button id="dashboard-btn">Dashboard</button></a>
-            <a href="carros.html"><button>Carros</button></a>
-            <a href="filmes.html"><button>Filmes</button></a>
-            <a href="jogos.html"><button>Jogos</button></a>
-        </div>
-        <a href=""><button class="btn-sair">Sair</button></a>
+      <img src="../assets/imgs/Logo-GavaMotors-White.png" alt="" />
+      <p>Olá, <span id="b_usuario">usuário</span></p>
+      <div class="botoes-menu">
+        <a href="dashboard.html"
+          ><button id="dashboard-btn">Dashboard</button></a
+        >
+        <a href="carros.html"><button>Carros</button></a>
+        <a href="filmes.html"><button>Filmes</button></a>
+        <a href="jogos.html"><button>Jogos</button></a>
+      </div>
+      <button onclick="limparSessao()" class="btn-sair">Sair</button>
     </div>
     <div class="main-section">
-
-        <div class="section-conteudo">
-            <div class="card">Ranking de Carros mais Curtidos</div>
-            <div>
-                <div class="grafico">Grafico de Jogos mais Jogados</div>
-                <div class="grafico">Gráfico de Filmes mais Assistidos</div>
-            </div>
-
+      <div class="section-conteudo">
+        <div class="card">Ranking de Carros mais Curtidos</div>
+        <div>
+          <div class="grafico" id="grafico_jogos">
+            Grafico de Jogos mais Jogados
+          </div>
+          <div class="grafico">Gráfico de Filmes mais Assistidos</div>
         </div>
-
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
+
+<script>
+  //   function exibirAquariosDoUsuario() {
+  //         var aquarios = JSON.parse(sessionStorage.AQUARIOS);
+  //         aquarios.forEach(item => {
+  //             document.getElementById("btnAquario").innerHTML += `
+  //             <button class="btn-chart" onclick="exibirAquario(${item.id})" id="btnAquario${item.id}">${item.descricao}</button>
+  //             `
+
+  //             document.getElementById("graficos").innerHTML += `
+  //                 <div id="grafico${item.id}" class="display-none">
+  //                     <h3 class="tituloGraficos">
+  //                         <span id="tituloAquario${item.id}">${item.descricao}</span>
+  //                     </h3>
+  //                     <div class="graph">
+  //                         <canvas id="myChartCanvas${item.id}"></canvas>
+  //                     </div>
+  //                     <div class="label-captura">
+  //                         <p id="avisoCaptura${item.id}" style="color: white"></p>
+  //                     </div>
+  //                 </div>
+  //             `
+
+  //             obterDadosGrafico(item.id)
+  //         });
+
+  //         if (aquarios.length > 0) {
+  //             exibirAquario(aquarios[0].id)
+  //         }
+  //     }
+</script>
