@@ -166,6 +166,8 @@ body{
 }
 
 .card-carros{
+    display: flex;
+    flex-direction: column-reverse;
     
     border: #d1d1d1 2px solid;
     width: 70vw;
@@ -188,4 +190,13 @@ body{
 
 .section-carros::-webkit-scrollbar {
     display: none;
+}
+
+.card-carros-content{
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    background-color: var(--GavaBlack);
+
+    color: var(--GavaWhite);
 }
