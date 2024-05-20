@@ -1,5 +1,6 @@
 .card-section{
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 3em 2.5em;
 }
 
 .card-section p{
