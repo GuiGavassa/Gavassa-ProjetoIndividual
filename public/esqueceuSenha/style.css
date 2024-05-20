@@ -1,0 +1,22 @@
+.card-section{
+    justify-content: space-around;
+}
+
+.card-section p{
+    width: 80%;
+    text-align: center;
+    margin: 0;
+}
+
+.card-section .ipts p{
+    text-align: start;
+    margin: 0;
+}
+
+.card-section input{
+    margin: 0;
+}
+
+.card-section button{
+    margin: 0;
+}
