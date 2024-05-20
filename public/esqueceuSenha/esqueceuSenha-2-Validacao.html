@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insira o código | GavaMotors</title>
+
+    <link rel="stylesheet" href="../css/estilo.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="../assets/icon/icon-GavaMotors.png" />
+
+    <script src="./js/navbar.js"></script>
+  </head>
+  <body>
+    <header id="home">
+      <img
+        src="../assets/imgs/Logo-Header.png"
+        alt="Imagem de Logo GavaMotors Roxa"
+      />
+      <nav>
+        <li><a href="#banner">Home</a></li>
+        <li><a href="#filmes">Filmes</a></li>
+        <li><a href="#jogos">Jogos</a></li>
+        <li><a href="#carros">Carros</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </nav>
+      <div class="botoes-acesso">
+        <a href="../login.html" class="btn-login">Login</a>
+        <a href="../cadastro.html" class="btn-cadastro">Cadastro</a>
+      </div>
+    </header>
+    <section class="section-cadastro">
+      <div class="card-section">
+        <h1>Insira o código</h1>
+        <p>
+          Nós enviamos para você, um código de validação, insira abaixo para
+          continuar a redefinição de senha!
+        </p>
+
+        <div class="ipts">
+          <div class="ipts-codigos">
+            <input type="number" id="ipt_código1" />
+            <input type="number" id="ipt_código2" />
+            <input type="number" id="ipt_código3" />
+            <input type="number" id="ipt_código4" />
+            <input type="number" id="ipt_código5" />
+            <input type="number" id="ipt_código6" />
+          </div>
+        </div>
+
+        <div id="div_erros_login"></div>
+        <button class="btn-cadastro" onclick="validarCodigoRedefinirSenha()">
+          Validar código
+        </button>
+      </div>
+    </section>
+
+    <footer class="footer-cadastro">
+      <img src="../assets/imgs/Logo-GavaMotors-White.png" alt="" />
+    </footer>
+  </body>
+</html>
+
+<script>
+
+  // necessário montar lógica de alterar foto de fundo a cada vez que entrar na página.
+
+  function validarCodigoRedefinirSenha() {
+    const codigo1 = ipt_codigo1.value;
+    const codigo2 = ipt_codigo2.value;
+    const codigo3 = ipt_codigo3.value;
+    const codigo4 = ipt_codigo4.value;
+    const codigo5 = ipt_codigo5.value;
+    const codigo6 = ipt_codigo6.value;
+
+    // Lógica para validar código.
+  }
+</script>
