@@ -167,21 +167,26 @@ body{
 
 .card-carros{
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+    
+    
     
     border: #d1d1d1 2px solid;
-    width: 70vw;
-    height: 30vh;
+    width: 60vw;
+    height: 36vh;
     margin-top: 2em;
     background-position: center;
     background-size: cover;
+    margin-left: 3em;
 }
 
 .section-carros{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: start;
     overflow-y: scroll;
 
     width: fit-content;
@@ -195,8 +200,45 @@ body{
 .card-carros-content{
     display: flex;
     flex-direction: row;
-    align-items: end;
+    justify-content: space-between;
+    align-items: center;
     background-color: var(--GavaBlack);
+    border-top: var(--GavaPurplePrincipal) 5px solid;
 
+    width: 100%;
     color: var(--GavaWhite);
+}
+
+.card-carros-content h1{
+    margin: 0 20px;
+    font-weight: 400;
+}
+
+.card-carros-content p{
+    margin: 0 20px;
+}
+
+
+.div-interacao-carros{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 2em;
+    
+
+    width: fit-content;
+}
+
+.playButton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+}
+
+.like-button{
+    width: 40px;
+    margin-right: 20px;
 }

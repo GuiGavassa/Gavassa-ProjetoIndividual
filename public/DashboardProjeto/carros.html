@@ -22,10 +22,18 @@
     <div class="main-section">
         <div class="section-carros">
             <div class="card-carros">
-                <div class="card-carros-content">
+                <div class="div-interacao-carros">
+                    <div class="playButton">
+                        <p>Ouça o Ronco do Motor</p>
+
+                    </div>
+                    <!-- <img  src="../assets/icon/LikeOn.svg"></img> -->
+                </div>
+
+                <!-- <div class="card-carros-content">
                     <h1>Mitsubishi Lancer Evolution</h1>
                     <p>Potência: X</p>
-                </div>
+                </div> -->
             </div>
             <div class="card-carros">
 
@@ -55,6 +63,20 @@
         "../assets/imgs/FundoCarros/FundoCarros-6.png"
     ];
 
+    var nomeCarros = [
+        "Mitsubishi Lancer Evolution",
+        "Dodge Challenger SRT Demon",
+        "Toyota Supra Mk2",
+        "Nissan Skyline R34 Custom",
+        "Porsche 911",
+        "Mazda RX-7 Custom"
+    ]
+
+    var like = [
+        "../assets/icon/LikeOff.svg",
+        "../assets/icon/LikeOn.svg"
+    ]
+
 
     // Seleciona todos os elementos com a classe "card-carros"
     const cards = document.querySelectorAll(".card-carros");
@@ -62,5 +84,48 @@
     // Loop através dos cards e define o background para cada um
     for (var i = 0; i < cards.length && i < imagens.length; i++) {
         cards[i].style.backgroundImage = `url(${imagens[i]})`;
+
+        let cardContent = document.createElement('div');
+        cardContent.className = 'card-carros-content';
+
+        let tituloCard = document.createElement('h1');
+        tituloCard.className = 'titulo-card-carros';
+        tituloCard.textContent = nomeCarros[i]
+
+        let potenciaCarro = document.createElement('p');
+        potenciaCarro.className = 'potencia-carro';
+        potenciaCarro.textContent = `Potência : (500) hp`;
+
+        let anoLancamento = document.createElement('p');
+        anoLancamento.className = 'ano-lancamento';
+        anoLancamento.textContent = `Ano de Lançamento: 2024`
+
+        cardContent.appendChild(tituloCard)
+
+        let cardDescricaoCarro = document.createElement('div');
+        cardDescricaoCarro.className = 'card-descricao-carro';
+
+        cardDescricaoCarro.appendChild(potenciaCarro)
+        cardDescricaoCarro.appendChild(anoLancamento)
+
+        cardContent.appendChild(cardDescricaoCarro)
+
+        let likeButton = document.createElement('img');
+        likeButton.className = 'like-button';
+        likeButton.id = `like_button${i}`
+        likeButton.src = like[0];
+        likeButton.onclick = 'mudarBotaoLike(3)'
+
+        cardContent.appendChild(likeButton)
+
+
+        cards[i].appendChild(cardContent)
+
+
+
+    }
+
+    function mudarBotaoLike(botao) {
+        alert("Ta funcionando")
     }
 </script>
