@@ -114,18 +114,27 @@
         likeButton.className = 'like-button';
         likeButton.id = `like_button${i}`
         likeButton.src = like[0];
-        likeButton.onclick = 'mudarBotaoLike(3)'
+        likeButton.onclick = mudarBotaoLike
 
         cardContent.appendChild(likeButton)
-
-
         cards[i].appendChild(cardContent)
-
-
-
     }
 
-    function mudarBotaoLike(botao) {
-        alert("Ta funcionando")
+    function mudarBotaoLike() {
+        
+        let currentSrc = this.src.split('/').pop();
+
+        // Extract the filenames from the like array
+        let likeOffFilename = like[0].split('/').pop();
+        let likeOnFilename = like[1].split('/').pop();
+
+        // Compare the filenames to determine which image is currently being displayed
+        if (currentSrc === likeOffFilename) {
+            this.src = like[1];
+            // Aqui devo enviar para o banco de dados
+        } else {
+            this.src = like[0];
+            // Aqui devo retirar do banco de dados.
+        }
     }
 </script>
