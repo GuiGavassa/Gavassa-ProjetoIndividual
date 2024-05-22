@@ -340,6 +340,13 @@ body{
     padding: 10px 40px;
     margin: 10px;
     border-radius: 10px;
+    transition: ease-in-out 0.2s;
+}
+
+.btn-assisti:hover{
+    cursor: pointer;
+    background-color: var(--GavaPurpleDark);
+    color: var(--GavaWhite);
 }
 
 
@@ -387,12 +394,14 @@ body{
     
     
     border: #d1d1d1 2px solid;
-    width: 22vw;
+    width: 32vw;
     height: 90vh;
+    text-align: center;
     margin-top: 2em;
+    margin-bottom: 2em;
     background-position: center;
     background-size: cover;
-    /* background-image: url('../assets/imgs/img-jogos/Jogos(1).png'); */
+    
     
 }
 
@@ -411,6 +420,7 @@ body{
 .card-jogos-content h1{
     margin: 0 20px;
     font-weight: 400;
+    font-size: 28px;
 }
 
 .card-jogos-content p{
@@ -429,7 +439,20 @@ body{
     width: fit-content;
 }
 
-.btn-assisti{
+
+
+.bem-vindo{
+    color: var(--GavaWhite);
+    font-weight: 400;
+    font-size: larger;
+}
+
+.bem-vindo span{
+    font-weight: 700;
+}
+
+
+.btn-joguei{
     border: none;
     background-color: var(--GavaWhite);
     color: var(--GavaPurpleDark);
@@ -438,5 +461,12 @@ body{
     padding: 10px 40px;
     margin: 10px;
     border-radius: 10px;
+    transition: ease-in-out 0.2s;
+}
+
+.btn-joguei:hover{
+    cursor: pointer;
+    background-color: var(--GavaPurpleDark);
+    color: var(--GavaWhite);
 }
 

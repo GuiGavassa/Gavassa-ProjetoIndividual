@@ -1,69 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Jogos | GavaMotors</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="menu-lateral">
-        <img src="../assets/imgs/Logo-GavaMotors-White.png" alt="">
-        <div class="botoes-menu">
-            <a href="dashboard.html"><button>Dashboard</button></a>
-            <a href="carros.html"><button>Carros</button></a>
-            <a href="filmes.html"><button>Filmes</button></a>
-            <a href="jogos.html"><button id="jogos-btn">Jogos</button></a>
-        </div>
-        <a href=""><button class="btn-sair">Sair</button></a>
+      <img src="../assets/imgs/Logo-GavaMotors-White.png" alt="" />
+      <p class="bem-vindo">Olá, <span id="b_usuario">usuário</span></p>
+      <div class="botoes-menu">
+        <a href="dashboard.html"><button>Dashboard</button></a>
+        <a href="carros.html"><button>Carros</button></a>
+        <a href="filmes.html"><button>Filmes</button></a>
+        <a href="jogos.html"><button id="jogos-btn">Jogos</button></a>
+      </div>
+      <a href=""><button class="btn-sair">Sair</button></a>
     </div>
     <div class="main-section-jogos">
-        <div class="section-jogos">
-            <div class="card-jogos">
-                <div class="card-jogos-content">
-                    <h1>Filme 1</h1>
-                    <p>Descrição Filme 1</p>
-                    <button class="btn-assisti">Já joguei!</button>
-                </div>
-            </div>
-            <div class="card-jogos">
-                <div class="card-jogos-content">
-                    <h1>Filme 1</h1>
-                    <p>Descrição Filme 1</p>
-                    <button class="btn-assisti">Já joguei!</button>
-                </div>
-            </div>
-            <div class="card-jogos">
-                <div class="card-jogos-content">
-                    <h1>Filme 1</h1>
-                    <p>Descrição Filme 1</p>
-                    <button class="btn-assisti">Já joguei!</button>
-                    
-                </div>
-            </div>
-        </div>
+      <div class="section-jogos">
+        <div class="card-jogos"></div>
+        <div class="card-jogos"></div>
+        <div class="card-jogos"></div>
+        <div class="card-jogos"></div>
+        <div class="card-jogos"></div>
+        <div class="card-jogos"></div>
+        <div class="card-jogos"></div>
+        <div class="card-jogos"></div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
 
 <script>
+  imagensFundoJogos = [
+    "../assets/imgs/img-jogos/Jogos(1).png",
+    "../assets/imgs/img-jogos/Jogos(2).png",
+    "../assets/imgs/img-jogos/Jogos(3).png",
+    "../assets/imgs/img-jogos/Jogos(4).png",
+    "../assets/imgs/img-jogos/Jogos(5).png",
+    "../assets/imgs/img-jogos/Jogos(6).png",
+    "../assets/imgs/img-jogos/Jogos(7).png",
+    "../assets/imgs/img-jogos/Jogos(8).png",
+  ];
 
-    imagensFundoJogos = [
-        '../assets/imgs/img-jogos/Jogos(1).png',
-        '../assets/imgs/img-jogos/Jogos(2).png',
-        '../assets/imgs/img-jogos/Jogos(3).png'
-    ]
+  var nomeJogos = [
+    "MidnightClub L.A Remix",
+    "MidnightClub 3 DUB Edition",
+    "NeedForSpeed Underground 2",
+    "GrandTheftAuto V",
+    "GranTurismo 4",
+    "Forza Horizon 2",
+    "GrandTheftAuto IV",
+    "GrandTheftAuto San Andreas"
+    
+  ];
 
-    const cards = document.querySelectorAll(".card-jogos");
-    console.log(cards)
+  const cards = document.querySelectorAll(".card-jogos");
+  console.log(cards);
 
-    // Loop através dos cards e define o background para cada um
-    for (var i = 0; i < cards.length && i < imagensFundoJogos.length; i++) {
-        cards[i].style.backgroundImage = `url(${imagensFundoJogos[i]}) !important`;
-    }
+  // Loop através dos cards e define o background para cada um
+  for (var i = 0; i < cards.length; i++) {
+    cards[i].style.backgroundImage = `url("${imagensFundoJogos[i]}")`;
 
+    let cardContent = document.createElement("div");
+    cardContent.className = "card-jogos-content";
 
+    let tituloCard = document.createElement("h1");
+    tituloCard.className = "titulo-card-jogos";
+    tituloCard.textContent = nomeJogos[i];
+
+    let descricaoJogo = document.createElement("p");
+    descricaoJogo.className = "descricao-jogo";
+    descricaoJogo.textContent = `Descrição Jogos`;
+
+    let anoLancamento = document.createElement("p");
+    anoLancamento.className = "ano-lancamento";
+    anoLancamento.textContent = `Ano de Lançamento: 2024`;
+
+    cardContent.appendChild(tituloCard);
+
+    let cardDescricaoJogo = document.createElement("div");
+    cardDescricaoJogo.className = "card-descricao-jogos";
+
+    cardDescricaoJogo.appendChild(descricaoJogo);
+    cardDescricaoJogo.appendChild(anoLancamento);
+
+    cardContent.appendChild(cardDescricaoJogo);
+
+    let button = document.createElement("button");
+    button.className = "btn-joguei";
+    button.id = `btn-joguei-${i}`;
+    button.textContent = "Já joguei!";
+
+    button.onclick = enviarDadoProBanco;
+
+    cardContent.appendChild(button);
+    cards[i].appendChild(cardContent);
+  }
+
+  function enviarDadoProBanco() {}
 </script>
