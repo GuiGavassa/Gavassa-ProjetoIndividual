@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Jogos | GavaMotors</title>
 </head>
+
 <body>
     <div class="menu-lateral">
         <img src="../assets/imgs/Logo-GavaMotors-White.png" alt="">
@@ -17,10 +19,51 @@
         </div>
         <a href=""><button class="btn-sair">Sair</button></a>
     </div>
-    <div class="main-section">
-
-        
-
+    <div class="main-section-jogos">
+        <div class="section-jogos">
+            <div class="card-jogos">
+                <div class="card-jogos-content">
+                    <h1>Filme 1</h1>
+                    <p>Descrição Filme 1</p>
+                    <button class="btn-assisti">Já joguei!</button>
+                </div>
+            </div>
+            <div class="card-jogos">
+                <div class="card-jogos-content">
+                    <h1>Filme 1</h1>
+                    <p>Descrição Filme 1</p>
+                    <button class="btn-assisti">Já joguei!</button>
+                </div>
+            </div>
+            <div class="card-jogos">
+                <div class="card-jogos-content">
+                    <h1>Filme 1</h1>
+                    <p>Descrição Filme 1</p>
+                    <button class="btn-assisti">Já joguei!</button>
+                    
+                </div>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>
+
+<script>
+
+    imagensFundoJogos = [
+        '../assets/imgs/img-jogos/Jogos(1).png',
+        '../assets/imgs/img-jogos/Jogos(2).png',
+        '../assets/imgs/img-jogos/Jogos(3).png'
+    ]
+
+    const cards = document.querySelectorAll(".card-jogos");
+    console.log(cards)
+
+    // Loop através dos cards e define o background para cada um
+    for (var i = 0; i < cards.length && i < imagensFundoJogos.length; i++) {
+        cards[i].style.backgroundImage = `url(${imagensFundoJogos[i]}) !important`;
+    }
+
+
+</script>
