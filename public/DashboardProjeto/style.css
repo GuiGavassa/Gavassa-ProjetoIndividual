@@ -1,46 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-  --GavaWhite: #F8F8F8;
-  --GavaBlack: #242424;
-  --GavaPurplePrincipal: #7101FF;
-  --GavaPurpleSecondary: #7341B2;
-  --GavaPurpleDark: #4F00B2;
-  --GavaGrey: #d1d1d1;
+    --GavaWhite: #F8F8F8;
+    --GavaBlack: #242424;
+    --GavaBlackTransparent: #0c0c0cb6;
+    --GavaPurplePrincipal: #7101FF;
+    --GavaPurpleSecondary: #7341B2;
+    --GavaPurpleDark: #4F00B2;
+    --GavaGrey: #d1d1d1;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
-  font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
 }
 
 
 ::-webkit-scrollbar {
-  width: 12px;
+    width: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--GavaPurplePrincipal);
+    background-color: var(--GavaPurplePrincipal);
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--GavaPurpleDark);
+    background-color: var(--GavaPurpleDark);
 }
 
 
-body{
+body {
     display: flex;
     flex-direction: row;
 }
 
-.menu-lateral{
+.menu-lateral {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    
+
     background-color: var(--GavaPurpleSecondary);
 
     width: 16vw;
@@ -51,18 +52,18 @@ body{
     width: 10vw;
 }
 
-.botoes-menu{
+.botoes-menu {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.menu-lateral a{
+.menu-lateral a {
     text-decoration: none;
 }
 
-.btn-sair{
+.btn-sair {
     color: var(--GavaPurpleSecondary);
     font-size: 16px;
     font-weight: 600;
@@ -73,18 +74,19 @@ body{
     width: 6em;
     height: 3em;
     transition: ease-in-out 0.2s;
-} 
-.btn-sair:hover{
+}
+
+.btn-sair:hover {
     color: var(--GavaPurpleSecondary);
     border: var(--GavaWhite) 2px solid;
     background-color: var(--GavaWhite);
-    
+
     width: 8em;
     height: 3em;
     cursor: pointer;
-} 
+}
 
-.botoes-menu button{
+.botoes-menu button {
     color: var(--GavaWhite);
     font-size: 16px;
     border: var(--GavaWhite) 2px solid;
@@ -97,13 +99,13 @@ body{
     transition: ease-in-out 0.2s;
 }
 
-.botoes-menu button:hover{
+.botoes-menu button:hover {
     color: var(--GavaPurpleDark);
     background-color: var(--GavaWhite);
     cursor: pointer;
 }
 
-.main-section{
+.main-section {
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -116,12 +118,12 @@ body{
     width: 84vw;
     height: 100vh;
 
-    
+
 }
 
 
 
-.section-conteudo{
+.section-conteudo {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -131,7 +133,7 @@ body{
     height: 100vh;
 }
 
-.card{
+.card {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -145,7 +147,7 @@ body{
     margin-top: 10vh;
 }
 
-.grafico{
+.grafico {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -160,19 +162,22 @@ body{
     margin-top: 10vh;
 }
 
-#dashboard-btn, #carros-btn, #filmes-btn, #jogos-btn{
+#dashboard-btn,
+#carros-btn,
+#filmes-btn,
+#jogos-btn {
     color: var(--GavaPurpleDark);
     background-color: var(--GavaWhite);
 }
 
-.card-carros{
+.card-carros {
     display: flex;
     flex-direction: column;
     justify-content: end;
     align-items: end;
-    
-    
-    
+
+
+
     border: #d1d1d1 2px solid;
     width: 60vw;
     height: 36vh;
@@ -182,7 +187,7 @@ body{
     margin-left: 3em;
 }
 
-.section-carros{
+.section-carros {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -197,7 +202,7 @@ body{
     display: none;
 }
 
-.card-carros-content{
+.card-carros-content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -209,28 +214,28 @@ body{
     color: var(--GavaWhite);
 }
 
-.card-carros-content h1{
+.card-carros-content h1 {
     margin: 0 20px;
     font-weight: 400;
 }
 
-.card-carros-content p{
+.card-carros-content p {
     margin: 0 20px;
 }
 
 
-.div-interacao-carros{
+.div-interacao-carros {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     margin: 2em;
-    
+
 
     width: fit-content;
 }
 
-.playButton{
+.playButton {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -238,7 +243,7 @@ body{
     margin: 2em;
 }
 
-.like-button{
+.like-button {
     width: 40px;
     margin-right: 20px;
 }
@@ -250,7 +255,7 @@ body{
 /* ----------------------------------------------- Tela de Filmes ------------------------------------------------ */
 /* --------------------------------------------------------------------------------------------------------------- */
 /* --------------------------------------------------------------------------------------------------------------- */
-.main-section-filmes{
+.main-section-filmes {
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -264,7 +269,7 @@ body{
     height: 100vh;
 }
 
-.section-filmes{
+.section-filmes {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -280,14 +285,14 @@ body{
     display: none;
 }
 
-.card-filmes{
+.card-filmes {
     display: flex;
     flex-direction: column;
     justify-content: end;
     align-items: end;
-    
-    
-    
+
+
+    text-align: center;
     border: #d1d1d1 2px solid;
     width: 22vw;
     height: 90vh;
@@ -295,43 +300,58 @@ body{
     background-position: center;
     background-size: cover;
     background-image: url("../assets/imgs/img-filmes/filmes01.png");
-    
+
 }
 
-.card-filmes-content{
+
+.card-filmes-content.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.card-filmes-content {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
     display: flex;
+
+
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background-color: var(--GavaBlack);
+    background-color: var(--GavaBlackTransparent) ;
     border-top: var(--GavaPurplePrincipal) 5px solid;
 
     width: 100%;
+    height: 100%;
     color: var(--GavaWhite);
+    transition: ease-in-out 0.2s;
 }
 
-.card-filmes-content h1{
+.card-filmes-content h1 {
+    font-size: 32px;
     margin: 0 20px;
     font-weight: 400;
 }
 
-.card-filmes-content p{
+.card-filmes-content p {
     margin: 0 20px;
 }
 
 
-.div-interacao-filmes{
+.div-interacao-filmes {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     margin: 2em;
-    
+
 
     width: fit-content;
 }
 
-.btn-assisti{
+.btn-assisti {
     border: none;
     background-color: var(--GavaWhite);
     color: var(--GavaPurpleDark);
@@ -343,11 +363,24 @@ body{
     transition: ease-in-out 0.2s;
 }
 
-.btn-assisti:hover{
+.btn-assisti:hover {
     cursor: pointer;
     background-color: var(--GavaPurpleDark);
     color: var(--GavaWhite);
 }
+
+
+.btn-assisti-on {
+    cursor: pointer;
+    background-color: var(--GavaPurpleDark);
+    color: var(--GavaWhite);
+}
+
+.btn-assisti-on:hover {
+    cursor: pointer;
+
+}
+
 
 
 /* --------------------------------------------------------------------------------------------------------------- */
@@ -355,7 +388,7 @@ body{
 /* ----------------------------------------------- Tela de Filmes ------------------------------------------------ */
 /* --------------------------------------------------------------------------------------------------------------- */
 /* --------------------------------------------------------------------------------------------------------------- */
-.main-section-jogos{
+.main-section-jogos {
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -369,7 +402,7 @@ body{
     height: 100vh;
 }
 
-.section-jogos{
+.section-jogos {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -385,14 +418,14 @@ body{
     display: none;
 }
 
-.card-jogos{
+.card-jogos {
     display: flex;
     flex-direction: column;
     justify-content: end;
     align-items: end;
-    
-    
-    
+
+
+
     border: #d1d1d1 2px solid;
     width: 32vw;
     height: 90vh;
@@ -401,58 +434,70 @@ body{
     margin-bottom: 2em;
     background-position: center;
     background-size: cover;
-    
-    
+
+
+}
+.card-jogos-content.show {
+    opacity: 1;
+    visibility: visible;
 }
 
-.card-jogos-content{
+
+.card-jogos-content {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
     display: flex;
+
+
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background-color: var(--GavaBlack);
+    background-color: var(--GavaBlackTransparent) ;
     border-top: var(--GavaPurplePrincipal) 5px solid;
 
     width: 100%;
+    height: 100%;
     color: var(--GavaWhite);
+    transition: ease-in-out 0.2s;
 }
 
-.card-jogos-content h1{
+.card-jogos-content h1 {
     margin: 0 20px;
     font-weight: 400;
     font-size: 28px;
 }
 
-.card-jogos-content p{
+.card-jogos-content p {
     margin: 0 20px;
 }
 
 
-.div-interacao-jogos{
+.div-interacao-jogos {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     margin: 2em;
-    
+
 
     width: fit-content;
 }
 
 
 
-.bem-vindo{
+.bem-vindo {
     color: var(--GavaWhite);
     font-weight: 400;
     font-size: larger;
 }
 
-.bem-vindo span{
+.bem-vindo span {
     font-weight: 700;
 }
 
 
-.btn-joguei{
+.btn-joguei {
     border: none;
     background-color: var(--GavaWhite);
     color: var(--GavaPurpleDark);
@@ -464,9 +509,18 @@ body{
     transition: ease-in-out 0.2s;
 }
 
-.btn-joguei:hover{
+.btn-joguei:hover {
+    background-color: var(--GavaPurpleDark);
+    color: var(--GavaWhite);
+}
+
+.btn-joguei-on {
     cursor: pointer;
     background-color: var(--GavaPurpleDark);
     color: var(--GavaWhite);
 }
 
+.btn-joguei-on:hover {
+    cursor: pointer;
+
+}

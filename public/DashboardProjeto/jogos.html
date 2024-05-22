@@ -54,8 +54,7 @@
     "GranTurismo 4",
     "Forza Horizon 2",
     "GrandTheftAuto IV",
-    "GrandTheftAuto San Andreas"
-    
+    "GrandTheftAuto San Andreas",
   ];
 
   const cards = document.querySelectorAll(".card-jogos");
@@ -67,6 +66,7 @@
 
     let cardContent = document.createElement("div");
     cardContent.className = "card-jogos-content";
+    cardContent.id = `card-jogos-content-${[i]}`;
 
     let tituloCard = document.createElement("h1");
     tituloCard.className = "titulo-card-jogos";
@@ -99,7 +99,44 @@
 
     cardContent.appendChild(button);
     cards[i].appendChild(cardContent);
+
+
+
+    // Adiciona eventos de mouse ao card
+    cards[i].addEventListener("mouseenter", function () {
+      cardContent.classList.add("show");
+    });
+
+    cards[i].addEventListener("mouseleave", function () {
+      cardContent.classList.remove("show");
+    });
+  
+
   }
 
-  function enviarDadoProBanco() {}
+  function inserirDadoNoBanco(id) {
+    console.log(`Inserir no banco: ${id}`);
+    // Lógica para inserir no banco de dados
+  }
+
+  function removerDadoDoBanco(id) {
+    console.log(`Remover do banco: ${id}`);
+    // Lógica para remover do banco de dados
+  }
+
+  // Função para enviar dado para o banco e alternar a cor do botão
+  function enviarDadoProBanco(event) {
+    const button = event.target;
+    const buttonId = button.id;
+
+    if (button.classList.contains("btn-joguei-on")) {
+      // Botão está atualmente ligado, então desativar e remover do banco
+      button.classList.remove("btn-joguei-on");
+      removerDadoDoBanco(buttonId);
+    } else {
+      // Botão está atualmente desligado, então ativar e inserir no banco
+      button.classList.add("btn-joguei-on");
+      inserirDadoNoBanco(buttonId);
+    }
+  }
 </script>
