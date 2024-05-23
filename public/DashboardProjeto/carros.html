@@ -23,14 +23,12 @@
     <div class="main-section">
         <div class="section-carros">
             <div class="card-carros">
-                <div class="div-interacao-carros">
+                <!-- <div class="div-interacao-carros">
                     <div class="playButton">
-                        <p>Ouça o Ronco do Motor</p>
-
+                        <img class="play-button" src="../assets/icon/Play.svg" alt="">
                     </div>
-                    <!-- <img  src="../assets/icon/LikeOn.svg"></img> -->
-                </div>
-
+                    <img  src="../assets/icon/LikeOn.svg"></img>
+                </div> -->
                 <!-- <div class="card-carros-content">
                     <h1>Mitsubishi Lancer Evolution</h1>
                     <p>Potência: X</p>
@@ -109,6 +107,9 @@
         cardDescricaoCarro.appendChild(potenciaCarro)
         cardDescricaoCarro.appendChild(anoLancamento)
 
+        
+
+
         cardContent.appendChild(cardDescricaoCarro)
 
         let likeButton = document.createElement('img');
@@ -118,11 +119,28 @@
         likeButton.onclick = mudarBotaoLike
 
         cardContent.appendChild(likeButton)
+
+        let divInteracaoCarros = document.createElement('div');
+        divInteracaoCarros.className = 'div-interacao-carros';
+
+        let sectionPlayButton = document.createElement('div');
+        sectionPlayButton.className = 'playButton';
+
+        divInteracaoCarros.appendChild(sectionPlayButton)
+
+        let playButton = document.createElement('img');
+        playButton.className = 'play-button'
+        playButton.id = `play-button-${i}`
+        playButton.src = '../assets/icon/Play.svg'
+
+        sectionPlayButton.appendChild(playButton)
+
+        cards[i].appendChild(divInteracaoCarros)
         cards[i].appendChild(cardContent)
     }
 
     function mudarBotaoLike() {
-        
+
         let currentSrc = this.src.split('/').pop();
 
         // Extract the filenames from the like array
