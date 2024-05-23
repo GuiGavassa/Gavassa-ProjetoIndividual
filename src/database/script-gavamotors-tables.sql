@@ -3,6 +3,8 @@ create database gavamotors;
 
 use gavamotors;
 
+select * from usuario;
+
 CREATE TABLE usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
