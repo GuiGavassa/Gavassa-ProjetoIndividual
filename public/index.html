@@ -1,289 +1,243 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>GavaMotors | Página Inicial</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="./js/sessao.js"></script>
+  <title>GavaMotors | Página Inicial</title>
 
-    <link rel="stylesheet" href="./css/estilo.css" />
-    <link rel="icon" href="./assets/icon/icon-GavaMotors.png" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <script src="./js/carrossel.js"></script>
-    <script src="./js/navbar.js"></script>
-    <script src="./js/cards.js"></script>
-  </head>
+  <script src="./js/sessao.js"></script>
 
-  <body>
-    <header id="home">
-      <img
-        src="assets/imgs/Logo-Header.png"
-        alt="Imagem de Logo GavaMotors Roxa"
-      />
-      <nav>
-        <li><a href="#banner">Home</a></li>
-        <li><a href="#filmes">Filmes</a></li>
-        <li><a href="#jogos">Jogos</a></li>
-        <li><a href="#carros">Carros</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </nav>
-      <div class="botoes-acesso">
-        <a href="./login.html" class="btn-login">Login</a>
-        <a href="./cadastro.html" class="btn-cadastro">Cadastro</a>
+  <link rel="stylesheet" href="./css/estilo.css" />
+  <link rel="icon" href="./assets/icon/icon-GavaMotors.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <script src="./js/carrossel.js"></script>
+  <script src="./js/navbar.js"></script>
+  <script src="./js/cards.js"></script>
+</head>
+
+<body>
+  <header id="#home">
+    <img src="assets/imgs/Logo-Header.png" alt="Imagem de Logo GavaMotors Roxa" />
+    <nav>
+      <li><a href="#banner">Home</a></li>
+      <li><a href="#filmes">Filmes</a></li>
+      <li><a href="#jogos">Jogos</a></li>
+      <li><a href="#carros">Carros</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </nav>
+    <div class="botoes-acesso">
+      <a href="./login.html" class="btn-login">Login</a>
+      <a href="./cadastro.html" class="btn-cadastro">Cadastro</a>
+    </div>
+  </header>
+
+  <section id="banner" class="banner">
+    <div class="main-section">
+      <div class="card">
+        
+        <h1>Mitsubishi Lancer Custom:</h1>
+        <a href="login.html"><button class="btn-saiba-mais">Saiba Mais</button></a>
       </div>
-    </header>
-
-    <section id="banner" class="banner">
-      <div class="main-section">
-        <div class="card">
-          <h1>Card</h1>
-          <button class="btn-saiba-mais">Saiba Mais</button>
-        </div>
-        <div class="informacao">
-          <h1>A EVOLUÇÃO DOS AUTOMÓVEIS</h1>
-          <p>
-            A necessidade de melhoria dos automóveis iniciou-se há muito tempo
-            atrás, principalmente pela busca por poder.<br /><br />
-            Mas com o tempo, foi criada também, no coração de muitos, o amor
-            pelos carros, pela corrida, pela velocidade.
-          </p>
-        </div>
+      <div class="informacao">
+        <h1>MINHA PAIXÃO POR CARROS, E COMO TUDO COMEÇOU.</h1>
+        <p>
+          Comecei a gostar de carros, através dos filmes, vendo corridas do Brian O'Connor e Dominic Toretto.
+          <br><br>
+          Ao longo dos tempos, aprendi o que eram os video-games, e com isso, eu poderia "fingir" que eu era o Brian e atingir velocidades absurdas com o meu Skyline Azul.
+          <br><br>
+          Hoje em dia, tenho meu sonho de comprar o meu Mitsubishi Lancer, e customizá-lo para deixar do meu jeitinho.
+        </p>
       </div>
-      <a href="#filmes"
-        ><img class="img-seta" src="assets/icon/chevron-down-solid.svg" alt=""
-      /></a>
-    </section>
+    </div>
+    <a href="#filmes"><img class="img-seta" src="assets/icon/chevron-down-solid.svg" alt="" /></a>
+  </section>
 
-    <section id="filmes" class="section-filmes">
-      <div class="filmes">
-        <h1>FILMES RELEVANTES</h1>
-      </div>
-      <div class="cards">
-        <div
-          onmouseover="apareceInfosFilmes()"
-          onmouseout="someInfosFilmes()"
-          class="card-filmes"
-          id="card-filme-1"
-        >
-          <div class="card-content" id="Card1">
-            <div class="titulos">
-              <h1>TITULO DO FILME</h1>
-              <p>Subtítulo</p>
-            </div>
-            <button>Saiba mais</button>
+  <section id="filmes" class="section-filmes">
+    <div class="filmes">
+      <h1>FILMES RELEVANTES</h1>
+    </div>
+    <div class="cards">
+      <div onmouseenter="apareceInfosFilmes('Card1')" onmouseleave="someInfosFilmes('Card1')" class="card-filmes" id="card-filme-1">
+        <div class="card-content" id="Card1" style="display: none;">
+          <div class="titulos">
+            <h1>SpeedRacer</h1>
+            <p>Abril - 2008</p>
           </div>
-        </div>
-        <div
-          onmouseover="apareceInfosFilmes()"
-          onmouseout="someInfosFilmes()"
-          class="card-filmes"
-          id="card-filme-2"
-        >
-          <div class="card-content" id="Card2">
-            <div class="titulos">
-              <h1>TITULO DO FILME</h1>
-              <p>Subtítulo</p>
-            </div>
-            <button>Saiba mais</button>
-          </div>
-        </div>
-        <div class="card-filmes" id="card-filme-3">
-          <div class="card-content" id="Card3">
-            <div class="titulos">
-              <h1>TITULO DO FILME</h1>
-              <p>Subtítulo</p>
-            </div>
-            <button>Saiba mais</button>
-          </div>
+          <a href="login.html"><button>Saiba mais</button></a>
         </div>
       </div>
-      <a href="#jogos"
-        ><img
-          class="img-seta-carros"
-          src="assets/icon/chevron-down-solid.svg"
-          alt=""
-      /></a>
-    </section>
-
-    <section id="jogos" class="section-jogos">
-      <div class="jogos">
-        <h1>JOGOS IMPORTANTES</h1>
-        <div class="list-jogos" id="imagens-container"></div>
-      </div>
-      <a href="#carros"
-        ><img
-          class="img-seta-jogos"
-          src="assets/icon/(dark)chevron-down-solid 2.svg"
-          alt=""
-      /></a>
-    </section>
-
-    <!-- Carrossel de Carros -->
-    <section id="carros" class="section-carros">
-      <div class="carousel" id="carros">
-        <button class="prev" onclick="prevSlide()">&#10094;</button>
-        <div class="carousel-content">
-          <div class="slide">
-            <article>
-              <h1>Muscle Cars</h1>
-              <p>
-                Carros potentes com muita cavalaria em seu motor, e um ronco
-                forte e barulhento, mostra que está chegando, e chega rápido.
-              </p>
-              <button onclick="alert('Botão do Slide 1 clicado')">
-                Saiba Mais
-              </button>
-            </article>
-            <img
-              src="./assets/imgs/img-carros/img-carro01.png"
-              alt="Imagem 1"
-            />
+      <div onmouseenter="apareceInfosFilmes('Card2')" onmouseleave="someInfosFilmes('Card2')" class="card-filmes" id="card-filme-2">
+        <div class="card-content" id="Card2" style="display: none;">
+          <div class="titulos">
+            <h1>Filmes "Carros"</h1>
+            <p>Junho - 2006</p>
           </div>
-
-          <div class="slide">
-            <article>
-              <h1>JDM Cars</h1>
-              <p>
-                Carros vendidos inicialmente no Japão, sempre muito equipados e
-                com uma potência inimaginável.
-              </p>
-              <button onclick="alert('Botão do Slide 1 clicado')">
-                Saiba Mais
-              </button>
-            </article>
-            <img
-              src="./assets/imgs/img-carros/img-carro02.png"
-              alt="Imagem 1"
-            />
-          </div>
-
-          <div class="slide">
-            <article>
-              <h1>Drift Cars</h1>
-              <p>
-                Potentes e focados em “Drift”, fazendo curvas fechadas e
-                soltando muita fumaça por onde passa.
-              </p>
-              <button onclick="alert('Botão do Slide 1 clicado')">
-                Saiba Mais
-              </button>
-            </article>
-            <img
-              src="./assets/imgs/img-carros/img-carro03.png"
-              alt="Imagem 1"
-            />
-          </div>
-
-          <div class="slide">
-            <article>
-              <h1>Muscle Cars (Antigos)</h1>
-              <p>
-                Verdadeiro significado de “Raíz”, carros fortes e sem limites de
-                velocidade, muito barulhentos e chamativos.
-              </p>
-              <button onclick="alert('Botão do Slide 1 clicado')">
-                Saiba Mais
-              </button>
-            </article>
-            <img
-              src="./assets/imgs/img-carros/img-carro04.png"
-              alt="Imagem 1"
-            />
-          </div>
-
-          <div class="slide">
-            <article>
-              <h1>Carros de Luxo</h1>
-              <p>
-                Só tem, quem pode. E quem pode, quer ter! Carros velozes,
-                furiosos e muito lindos, e muita performance envolvida.
-              </p>
-              <button onclick="alert('Botão do Slide 1 clicado')">
-                Saiba Mais
-              </button>
-            </article>
-            <img
-              src="./assets/imgs/img-carros/img-carro05.png"
-              alt="Imagem 1"
-            />
-          </div>
-
-          <div class="slide">
-            <article>
-              <h1>Carros Elétricos</h1>
-              <p>
-                Futuro do automobilismo, carros eficientes e rápidos. Cheios de
-                tecnologia de última geração e economia gigantesca.
-              </p>
-              <button onclick="alert('Botão do Slide 1 clicado')">
-                Saiba Mais
-              </button>
-            </article>
-            <img
-              src="./assets/imgs/img-carros/img-carro06.png"
-              alt="Imagem 1"
-            />
-          </div>
-          <!-- Adicione mais slides conforme necessário -->
+          <a href="login.html"><button>Saiba mais</button></a>
         </div>
-        <button class="next" onclick="nextSlide()">&#10095;</button>
       </div>
-      <div class="slide-indicators"></div>
-      <a href="#contato"
-        ><img
-          class="img-seta-carros"
-          src="assets/icon/chevron-down-solid.svg"
-          alt=""
-      /></a>
-    </section>
-
-    <section class="section-contato" id="contato">
-      <div class="container-contato">
-        <h1>Entre em contato!</h1>
-        <p>Insira o seu e-mail:</p>
-        <input type="email" id="email_contato" />
-        <p>Insira o Assunto:</p>
-        <input type="text" id="assunto_contato" />
-        <p>Insira a sua mensagem:</p>
-        <textarea id="mensagem_contato" cols="30" rows="10"></textarea>
-        <button>Enviar</button>
+      <div onmouseenter="apareceInfosFilmes('Card3')" onmouseleave="someInfosFilmes('Card3')" class="card-filmes" id="card-filme-3">
+        <div class="card-content" id="Card3" style="display: none;">
+          <div class="titulos">
+            <h1>Filmes "Velozes e Furiosos"</h1>
+            <p>Setembro - 2001</p>
+          </div>
+          <a href="login.html"><button>Saiba mais</button></a>
+        </div>
       </div>
-    </section>
+    </div>
+    <a href="#jogos"><img class="img-seta-carros" src="assets/icon/chevron-down-solid.svg" alt="" /></a>
+  </section>
 
-    <!-- Footer do Site -->
-    <footer id="footer">
-      <img src="assets/imgs/Logo-GavaMotors-White.png" alt="" />
-    </footer>
-  </body>
+  <!-- Jogos -->
+  <section id="jogos" class="section-jogos">
+    <div class="jogos">
+      <h1>JOGOS IMPORTANTES</h1>
+      <div class="list-jogos" id="imagens-container"></div>
+    </div>
+    <a href="#carros"><img class="img-seta-jogos" src="assets/icon/(dark)chevron-down-solid 2.svg" alt="" /></a>
+  </section>
+
+  <!-- Carrossel de Carros -->
+  <section id="carros" class="section-carros">
+    <div class="carousel" id="carros">
+      <button class="prev" onclick="prevSlide()">&#10094;</button>
+      <div class="carousel-content">
+        <div class="slide">
+          <article>
+            <h1>Muscle Cars</h1>
+            <p>
+              Carros potentes com muita cavalaria em seu motor, e um ronco
+              forte e barulhento, mostra que está chegando, e chega rápido.
+            </p>
+            <button onclick="alert('Botão do Slide 1 clicado')">
+              Saiba Mais
+            </button>
+          </article>
+          <img src="./assets/imgs/img-carros/img-carro01.png" alt="Imagem 1" />
+        </div>
+
+        <div class="slide">
+          <article>
+            <h1>JDM Cars</h1>
+            <p>
+              Carros vendidos inicialmente no Japão, sempre muito equipados e
+              com uma potência inimaginável.
+            </p>
+            <button onclick="alert('Botão do Slide 1 clicado')">
+              Saiba Mais
+            </button>
+          </article>
+          <img src="./assets/imgs/img-carros/img-carro02.png" alt="Imagem 1" />
+        </div>
+
+        <div class="slide">
+          <article>
+            <h1>Drift Cars</h1>
+            <p>
+              Potentes e focados em “Drift”, fazendo curvas fechadas e
+              soltando muita fumaça por onde passa.
+            </p>
+            <button onclick="alert('Botão do Slide 1 clicado')">
+              Saiba Mais
+            </button>
+          </article>
+          <img src="./assets/imgs/img-carros/img-carro03.png" alt="Imagem 1" />
+        </div>
+
+        <div class="slide">
+          <article>
+            <h1>Muscle Cars (Antigos)</h1>
+            <p>
+              Verdadeiro significado de “Raíz”, carros fortes e sem limites de
+              velocidade, muito barulhentos e chamativos.
+            </p>
+            <button onclick="alert('Botão do Slide 1 clicado')">
+              Saiba Mais
+            </button>
+          </article>
+          <img src="./assets/imgs/img-carros/img-carro04.png" alt="Imagem 1" />
+        </div>
+
+        <div class="slide">
+          <article>
+            <h1>Carros de Luxo</h1>
+            <p>
+              Só tem, quem pode. E quem pode, quer ter! Carros velozes,
+              furiosos e muito lindos, e muita performance envolvida.
+            </p>
+            <button onclick="alert('Botão do Slide 1 clicado')">
+              Saiba Mais
+            </button>
+          </article>
+          <img src="./assets/imgs/img-carros/img-carro05.png" alt="Imagem 1" />
+        </div>
+
+        <div class="slide">
+          <article>
+            <h1>Carros Elétricos</h1>
+            <p>
+              Futuro do automobilismo, carros eficientes e rápidos. Cheios de
+              tecnologia de última geração e economia gigantesca.
+            </p>
+            <button onclick="alert('Botão do Slide 1 clicado')">
+              Saiba Mais
+            </button>
+          </article>
+          <img src="./assets/imgs/img-carros/img-carro06.png" alt="Imagem 1" />
+        </div>
+        <!-- Adicione mais slides conforme necessário -->
+      </div>
+      <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+    <div class="slide-indicators"></div>
+    <a href="#contato"><img class="img-seta-carros" src="assets/icon/chevron-down-solid.svg" alt="" /></a>
+  </section>
+
+  <section class="section-contato" id="contato">
+    <div class="container-contato">
+      <h1>Entre em contato!</h1>
+      <p>Insira o seu e-mail:</p>
+      <input type="email" id="email_contato" />
+      <p>Insira o Assunto:</p>
+      <input type="text" id="assunto_contato" />
+      <p>Insira a sua mensagem:</p>
+      <textarea id="mensagem_contato" cols="30" rows="10"></textarea>
+      <button>Enviar</button>
+    </div>
+  </section>
+
+  <!-- Footer do Site -->
+  <footer id="footer">
+    <div><p>Feito por <a class="linkedin_gavassa" href="https://www.linkedin.com/in/gavassa/" target="_blank">Guilherme Gavassa 1ADS-C 24/1 </a></p></div>
+    
+    <img src="assets/imgs/Logo-GavaMotors-White.png" alt="" />
+    <a href="index.html#banner"><h2>Voltar ao início</h2></a>
+  </footer>
+</body>
+
 </html>
 
 <script>
-  function apareceInfosFilmes() {
-    const cards = document.querySelectorAll(`.card-content`)
-    cards.forEach(card => {
-        card.style.display = 'flex';
-    });
-  }
+function apareceInfosFilmes(cardId) {
+  document.getElementById(cardId).style.display = "flex";
+}
 
-  function someInfosFilmes() {
-    const cards = document.querySelectorAll(`.card-content`)
-    cards.forEach(card => {
-        card.style.display = 'none';
-    });
-  }
+function someInfosFilmes(cardId) {
+  document.getElementById(cardId).style.display = "none";
+}
 
   var imagens = [
-    "assets/imgs/img-jogos/Jogos (1).png",
-    "assets/imgs/img-jogos/Jogos (2).png",
-    "assets/imgs/img-jogos/Jogos (3).png",
-    "assets/imgs/img-jogos/Jogos (4).png",
-    "assets/imgs/img-jogos/Jogos (5).png",
-    "assets/imgs/img-jogos/Jogos (6).png",
-    "assets/imgs/img-jogos/Jogos (7).png",
-    "assets/imgs/img-jogos/Jogos (8).png",
+    "assets/imgs/img-jogos/Jogos(1).png",
+    "assets/imgs/img-jogos/Jogos(2).png",
+    "assets/imgs/img-jogos/Jogos(3).png",
+    "assets/imgs/img-jogos/Jogos(4).png",
+    "assets/imgs/img-jogos/Jogos(5).png",
+    "assets/imgs/img-jogos/Jogos(6).png",
+    "assets/imgs/img-jogos/Jogos(7).png",
+    "assets/imgs/img-jogos/Jogos(8).png",
   ];
 
   var container = document.getElementById("imagens-container");

@@ -342,8 +342,6 @@ body {
     visibility: hidden;
     transition: opacity 0.2s ease-in-out;
     display: flex;
-
-
     flex-direction: column;
     justify-content: center;
     align-items: center;

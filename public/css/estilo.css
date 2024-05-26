@@ -250,7 +250,7 @@ header .botoes-acesso {
   margin-top: 2em;
   width: 30vw;
   height: 60vh;
-  background-image: url('../assets/imgs/img-carros/img-carro06.png');
+  background-image: url('../assets/imgs/LancerFundo.png');
   background-position: center;
   background-size: cover;
   border-radius: 20px;
@@ -366,6 +366,13 @@ header .botoes-acesso {
   align-items: center;
 }
 
+.card-filmes a{
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+}
+
 
 .card-content{
   flex-direction: column;
@@ -374,7 +381,14 @@ header .botoes-acesso {
   height: 100%;
   justify-content: space-between;
   align-items: center;
-  transition: ease-in-out 0.3s;
+  opacity: 0; 
+  transition: opacity 0.3s ease-in-out;
+  
+}
+
+.card-content:hover{
+  opacity: 1; 
+  visibility: visible;
 }
 
 .card-filmes .titulos{
@@ -784,18 +798,56 @@ header .botoes-acesso {
   cursor: pointer;
 }
 
-
 footer{
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   height: 20vh;
   background-color: var(--GavaBlack);
 }
 
+footer div{
+  width: 23%;
+  margin-right: 10%;
+}
+
+footer p{
+  color: var(--GavaWhite);
+  font-size: large;
+}
+
+.linkedin_gavassa{
+  color: var(--GavaPurpleDark);
+  font-weight: 700;
+  background-color: var(--GavaWhite);
+  padding: 10px 15px;
+  border-radius: 50px;
+  margin: 0;
+}
+
 footer img{
   width: 10vw;
   height: 10vh;
+}
+
+.linkedin{
+  margin: 0;
+  text-decoration: none;
+ 
+}
+
+footer a{
+  text-decoration: none;
+  margin-left: 20%;
+}
+
+footer h2{
+  color: var(--GavaWhite);
+  background-color: var(--GavaPurplePrincipal);
+  padding: 20px 30px;
+  border-radius: 20px;
+
 }
 
 
