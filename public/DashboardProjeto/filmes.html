@@ -1,42 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Filmes | GavaMotors</title>
-  </head>
 
-  <body>
-    <div class="menu-lateral">
-      <img src="../assets/imgs/Logo-GavaMotors-White.png" alt="" />
-      <p class="bem-vindo">Olá, <span id="b_usuario">usuário</span></p>
-      <div class="botoes-menu">
-        <a href="dashboard.html"><button>Dashboard</button></a>
-        <a href="carros.html"><button>Carros</button></a>
-        <a href="filmes.html"><button id="filmes-btn">Filmes</button></a>
-        <a href="jogos.html"><button>Jogos</button></a>
-      </div>
-      <a href=""><button class="btn-sair">Sair</button></a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Filmes | GavaMotors</title>
+</head>
+
+<body>
+  <div class="menu-lateral">
+    <img src="../assets/imgs/Logo-GavaMotors-White.png" alt="" />
+    <p class="bem-vindo">Olá, <span id="b_usuario">usuário</span></p>
+    <div class="botoes-menu">
+      <a href="dashboard.html"><button>Dashboard</button></a>
+      <a href="carros.html"><button>Carros</button></a>
+      <a href="filmes.html"><button id="filmes-btn">Filmes</button></a>
+      <a href="jogos.html"><button>Jogos</button></a>
     </div>
-    <div class="main-section-filmes">
-      <div class="section-filmes">
-        <div class="card-filmes"></div>
-        <div class="card-filmes"></div>
-        <div class="card-filmes"></div>
-      </div>
+    <a href=""><button class="btn-sair">Sair</button></a>
+  </div>
+  <div class="main-section-filmes">
+    <div class="section-filmes">
+      <div class="card-filmes"></div>
+      <div class="card-filmes"></div>
+      <div class="card-filmes"></div>
+      <div class="card-filmes"></div>
+      <div class="card-filmes"></div>
+      <div class="card-filmes"></div>
+      <div class="card-filmes"></div>
+      <div class="card-filmes"></div>
+      <div class="card-filmes"></div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
 
 <script>
   imagensFundo = [
-    "../assets/imgs/img-filmes/filmes01.png",
-    "../assets/imgs/img-filmes/filmes02.png",
-    "../assets/imgs/img-filmes/filmes03.png",
+    "../assets/imgs/img-filmes/filmes-SpeedRacer.png",
+    "../assets/imgs/img-filmes/filmes-Carros.png",
+    "../assets/imgs/img-filmes/filmes-Carros2.png",
+    "../assets/imgs/img-filmes/filmes-Carros3.png",
+    "../assets/imgs/img-filmes/filmes-Velozes_e_Furiosos.png",
+    "../assets/imgs/img-filmes/filmes-Velozes_e_Furiosos2.png",
+    "../assets/imgs/img-filmes/filmes-Velozes_e_Furiosos-Tokyo.png",
+    "../assets/imgs/img-filmes/filmes-Velozes_e_Furiosos4.png",
+    "../assets/imgs/img-filmes/filmes-Velozes_e_Furiosos5.png"
   ];
 
-  var nomeFilmes = ["SpeedRacer", "Carros 3", "Velozes e Furiosos"];
+  var nomeFilmes = [
+    "SpeedRacer",
+    "Carros",
+    "Carros 2",
+    "Carros 3",
+    "Velozes e Furiosos",
+    "Velozes e Furiosos 2",
+    "Velozes e Furiosos - Tokyo",
+    "Velozes e Furiosos 4",
+    "Velozes e Furiosos 5"];
+
+  var anoLancamentoFilmes = [
+    '2008',
+    '2006',
+    '2011',
+    '2017',
+    '2001',
+    '2003',
+    '2006',
+    '2009',
+    '2011'
+  ]
+
+  var descricaoDosFilmes = [
+    "Piloto de corridas enfrenta desafios em competições de alta velocidade com seu carro especial.",
+    "Relâmpago McQueen descobre amizade e humildade em uma pequena cidade após acidente inesperado.",
+    "Relâmpago McQueen e Mate participam de um campeonato mundial de corridas com espionagem internacional.",
+    "Relâmpago McQueen enfrenta novos corredores e busca provar que ainda é competitivo.",
+    "Piloto de rua e policial infiltrado enfrentam crimes e corridas ilegais em Los Angeles.",
+    "Brian O'Conner e amigo se unem para derrubar um traficante de drogas em Miami.",
+    "Jovem piloto americano se envolve no mundo das corridas de drift em Tóquio.",
+    "Dominic Toretto e Brian O'Conner reúnem-se para combater um traficante de drogas.",
+    "Grupo de corredores planeja um grande assalto no Brasil enquanto foge das autoridades."
+  ]
 
   const cards = document.querySelectorAll(".card-filmes");
 
@@ -54,11 +101,11 @@
 
     let descricaoFilmes = document.createElement("p");
     descricaoFilmes.className = "descricao-filmes";
-    descricaoFilmes.textContent = `Descrição filmes`;
+    descricaoFilmes.textContent = descricaoDosFilmes[i];
 
-    let anoLancamento = document.createElement("p");
+    let anoLancamento = document.createElement("h4");
     anoLancamento.className = "ano-lancamento";
-    anoLancamento.textContent = `Ano de Lançamento: 2024`;
+    anoLancamento.textContent = `Ano de Lançamento: ${anoLancamentoFilmes[i]}`;
 
     cardContent.appendChild(tituloCard);
 

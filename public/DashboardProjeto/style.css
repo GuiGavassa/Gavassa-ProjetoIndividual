@@ -296,8 +296,9 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: center;
     overflow-y: scroll;
+    
 
     width: fit-content;
     height: 100vh;
@@ -313,6 +314,8 @@ body {
     flex-direction: column;
     justify-content: end;
     align-items: end;
+
+    margin-bottom: 40px;
 
 
     text-align: center;
@@ -361,7 +364,7 @@ body {
 }
 
 .card-filmes-content p {
-    margin: 0 20px;
+    margin: 10px 20px;
 }
 
 
