@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Jogos | GavaMotors</title>
-  </head>
 
-  <body>
-    <div class="menu-lateral">
-      <img src="../assets/imgs/Logo-GavaMotors-White.png" alt="" />
-      <p class="bem-vindo">Olá, <span id="b_usuario">usuário</span></p>
-      <div class="botoes-menu">
-        <a href="dashboard.html"><button>Dashboard</button></a>
-        <a href="carros.html"><button>Carros</button></a>
-        <a href="filmes.html"><button>Filmes</button></a>
-        <a href="jogos.html"><button id="jogos-btn">Jogos</button></a>
-      </div>
-      <a href=""><button class="btn-sair">Sair</button></a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Jogos | GavaMotors</title>
+</head>
+
+<body>
+  <div class="menu-lateral">
+    <img src="../assets/imgs/Logo-GavaMotors-White.png" alt="" />
+    <p class="bem-vindo">Olá, <span id="b_usuario">usuário</span></p>
+    <div class="botoes-menu">
+      <a href="dashboard.html"><button>Dashboard</button></a>
+      <a href="carros.html"><button>Carros</button></a>
+      <a href="filmes.html"><button>Filmes</button></a>
+      <a href="jogos.html"><button id="jogos-btn">Jogos</button></a>
     </div>
-    <div class="main-section-jogos">
-      <div class="section-jogos">
-        <div class="card-jogos"></div>
-        <div class="card-jogos"></div>
-        <div class="card-jogos"></div>
-        <div class="card-jogos"></div>
-        <div class="card-jogos"></div>
-        <div class="card-jogos"></div>
-        <div class="card-jogos"></div>
-        <div class="card-jogos"></div>
-      </div>
+    <a href=""><button class="btn-sair">Sair</button></a>
+  </div>
+  <div class="main-section-jogos">
+    <div class="section-jogos">
+      <div class="card-jogos"></div>
+      <div class="card-jogos"></div>
+      <div class="card-jogos"></div>
+      <div class="card-jogos"></div>
+      <div class="card-jogos"></div>
+      <div class="card-jogos"></div>
+      <div class="card-jogos"></div>
+      <div class="card-jogos"></div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
 
 <script>
@@ -92,7 +94,7 @@
 
     let button = document.createElement("button");
     button.className = "btn-joguei";
-    button.id = `btn-joguei-${i}`;
+    button.id = i + 1;
     button.textContent = "Já joguei!";
 
     button.onclick = enviarDadoProBanco;
@@ -110,13 +112,42 @@
     cards[i].addEventListener("mouseleave", function () {
       cardContent.classList.remove("show");
     });
-  
+
 
   }
 
   function inserirDadoNoBanco(id) {
-    console.log(`Inserir no banco: ${id}`);
+    console.log(`Inserir no banco: ${id} e ${sessionStorage.ID_USUARIO}`);
     // Lógica para inserir no banco de dados
+    fetch("/likes/adicionarLike", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/likes.js
+        usuarioID: sessionStorage.ID_USUARIO,
+        like: id
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+        if (resposta.ok) {
+          console.log("Like Inserido no banco de dados.")
+        } else {
+          throw "Houve um erro ao tentar adicionar o like!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+
+
+    return false;
+
+
   }
 
   function removerDadoDoBanco(id) {

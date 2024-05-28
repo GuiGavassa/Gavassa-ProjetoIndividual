@@ -117,9 +117,6 @@ INSERT INTO jogos (titulo, desenvolvedor, ano) VALUES
 
 SELECT * FROM Jogos;
 
-
-
-
 CREATE TABLE likes_jogos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT,
@@ -128,6 +125,17 @@ CREATE TABLE likes_jogos (
     FOREIGN KEY (jogo_id) REFERENCES jogos(id),
     UNIQUE (usuario_id, jogo_id) -- Garante que cada usuário só pode dar um like por jogo
 );
+
+select * from likes_jogos;
+
+select
+us.nome,
+us.email,
+jg.titulo,
+jg.ano
+from jogos jg
+join likes_jogos lj on lj.jogo_id = jg.id
+join usuario us on lj.usuario_id = us.id;
 
 
 
