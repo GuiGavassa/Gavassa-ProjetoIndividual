@@ -107,14 +107,14 @@
         cardDescricaoCarro.appendChild(potenciaCarro)
         cardDescricaoCarro.appendChild(anoLancamento)
 
-        
+
 
 
         cardContent.appendChild(cardDescricaoCarro)
 
         let likeButton = document.createElement('img');
         likeButton.className = 'like-button';
-        likeButton.id = `like_button${i}`
+        likeButton.id = i + 1;
         likeButton.src = like[0];
         likeButton.onclick = mudarBotaoLike
 
@@ -149,9 +149,71 @@
 
         if (currentSrc === likeOffFilename) {
             this.src = like[1];
+            inserirDadoNoBanco(id)
 
         } else {
             this.src = like[0];
+            removerDadoDoBanco(id)
+
         }
+    }
+
+
+    function inserirDadoNoBanco(id) {
+        console.log(`Inserir no banco: ${id} e ${sessionStorage.ID_USUARIO}`);
+        // Lógica para inserir no banco de dados
+        fetch("/likes/adicionarLikeFilmes", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/likes.js
+                usuarioID: sessionStorage.ID_USUARIO,
+                like: id
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+                if (resposta.ok) {
+                    console.log("Like Inserido no banco de dados.")
+                } else {
+                    throw "Houve um erro ao tentar adicionar o like!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        return false;
+    }
+
+    function removerDadoDoBanco(id) {
+        console.log(`Remover do banco: ${id} e ${sessionStorage.ID_USUARIO}`);
+        // Lógica para inserir no banco de dados
+        fetch("/likes/removerLikeFilmes", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/likes.js
+                usuarioID: sessionStorage.ID_USUARIO,
+                like: id
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+                if (resposta.ok) {
+                    console.log("Like Removido no banco de dados.")
+                } else {
+                    throw "Houve um erro ao tentar remover o like!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        return false;
     }
 </script>

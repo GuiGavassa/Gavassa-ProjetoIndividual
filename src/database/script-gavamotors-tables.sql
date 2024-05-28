@@ -154,4 +154,44 @@ group by jg.titulo;
 
 
 
+-- Likes em Jogos
+SELECT
+    us.nome AS usuario_nome,
+    us.email AS usuario_email,
+    'jogo' AS tipo,
+    jg.titulo AS titulo,
+    jg.ano AS ano
+FROM jogos jg
+JOIN likes_jogos lj ON lj.jogo_id = jg.id
+JOIN usuario us ON lj.usuario_id = us.id;
+
+
+
+-- Likes em Filmes
+SELECT
+    us.nome AS usuario_nome,
+    us.email AS usuario_email,
+    'filme' AS tipo,
+    fl.titulo AS titulo,
+    fl.ano AS ano
+FROM filmes fl
+JOIN likes_filmes lf ON lf.filme_id = fl.id
+JOIN usuario us ON lf.usuario_id = us.id;
+
+
+-- Likes em Carros
+SELECT
+    us.nome AS usuario_nome,
+    us.email AS usuario_email,
+    'carro' AS tipo,
+    cr.modelo AS titulo,
+    cr.ano AS ano
+FROM carros cr
+JOIN likes_carros lc ON lc.carro_id = cr.id
+JOIN usuario us ON lc.usuario_id = us.id;
+
+
+
+
+
 

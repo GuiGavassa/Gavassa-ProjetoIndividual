@@ -7,7 +7,7 @@ function adicionarLikeCarros(usuario, like) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO likes_jogos (usuario_id, jogo_id) VALUES ('${usuario}', '${like}');
+        INSERT INTO likes_carros (usuario_id, carro_id) VALUES (${usuario}, ${like});
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -20,7 +20,7 @@ function removerLikeCarros(usuario, like) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        DELETE * FROM likes_jogos WHERE usuario_id = '${usuario}' AND jogo_id = '${like}';
+        DELETE FROM likes_carros WHERE usuario_id = ${usuario} AND carro_id = ${like};
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -32,7 +32,7 @@ function adicionarLikeFilmes(usuario, like) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO likes_jogos (usuario_id, jogo_id) VALUES ('${usuario}', '${like}');
+        INSERT INTO likes_filmes (usuario_id, filme_id) VALUES (${usuario}, ${like});
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -45,7 +45,7 @@ function removerLikeFilmes(usuario, like) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        DELETE * FROM likes_jogos WHERE usuario_id = '${usuario}' AND jogo_id = '${like}';
+        DELETE FROM likes_filmes WHERE usuario_id = ${usuario} AND filme_id = ${like};
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -59,7 +59,7 @@ function adicionarLikeJogos(usuario, like) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO likes_jogos (usuario_id, jogo_id) VALUES ('${usuario}', '${like}');
+        INSERT INTO likes_jogos (usuario_id, jogo_id) VALUES (${usuario}, ${like});
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
