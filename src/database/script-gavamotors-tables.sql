@@ -128,6 +128,7 @@ CREATE TABLE likes_jogos (
 
 select * from likes_jogos;
 
+
 select
 us.nome,
 us.email,
@@ -136,6 +137,21 @@ jg.ano
 from jogos jg
 join likes_jogos lj on lj.jogo_id = jg.id
 join usuario us on lj.usuario_id = us.id;
+
+
+
+DELETE FROM likes_jogos where usuario_id = 1 and jogo_id = 1;
+
+
+-- Gera o numero de jogadores por jogo.
+select
+jg.titulo as "Jogo",
+count(jg.titulo) as "Número de Jogadores"
+from jogos jg
+join likes_jogos lj on lj.jogo_id = jg.id
+join usuario us on lj.usuario_id = us.id
+group by jg.titulo;
+
 
 
 

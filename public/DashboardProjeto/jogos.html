@@ -18,7 +18,7 @@
       <a href="filmes.html"><button>Filmes</button></a>
       <a href="jogos.html"><button id="jogos-btn">Jogos</button></a>
     </div>
-    <a href=""><button class="btn-sair">Sair</button></a>
+    <a href=""><button onclick="limparSessao()" class="btn-sair">Sair</button></a>
   </div>
   <div class="main-section-jogos">
     <div class="section-jogos">
@@ -37,6 +37,8 @@
 </html>
 
 <script>
+  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
   imagensFundoJogos = [
     "../assets/imgs/img-jogos/Jogos(1).png",
     "../assets/imgs/img-jogos/Jogos(2).png",
@@ -119,7 +121,7 @@
   function inserirDadoNoBanco(id) {
     console.log(`Inserir no banco: ${id} e ${sessionStorage.ID_USUARIO}`);
     // Lógica para inserir no banco de dados
-    fetch("/likes/adicionarLike", {
+    fetch("/likes/adicionarLikeJogos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -150,24 +152,56 @@
 
   }
 
+
+
   function removerDadoDoBanco(id) {
-    console.log(`Remover do banco: ${id}`);
-    // Lógica para remover do banco de dados
+    console.log(`Remover do banco: ${id} e ${sessionStorage.ID_USUARIO}`);
+    // Lógica para inserir no banco de dados
+    fetch("/likes/removerLikeJogos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/likes.js
+        usuarioID: sessionStorage.ID_USUARIO,
+        like: id
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+        if (resposta.ok) {
+          console.log("Like Removido no banco de dados.")
+        } else {
+          throw "Houve um erro ao tentar remover o like!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+
+
+    return false;
+
+
   }
+
 
   // Função para enviar dado para o banco e alternar a cor do botão
   function enviarDadoProBanco(event) {
-    const button = event.target;
-    const buttonId = button.id;
+  const button = event.target;
+  const buttonId = button.id;
 
-    if (button.classList.contains("btn-joguei-on")) {
-      // Botão está atualmente ligado, então desativar e remover do banco
-      button.classList.remove("btn-joguei-on");
-      removerDadoDoBanco(buttonId);
-    } else {
-      // Botão está atualmente desligado, então ativar e inserir no banco
-      button.classList.add("btn-joguei-on");
-      inserirDadoNoBanco(buttonId);
-    }
+  if (button.classList.contains("btn-joguei-on")) {
+    // Botão está atualmente ligado, então desativar e remover do banco
+    button.classList.remove("btn-joguei-on");
+    removerDadoDoBanco(buttonId);
+  } else {
+    // Botão está atualmente desligado, então ativar e inserir no banco
+    button.classList.add("btn-joguei-on");
+    inserirDadoNoBanco(buttonId);
   }
+}
 </script>
