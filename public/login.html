@@ -15,66 +15,67 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 
-<body>
+<body onload="trocarFundo()">
 
     <!--Header-->
 
     <!--header inicio-->
-  <header id="home">
-    <img src="assets/imgs/Logo-Header.png" alt="Imagem de Logo GavaMotors Roxa">
-    <nav>
-        <li><a href="./index.html#banner">Home</a></li>
-        <li><a href="./index.html#filmes">Filmes</a></li>
-        <li><a href="./index.html#jogos">Jogos</a></li>
-        <li><a href="./index.html#carros">Carros</a></li>
-        <li><a href="./index.html#contato">Contato</a></li>
-    </nav>
-    <div class="botoes-acesso">
-      <a href="./login.html" class="btn-login">Login</a>
-      <a href="./cadastro.html" class="btn-cadastro">Cadastro</a>
-    </div>
-  </header>
-  <!--header fim-->
+    <header id="home">
+        <img src="assets/imgs/Logo-Header.png" alt="Imagem de Logo GavaMotors Roxa">
+        <nav>
+            <li><a href="./index.html#banner">Home</a></li>
+            <li><a href="./index.html#filmes">Filmes</a></li>
+            <li><a href="./index.html#jogos">Jogos</a></li>
+            <li><a href="./index.html#carros">Carros</a></li>
+            <li><a href="./index.html#contato">Contato</a></li>
+        </nav>
+        <div class="botoes-acesso">
+            <a href="./login.html" class="btn-login">Login</a>
+            <a href="./cadastro.html" class="btn-cadastro">Cadastro</a>
+        </div>
+    </header>
+    <!--header fim-->
 
-  <section class="section-cadastro">
-    <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
-      </div>
-    </div>
+    <section class="section-cadastro" id="fundo_cadastro">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
 
-    <div class="card-section">
-      <h1>Entre em sua conta!</h1>
-     
+        <div class="card-section">
+            <h1>Entre em sua conta!</h1>
 
-      <div class="ipts">
-        <p>Insira seu e-mail:</p>
-        <input type="text" placeholder="email@email.com" id="email_input">
-        <p>Insira sua senha:</p>
-        <input type="text" placeholder="Senha." id="senha_input">
-      </div>
 
-      
-      <div id="div_erros_login"></div>
-      <button class="btn-cadastro" onclick="entrar()">Entrar</button>
-      
-      <p>Esqueceu a senha? <span><a href="esqueceuSenha/esqueceuSenha-1-EnviarEmail.html">Redefina-a</a></span></p>
-    </div>
+            <div class="ipts">
+                <p>Insira seu e-mail:</p>
+                <input type="text" placeholder="email@email.com" id="email_input">
+                <p>Insira sua senha:</p>
+                <input type="text" placeholder="Senha." id="senha_input">
+            </div>
 
-    <!-- <div id="div_aguardar" class="loading-div">
+
+            <div id="div_erros_login"></div>
+            <button class="btn-cadastro" onclick="entrar()">Entrar</button>
+
+            <p>Esqueceu a senha? <span><a href="esqueceuSenha/esqueceuSenha-1-EnviarEmail.html">Redefina-a</a></span>
+            </p>
+        </div>
+
+        <!-- <div id="div_aguardar" class="loading-div">
         <img src="./assets/circle-loading.gif" id="loading-gif">
     </div> -->
-  </section>
+    </section>
 
-  
 
-  <!--footer inicio-->
-  <footer class="footer-cadastro">
-    
-    <img src="assets/imgs/Logo-GavaMotors-White.png" alt="">
-    
-  </footer>
-  <!--footer fim-->
+
+    <!--footer inicio-->
+    <footer class="footer-cadastro">
+
+        <img src="assets/imgs/Logo-GavaMotors-White.png" alt="">
+
+    </footer>
+    <!--footer fim-->
 
 
     <!-- <div class="login">
@@ -107,13 +108,34 @@
         </div>
     </div> -->
 
-   
+
 
 </body>
 
 </html>
 
 <script>
+
+
+    let fundo = document.getElementById("fundo_cadastro");
+
+    let imagensFundo = [
+        "assets/imgs/FundoLoginCadastro/FundoLoginCadastro.png",
+        "assets/imgs/FundoLoginCadastro/FundoLoginCadastro1.png",
+        "assets/imgs/FundoLoginCadastro/FundoLoginCadastro2.png",
+        "assets/imgs/FundoLoginCadastro/FundoLoginCadastro3.png",
+        "assets/imgs/FundoLoginCadastro/FundoLoginCadastro4.png",
+        "assets/imgs/FundoLoginCadastro/FundoLoginCadastro5.png",
+        "assets/imgs/FundoLoginCadastro/FundoLoginCadastro6.png",
+        "assets/imgs/FundoLoginCadastro/FundoLoginCadastro7.png"
+    ];
+
+    function trocarFundo() {
+        let imagemFundo = Math.floor(Math.random() * imagensFundo.length);
+        fundo.style.backgroundImage = `url(${imagensFundo[imagemFundo]})`;
+    }
+
+
 
 
     function entrar() {

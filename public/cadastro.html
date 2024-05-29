@@ -63,7 +63,7 @@
       </div>
       <div id="div_erros_login"></div>
       <button class="btn-cadastro" onclick="cadastrar()">Cadastrar</button>
-      
+
       <p>Já possui conta? <a href="login.html">Entrar</a></p>
     </div>
 
@@ -72,13 +72,13 @@
   </div> -->
   </section>
 
-  
+
 
   <!--footer inicio-->
   <footer class="footer-cadastro">
-    
+
     <img src="assets/imgs/Logo-GavaMotors-White.png" alt="">
-    
+
   </footer>
   <!--footer fim-->
 </body>
@@ -86,6 +86,26 @@
 </html>
 
 <script>
+
+  let fundo = document.getElementById("fundo_cadastro");
+
+  let imagensFundo = [
+    "assets/imgs/FundoLoginCadastro/FundoLoginCadastro.png",
+    "assets/imgs/FundoLoginCadastro/FundoLoginCadastro1.png",
+    "assets/imgs/FundoLoginCadastro/FundoLoginCadastro2.png",
+    "assets/imgs/FundoLoginCadastro/FundoLoginCadastro3.png",
+    "assets/imgs/FundoLoginCadastro/FundoLoginCadastro4.png",
+    "assets/imgs/FundoLoginCadastro/FundoLoginCadastro5.png",
+    "assets/imgs/FundoLoginCadastro/FundoLoginCadastro6.png",
+    "assets/imgs/FundoLoginCadastro/FundoLoginCadastro7.png"
+  ];
+
+  function trocarFundo() {
+    let imagemFundo = Math.floor(Math.random() * imagensFundo.length);
+    fundo.style.backgroundImage = `url(${imagensFundo[imagemFundo]})`;
+  }
+
+
   function cadastrar() {
 
 
@@ -104,10 +124,10 @@
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "(Todos os campos devem estar preenchidos!)";
-        setInterval(sumirMensagem, 5000);
+      setInterval(sumirMensagem, 5000);
       // finalizarAguardar();
       return false;
-    } 
+    }
 
     if (nomeVar.length <= 1) {
       cardErro.style.display = "block";
@@ -127,7 +147,7 @@
         "(A senha não coincide)";
     } else {
 
-      
+
 
 
       // Enviando o valor da nova input
