@@ -18,7 +18,7 @@ CREATE TABLE gavamotors.usuario (
     senha VARCHAR(255) NOT NULL
 );
 
-select * from usuario;
+select * from gavamotors.usuario;
 
 -- ---------------------------------------------------------------------------------------------------------------------------- --
 -- ---------------------------------------------------------------------------------------------------------------------------- --
@@ -128,28 +128,16 @@ CREATE TABLE gavamotors.likes_jogos (
 
 select * from gavamotors.likes_jogos;
 
-
-select
-us.nome,
-us.email,
-jg.titulo,
-jg.ano
-from gavamotors.jogos jg
-join gavamotors.likes_jogos lj on lj.jogo_id = jg.id
-join gavamotors.usuario us on lj.usuario_id = us.id;
-
-
-
 DELETE FROM gavamotors.likes_jogos where usuario_id = 1 and jogo_id = 1;
 
 
 -- Gera o numero de jogadores por jogo.
 select
-jg.titulo as "Jogo",
-count(jg.titulo) as "Número de Jogadores"
-from jogos jg
-join likes_jogos lj on lj.jogo_id = jg.id
-join usuario us on lj.usuario_id = us.id
+jg.titulo as "titulo",
+count(jg.titulo) as "QtdLikes"
+from gavamotors.jogos jg
+join gavamotors.likes_jogos lj on lj.jogo_id = jg.id
+join gavamotors.usuario us on lj.usuario_id = us.id
 group by jg.titulo;
 
 

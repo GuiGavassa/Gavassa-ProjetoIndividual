@@ -76,12 +76,14 @@ function removerLikeCarros(req, res) {
             ).catch(
                 function (erro) {
                     console.log(erro);
-                    console.log("\nHouve um erro ao tentar adicionar o like! Erro: Cheguei ate aqui no controller ", erro.sqlMessage);
+                    console.log("\nHouve um erro ao tentar remover o like! Erro: Cheguei ate aqui no controller ", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);
                 }
             );
     }
 }
+
+
 
 function adicionarLikeFilmes(req, res) {
     var usuario = req.body.usuarioID;
@@ -159,7 +161,7 @@ function removerLikeFilmes(req, res) {
             ).catch(
                 function (erro) {
                     console.log(erro);
-                    console.log("\nHouve um erro ao tentar adicionar o like! Erro: Cheguei ate aqui no controller ", erro.sqlMessage);
+                    console.log("\nHouve um erro ao tentar remover o like! Erro: Cheguei ate aqui no controller ", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);
                 }
             );
@@ -242,7 +244,7 @@ function removerLikeJogos(req, res) {
             ).catch(
                 function (erro) {
                     console.log(erro);
-                    console.log("\nHouve um erro ao tentar adicionar o like! Erro: Cheguei ate aqui no controller ", erro.sqlMessage);
+                    console.log("\nHouve um erro ao tentar remover o like! Erro: Cheguei ate aqui no controller ", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);
                 }
             );
@@ -250,8 +252,28 @@ function removerLikeJogos(req, res) {
 }
 
 
-
-
+function contarLikeJogos(req, res) {
+    likesModel.contarLikeJogos()
+      .then(function (resultadoContarLike) {
+        console.log(`\nResultados encontrados: ${resultadoContarLike.length}`);
+        console.log(`Resultados: ${JSON.stringify(resultadoContarLike)}`);
+  
+        if (resultadoContarLike.length == 1) {
+          console.log(resultadoContarLike);
+  
+          res.json({
+            jogo: resultadoContarLike[0].titulo,
+            qtdLikes: resultadoContarLike[0].QtdLikes
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+        console.log("\nHouve um erro ao tentar adicionar o like! Erro: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+      });
+  }
+  
 
 
 module.exports = {
@@ -260,5 +282,6 @@ module.exports = {
     adicionarLikeFilmes,
     removerLikeFilmes,
     adicionarLikeJogos,
-    removerLikeJogos
+    removerLikeJogos,
+    contarLikeJogos
 }

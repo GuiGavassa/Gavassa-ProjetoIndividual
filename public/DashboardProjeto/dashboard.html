@@ -1,46 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="../js/sessao.js"></script>
-    <title>Dashboard | GavaMotors</title>
-  </head>
 
-  <body onload="validarSessao()">
-    <div class="menu-lateral">
-      <img src="../assets/imgs/Logo-GavaMotors-White.png" alt="" />
-      <p class="bem-vindo">Olá, <span id="b_usuario">usuário</span></p>
-      <div class="botoes-menu">
-        <a href="dashboard.html"
-          ><button id="dashboard-btn">Dashboard</button></a
-        >
-        <a href="carros.html"><button>Carros</button></a>
-        <a href="filmes.html"><button>Filmes</button></a>
-        <a href="jogos.html"><button>Jogos</button></a>
-      </div>
-      <button onclick="limparSessao()" class="btn-sair">Sair</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="../js/sessao.js"></script>
+  <title>Dashboard | GavaMotors</title>
+</head>
+
+<body onload="validarSessao()">
+  <div class="menu-lateral">
+    <img src="../assets/imgs/Logo-GavaMotors-White.png" alt="" />
+    <p class="bem-vindo">Olá, <span id="b_usuario">usuário</span></p>
+    <div class="botoes-menu">
+      <a href="dashboard.html"><button id="dashboard-btn">Dashboard</button></a>
+      <a href="carros.html"><button>Carros</button></a>
+      <a href="filmes.html"><button>Filmes</button></a>
+      <a href="jogos.html"><button>Jogos</button></a>
     </div>
-    <div class="main-section">
-      <div class="section-conteudo">
-        <div class="card">
-          
+    <button onclick="limparSessao()" class="btn-sair">Sair</button>
+  </div>
+  <div class="main-section">
+    <div class="section-conteudo">
+      <div class="card">
+
+      </div>
+      <div>
+        <div class="grafico" id="grafico_jogos">
+          Grafico de Jogos mais Jogados
         </div>
-        <div>
-          <div class="grafico" id="grafico_jogos">
-            Grafico de Jogos mais Jogados
-          </div>
-          <div class="grafico">Gráfico de Filmes mais Assistidos</div>
-        </div>
+        <div class="grafico">Gráfico de Filmes mais Assistidos</div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
 
 <script>
+  window.onload = obterDadosLikes()
+
+  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+  function obterDadosLikes() {
+
+    fetch(`/likes/contarLikeJogos`, { cache: 'no-store' })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Nenhum dado encontrado ou erro na API');
+        }
+      })
+      .then(resposta => {
+        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+        resposta.reverse();
+        plotarGrafico(resposta);
+      })
+      .catch(error => {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+  }
+
+
+
   
-b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
   //   function exibirAquariosDoUsuario() {
   //         var aquarios = JSON.parse(sessionStorage.AQUARIOS);
