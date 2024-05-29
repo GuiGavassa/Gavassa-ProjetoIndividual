@@ -893,24 +893,19 @@ footer h2{
 
 .card_erro {
   display: none;
-  
-  background-color: var(--GavaWhite);
-  color: black;
   width: fit-content;
   height: fit-content;
 
-  max-width: 15vw;
+  max-width: 100%;
   max-height: 20vh;
-  position: fixed;
-  border-radius: 10px;
-  border: var(--GavaBlack) 2px solid;
   padding: 10px;
-  margin-right: 20vw;
+  text-align: center;
 }
 
 .card_erro #mensagem_erro{
-  font-weight: 500;
-  font-size: 20px;
+  font-weight: 600;
+  color: red;
+  font-size: 16px;
   flex-wrap: wrap;
 }
 

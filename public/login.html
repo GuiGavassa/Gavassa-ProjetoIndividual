@@ -38,9 +38,7 @@
 
     <section class="section-cadastro" id="fundo_cadastro">
         <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
+            
         </div>
 
         <div class="card-section">
@@ -51,11 +49,13 @@
                 <p>Insira seu e-mail:</p>
                 <input type="text" placeholder="email@email.com" id="email_input">
                 <p>Insira sua senha:</p>
-                <input type="text" placeholder="Senha." id="senha_input">
+                <input type="password" placeholder="Senha." id="senha_input">
             </div>
 
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
 
-            <div id="div_erros_login"></div>
             <button class="btn-cadastro" onclick="entrar()">Entrar</button>
 
             <p>Esqueceu a senha? <span><a href="esqueceuSenha/esqueceuSenha-1-EnviarEmail.html">Redefina-a</a></span>
@@ -146,8 +146,8 @@
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
+            mensagem_erro.innerHTML = "Preencha todos os campos.";
+            // finalizarAguardar();
             return false;
         }
         else {
@@ -178,8 +178,6 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
-
                     setTimeout(function () {
                         window.location = "./DashboardProjeto/dashboard.html";
                     }, 1000); // apenas para exibir o loading
@@ -188,7 +186,8 @@
             } else {
 
                 console.log("Houve um erro ao tentar realizar o login!");
-
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "E-Mail ou Senha estão inválidos.";
                 resposta.text().then(texto => {
                     console.error(texto);
                     // finalizarAguardar(texto);

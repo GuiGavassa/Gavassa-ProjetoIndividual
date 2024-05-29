@@ -35,9 +35,7 @@
 
   <section class="section-cadastro">
     <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
-      </div>
+      
     </div>
 
     <div class="card-section">
@@ -54,14 +52,17 @@
 
       <div class="ipts">
         <p>Insira sua senha:</p>
-        <input type="text" placeholder="Senha." id="senha_input">
+        <input type="password" placeholder="Senha." id="senha_input">
       </div>
 
       <div class="ipts">
         <p>Confirme sua senha:</p>
-        <input type="text" placeholder="Confirme sua senha." id="confirmacao_senha_input">
+        <input type="password" placeholder="Confirme sua senha." id="confirmacao_senha_input">
       </div>
-      <div id="div_erros_login"></div>
+      
+      <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+      </div>
       <button class="btn-cadastro" onclick="cadastrar()">Cadastrar</button>
 
       <p>Já possui conta? <a href="login.html">Entrar</a></p>
@@ -132,19 +133,19 @@
     if (nomeVar.length <= 1) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(O tamanho do nome deve ter mais do que uma letra.)";
+        "O tamanho do nome deve ter mais do que uma letra.";
     } else if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(E-Mail deve conter '@' e um '.')";
+        "E-Mail deve conter '@' e um '.'.";
     } else if (senhaVar.length <= 6) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(A senha deve ter ao menos 6 caracteres)";
+        "A senha deve ter ao menos 6 caracteres.";
     } else if (confirmacaoSenhaVar != senhaVar) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(A senha não coincide)";
+        "A senha não coincide.";
     } else {
 
 

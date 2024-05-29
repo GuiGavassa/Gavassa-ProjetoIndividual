@@ -11,7 +11,7 @@ use gavamotors;
 -- ---------------------------------------------------------------------------------------------------------------------------- --
 -- ---------------------------------------------------------------------------------------------------------------------------- --
 
-CREATE TABLE usuario (
+CREATE TABLE gavamotors.usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
@@ -26,7 +26,7 @@ select * from usuario;
 -- ---------------------------------------------------------------------------------------------------------------------------- --
 -- ---------------------------------------------------------------------------------------------------------------------------- --
 
-CREATE TABLE carros (
+CREATE TABLE gavamotors.carros (
     id INT AUTO_INCREMENT PRIMARY KEY,
     modelo VARCHAR(255) NOT NULL,
     marca VARCHAR(255) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE carros (
 );
 
 
-INSERT INTO carros (modelo, marca, potencia, ano) VALUES
+INSERT INTO gavamotors.carros (modelo, marca, potencia, ano) VALUES
 ('Mitsubishi Lancer Evolution', 'Mitsubishi', 276, 2005),
 ('Dodge Challenger SRT Demon', 'Dodge', 808, 2018),
 ('Toyota Supra Mk2 Custom', 'Toyota', 500, 1995), 
@@ -43,10 +43,10 @@ INSERT INTO carros (modelo, marca, potencia, ano) VALUES
 ('Porsche 911', 'Porsche', 443, 2020),
 ('Mazda RX-7 Custom', 'Mazda', 276, 1997);
 
-select * from carros;
+select * from gavamotors.carros;
 
 
-CREATE TABLE likes_carros (
+CREATE TABLE gavamotors.likes_carros (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT,
     carro_id INT,
@@ -61,14 +61,14 @@ CREATE TABLE likes_carros (
 -- ---------------------------------------------------------------------------------------------------------------------------- --
 -- ---------------------------------------------------------------------------------------------------------------------------- --
 
-CREATE TABLE filmes (
+CREATE TABLE gavamotors.filmes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(255) NOT NULL,
     descricao VARCHAR(300) NOT NULL,
     ano INT
 );
 
-INSERT INTO filmes (titulo, descricao, ano) VALUES
+INSERT INTO gavamotors.filmes (titulo, descricao, ano) VALUES
 ('SpeedRacer', 'Piloto de corridas enfrenta desafios em competições de alta velocidade com seu carro especial.', 2008),
 ('Carros', 'Relâmpago McQueen descobre amizade e humildade em uma pequena cidade após acidente inesperado.', 2006),
 ('Carros 2', 'Relâmpago McQueen e Mate participam de um campeonato mundial de corridas com espionagem internacional.', 2011),
@@ -79,10 +79,10 @@ INSERT INTO filmes (titulo, descricao, ano) VALUES
 ('Velozes e Furiosos 4', 'Dominic Toretto e Brian O `Conner reúnem-se para combater um traficante de drogas.', 2009),
 ('Velozes e Furiosos 5', 'Grupo de corredores planeja um grande assalto no Brasil enquanto foge das autoridades.', 2011);
 
-SELECT * FROM filmes;
+SELECT * FROM gavamotors.filmes;
 
 
-CREATE TABLE likes_filmes (
+CREATE TABLE gavamotors.likes_filmes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT,
     filme_id INT,
@@ -98,14 +98,14 @@ CREATE TABLE likes_filmes (
 -- ---------------------------------------------------------------------------------------------------------------------------- --
 -- ---------------------------------------------------------------------------------------------------------------------------- --
 
-CREATE TABLE jogos (
+CREATE TABLE gavamotors.jogos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(255) NOT NULL,
     desenvolvedor VARCHAR(255),
     ano INT
 );
 
-INSERT INTO jogos (titulo, desenvolvedor, ano) VALUES
+INSERT INTO gavamotors.jogos (titulo, desenvolvedor, ano) VALUES
 ('MidnightClub L.A Remix', 'Rockstar San Diego', 2008),
 ('MidnightClub 3 DUB Edition', 'Rockstar San Diego', 2005),
 ('NeedForSpeed Underground 2', 'EA Black Box', 2004),
@@ -115,9 +115,9 @@ INSERT INTO jogos (titulo, desenvolvedor, ano) VALUES
 ('GrandTheftAuto IV', 'Rockstar North', 2008),
 ('GrandTheftAuto San Andreas', 'Rockstar North', 2004);
 
-SELECT * FROM Jogos;
+SELECT * FROM gavamotors.Jogos;
 
-CREATE TABLE likes_jogos (
+CREATE TABLE gavamotors.likes_jogos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT,
     jogo_id INT,
@@ -126,7 +126,7 @@ CREATE TABLE likes_jogos (
     UNIQUE (usuario_id, jogo_id) -- Garante que cada usuário só pode dar um like por jogo
 );
 
-select * from likes_jogos;
+select * from gavamotors.likes_jogos;
 
 
 select
@@ -134,13 +134,13 @@ us.nome,
 us.email,
 jg.titulo,
 jg.ano
-from jogos jg
-join likes_jogos lj on lj.jogo_id = jg.id
-join usuario us on lj.usuario_id = us.id;
+from gavamotors.jogos jg
+join gavamotors.likes_jogos lj on lj.jogo_id = jg.id
+join gavamotors.usuario us on lj.usuario_id = us.id;
 
 
 
-DELETE FROM likes_jogos where usuario_id = 1 and jogo_id = 1;
+DELETE FROM gavamotors.likes_jogos where usuario_id = 1 and jogo_id = 1;
 
 
 -- Gera o numero de jogadores por jogo.
@@ -161,9 +161,9 @@ SELECT
     'jogo' AS tipo,
     jg.titulo AS titulo,
     jg.ano AS ano
-FROM jogos jg
-JOIN likes_jogos lj ON lj.jogo_id = jg.id
-JOIN usuario us ON lj.usuario_id = us.id;
+FROM gavamotors.jogos jg
+JOIN gavamotors.likes_jogos lj ON lj.jogo_id = jg.id
+JOIN gavamotors.usuario us ON lj.usuario_id = us.id;
 
 
 
@@ -174,9 +174,9 @@ SELECT
     'filme' AS tipo,
     fl.titulo AS titulo,
     fl.ano AS ano
-FROM filmes fl
-JOIN likes_filmes lf ON lf.filme_id = fl.id
-JOIN usuario us ON lf.usuario_id = us.id;
+FROM gavamotors.filmes fl
+JOIN gavamotors.likes_filmes lf ON lf.filme_id = fl.id
+JOIN gavamotors.usuario us ON lf.usuario_id = us.id;
 
 
 -- Likes em Carros
@@ -186,9 +186,9 @@ SELECT
     'carro' AS tipo,
     cr.modelo AS titulo,
     cr.ano AS ano
-FROM carros cr
-JOIN likes_carros lc ON lc.carro_id = cr.id
-JOIN usuario us ON lc.usuario_id = us.id;
+FROM gavamotors.carros cr
+JOIN gavamotors.likes_carros lc ON lc.carro_id = cr.id
+JOIN gavamotors.usuario us ON lc.usuario_id = us.id;
 
 
 
