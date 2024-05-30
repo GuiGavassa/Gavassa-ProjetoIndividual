@@ -181,7 +181,7 @@ function contarLikeFilmes(req, res) {
         resultadoContarLike.forEach(function(resultado) {
             dadosFormatados.push({
                 titulo: resultado.titulo,
-                QtdVisualizacoes: resultado.QtdLikes ? resultado.QtdLikes : 0 // Atribuir 0 se QtdLikes for null
+                QtdLikes: resultado.QtdLikes ? resultado.QtdLikes : 0 // Atribuir 0 se QtdLikes for null
             });
         });
 

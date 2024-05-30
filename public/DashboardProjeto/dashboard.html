@@ -175,7 +175,7 @@
     for (let i = 0; i < resposta.length; i++) {
       let registro = resposta[i];
       labels.push(registro.titulo);
-      dados.datasets[0].data.push(registro.QtdVisualizacoes);
+      dados.datasets[0].data.push(registro.QtdLikes);
     }
 
     console.log('Labels:', labels);
@@ -197,7 +197,12 @@
         indexAxis: 'y', // Define o eixo X para o eixo vertical
         scales: {
           x: {
-            beginAtZero: true // Começa o eixo Y em zero
+            beginAtZero: true, // Começa o eixo Y em zero
+            ticks: {
+              font: {
+                size: 1 // Definindo o tamanho da fonte dos rótulos para 12
+              }
+            }
           }
         }
       }
