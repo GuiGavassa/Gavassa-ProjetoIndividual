@@ -133,6 +133,7 @@
         playButton.className = 'play-button'
         playButton.id = `play-button-${i}`
         playButton.src = '../assets/icon/Play.svg'
+        playButton.onclick = reproduzirSom;
 
         sectionPlayButton.appendChild(playButton)
 
@@ -216,5 +217,24 @@
                 console.log(`#ERRO: ${resposta}`);
             });
         return false;
+    }
+
+
+
+
+
+    let audio;
+
+    function reproduzirSom() {
+        if (audio) {
+            // Se o áudio já estiver tocando, pause e reinicie-o
+            audio.pause();
+            audio.currentTime = 0;
+        } else {
+            // Cria um novo objeto de áudio se não existir
+            audio = new Audio('../assets/sounds/motor1.mp3');
+        }
+        // Reproduz o áudio
+        audio.play();
     }
 </script>
