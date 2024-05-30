@@ -115,9 +115,9 @@
 
         let likeButton = document.createElement('img');
         likeButton.className = 'like-button';
-        likeButton.id = i + 1;
+        likeButton.dataset.id = i + 1;
         likeButton.src = like[0];
-        likeButton.onclick = mudarBotaoLike
+        likeButton.onclick = mudarBotaoLike;
 
         cardContent.appendChild(likeButton)
 
@@ -141,7 +141,7 @@
     }
 
     function mudarBotaoLike() {
-
+        let id = event.target.dataset.id;
         let currentSrc = this.src.split('/').pop();
 
 
@@ -163,7 +163,7 @@
     function inserirDadoNoBanco(id) {
         console.log(`Inserir no banco: ${id} e ${sessionStorage.ID_USUARIO}`);
         // Lógica para inserir no banco de dados
-        fetch("/likes/adicionarLikeFilmes", {
+        fetch("/likes/adicionarLikeCarros", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -180,7 +180,7 @@
                 if (resposta.ok) {
                     console.log("Like Inserido no banco de dados.")
                 } else {
-                    throw "Houve um erro ao tentar adicionar o like!";
+                    throw "Houve um erro ao tentar adicionar o like no carro!";
                 }
             })
             .catch(function (resposta) {
@@ -192,7 +192,7 @@
     function removerDadoDoBanco(id) {
         console.log(`Remover do banco: ${id} e ${sessionStorage.ID_USUARIO}`);
         // Lógica para inserir no banco de dados
-        fetch("/likes/removerLikeFilmes", {
+        fetch("/likes/removerLikeCarros", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

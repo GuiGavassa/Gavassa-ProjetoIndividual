@@ -26,6 +26,37 @@ function removerLikeCarros(usuario, like) {
     return database.executar(instrucaoSql);
 }
 
+function contarLikeCarros(usuario, like) {
+    console.log("ACESSEI O LIKES MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", usuario, like);
+
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucaoSql = `
+    SELECT
+    cr.modelo AS "modelo",
+    COUNT(lc.carro_id) AS "QtdLikes"
+    FROM
+    gavamotors.carros cr
+    LEFT JOIN
+    gavamotors.likes_carros lc ON lc.carro_id = cr.id
+    GROUP BY
+    cr.modelo
+    ORDER BY
+    COUNT(lc.carro_id) DESC;
+
+
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
+
+
+
+
+
+
 function adicionarLikeFilmes(usuario, like) {
     console.log("ACESSEI O LIKES MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", usuario, like);
 
@@ -135,6 +166,7 @@ function contarLikeJogos(usuario, like) {
 module.exports = {
     adicionarLikeCarros,
     removerLikeCarros,
+    contarLikeCarros,
     adicionarLikeFilmes,
     removerLikeFilmes,
     contarLikeFilmes,

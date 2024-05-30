@@ -55,6 +55,8 @@ CREATE TABLE gavamotors.likes_carros (
     UNIQUE (usuario_id, carro_id) -- Garante que cada usuário só pode dar um like por carro
 );
 
+
+
 -- ---------------------------------------------------------------------------------------------------------------------------- --
 -- ---------------------------------------------------------------------------------------------------------------------------- --
 -- ----------------------------------------------------- FILMES --------------------------------------------------------------- --
@@ -153,7 +155,7 @@ join gavamotors.likes_jogos lj on lj.jogo_id = jg.id
 join gavamotors.usuario us on lj.usuario_id = us.id
 group by jg.titulo;
 
--- Gera dados dos likes dos carros.
+-- Gera dados dos likes dos jogos.
 SELECT
     jg.titulo AS "titulo",
     COUNT(lj.jogo_id) AS "QtdLikes"

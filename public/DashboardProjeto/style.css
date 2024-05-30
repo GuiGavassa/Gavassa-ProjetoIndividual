@@ -135,17 +135,41 @@ body {
 
 .card {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
     background-color: rgba(239, 227, 255, 0.8);
     border: var(--GavaPurplePrincipal) 3px solid;
     border-radius: 30px;
-
     width: 30vw;
     height: 80vh;
 
     margin-top: 10vh;
+    overflow: hidden;
 }
+
+.card table {
+    border-collapse: collapse;
+    width: 101%;
+    margin-top: -1px;
+}
+
+.card th, td {
+    border: 1px solid var(--GavaGrey);
+    padding: 8px;
+    text-align: left;
+}
+
+.card th {
+    background-color: var(--GavaPurpleDark);
+    color: var(--GavaWhite);
+}
+
+.card tr:nth-child(even) {
+    background-color: var(--GavaPurpleSecondary);
+    color: var(--GavaWhite);
+}
+
 
 .grafico {
     display: flex;

@@ -83,6 +83,45 @@ function removerLikeCarros(req, res) {
     }
 }
 
+function contarLikeCarros(req, res) {
+    likesModel.contarLikeCarros()
+      .then(function (resultadoContarLike) {
+        console.log(`\nResultados encontrados: ${resultadoContarLike.length}`);
+        console.log(`Resultados: ${JSON.stringify(resultadoContarLike)}`);
+  
+        // Criando um objeto para armazenar os dados formatados para o gráfico
+        let dadosFormatados = [];
+
+        // Loop sobre os resultados e adicionando os dados formatados ao objeto
+        resultadoContarLike.forEach(function(resultado) {
+            dadosFormatados.push({
+                modelo: resultado.modelo,
+                QtdLikes: resultado.QtdLikes ? resultado.QtdLikes : 0 // Atribuir 0 se QtdLikes for null
+            });
+        });
+
+        console.log('Dados formatados para o gráfico:', dadosFormatados);
+
+        // Enviar os dados formatados como resposta
+        res.json(dadosFormatados);
+      })
+      .catch(function (erro) {
+        console.error(erro);
+        console.error("\nHouve um erro ao tentar obter os dados dos likes de filmes:", erro.sqlMessage);
+        res.status(500).json({ error: erro.sqlMessage });
+      });
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 function adicionarLikeFilmes(req, res) {
@@ -329,6 +368,7 @@ function contarLikeJogos(req, res) {
 module.exports = {
     adicionarLikeCarros,
     removerLikeCarros,
+    contarLikeCarros,
     adicionarLikeFilmes,
     removerLikeFilmes,
     contarLikeFilmes,
