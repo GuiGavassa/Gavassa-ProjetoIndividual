@@ -5,7 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
+
   <script src="../js/sessao.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <title>Dashboard | GavaMotors</title>
 </head>
 
@@ -27,10 +31,12 @@
 
       </div>
       <div>
-        <div class="grafico" id="grafico_jogos">
-          Grafico de Jogos mais Jogados
+        <div class="grafico">
+          <canvas id="graficoJogos"></canvas>
         </div>
-        <div class="grafico">Gráfico de Filmes mais Assistidos</div>
+        <div class="grafico">
+          <canvas id="graficoFilmes"></canvas>
+        </div>
       </div>
     </div>
   </div>
@@ -39,60 +45,174 @@
 </html>
 
 <script>
-  window.onload = obterDadosLikes()
+  window.onload = function () {
+    console.log('Página carregada, iniciando obterLikesJogo');
+    obterLikesJogo();
+    obterLikesFilmes();
+    document.getElementById("b_usuario").innerHTML = sessionStorage.NOME_USUARIO;
+  }
 
-  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-
-  function obterDadosLikes() {
-
-    fetch(`/likes/contarLikeJogos`, { cache: 'no-store' })
+  function obterLikesJogo() {
+    console.log('Chamando API para obter dados de likes de jogos');
+    fetch('/likes/contarLikeJogos', { cache: 'no-store' })
       .then(response => {
         if (response.ok) {
+          console.log('Resposta da API recebida com sucesso');
           return response.json();
         } else {
           throw new Error('Nenhum dado encontrado ou erro na API');
         }
       })
       .then(resposta => {
-        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-        resposta.reverse();
-        plotarGrafico(resposta);
+        console.log('Dados recebidos da API:', resposta);
+        plotarGraficoJogo(resposta);
       })
       .catch(error => {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        console.error('Erro na obtenção dos dados para o gráfico:', error.message);
       });
+  }
+
+  function plotarGraficoJogo(resposta) {
+    console.log('Iniciando plotagem do gráfico...');
+
+    let labels = [];
+    let dados = {
+      labels: labels,
+      datasets: [{
+        label: 'Quantidade de Jogadores',
+        data: [],
+        fill: true,
+        backgroundColor: 'rgb(115, 65, 178)',
+        borderColor: 'rgb(115, 65, 178)',
+        tension: 0.1
+      }]
+    };
+
+    console.log('Dados recebidos para o gráfico:', resposta);
+
+    for (let i = 0; i < resposta.length; i++) {
+      let registro = resposta[i];
+      labels.push(registro.titulo);  // Ajustado para corresponder aos nomes das propriedades no JSON
+      dados.datasets[0].data.push(registro.QtdLikes);  // Ajustado para corresponder aos nomes das propriedades no JSON
+    }
+
+    console.log('Labels:', labels);
+    console.log('Dados:', dados.datasets);
+
+    const config = {
+      type: 'bar',
+      data: dados,
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Gráfico de Jogadores por Jogo', // Texto do título do gráfico
+            font: {
+              size: 18 // Tamanho da fonte do título
+            }
+          }
+        },
+        indexAxis: 'y', // Define o eixo X para o eixo vertical
+        scales: {
+          x: {
+            beginAtZero: true // Começa o eixo Y em zero
+          }
+        }
+      }
+    };
+
+    const ctx = document.getElementById('graficoJogos').getContext('2d');
+    if (ctx) {
+      new Chart(ctx, config);
+    } else {
+      console.error('Elemento canvas não encontrado');
+    }
   }
 
 
 
-  
 
-  //   function exibirAquariosDoUsuario() {
-  //         var aquarios = JSON.parse(sessionStorage.AQUARIOS);
-  //         aquarios.forEach(item => {
-  //             document.getElementById("btnAquario").innerHTML += `
-  //             <button class="btn-chart" onclick="exibirAquario(${item.id})" id="btnAquario${item.id}">${item.descricao}</button>
-  //             `
 
-  //             document.getElementById("graficos").innerHTML += `
-  //                 <div id="grafico${item.id}" class="display-none">
-  //                     <h3 class="tituloGraficos">
-  //                         <span id="tituloAquario${item.id}">${item.descricao}</span>
-  //                     </h3>
-  //                     <div class="graph">
-  //                         <canvas id="myChartCanvas${item.id}"></canvas>
-  //                     </div>
-  //                     <div class="label-captura">
-  //                         <p id="avisoCaptura${item.id}" style="color: white"></p>
-  //                     </div>
-  //                 </div>
-  //             `
 
-  //             obterDadosGrafico(item.id)
-  //         });
+  function obterLikesFilmes() {
+    console.log('Chamando API para obter dados de likes de filmes');
+    fetch('/likes/contarLikeFilmes', { cache: 'no-store' }) // Suponha que a rota para buscar os dados de filmes seja '/likes/contarLikeFilmes'
+      .then(response => {
+        if (response.ok) {
+          console.log('Resposta da API recebida com sucesso');
+          return response.json();
+        } else {
+          throw new Error('Nenhum dado encontrado ou erro na API');
+        }
+      })
+      .then(resposta => {
+        console.log('Dados recebidos da API:', resposta);
+        plotarGraficoFilmes(resposta);
+      })
+      .catch(error => {
+        console.error('Erro na obtenção dos dados para o gráfico de filmes:', error.message);
+      });
+  }
 
-  //         if (aquarios.length > 0) {
-  //             exibirAquario(aquarios[0].id)
-  //         }
-  //     }
+  function plotarGraficoFilmes(resposta) {
+    console.log('Iniciando plotagem do gráfico de filmes...');
+
+    let labels = [];
+    let dados = {
+      labels: labels,
+      datasets: [{
+        label: 'Quantidade de Visualizadores',
+        data: [],
+        fill: true,
+        backgroundColor: 'rgb(115, 65, 178)',
+        borderColor: 'rgb(115, 65, 178)',
+        tension: 0.1
+      }]
+    };
+
+    console.log('Dados recebidos para o gráfico de filmes:', resposta);
+
+    for (let i = 0; i < resposta.length; i++) {
+      let registro = resposta[i];
+      labels.push(registro.titulo);
+      dados.datasets[0].data.push(registro.QtdVisualizacoes);
+    }
+
+    console.log('Labels:', labels);
+    console.log('Dados:', dados.datasets);
+
+    const config = {
+      type: 'bar',
+      data: dados,
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Gráfico de Audiência: Filmes Mais Assistidos', // Texto do título do gráfico
+            font: {
+              size: 18 // Tamanho da fonte do título
+            }
+          }
+        },
+        indexAxis: 'y', // Define o eixo X para o eixo vertical
+        scales: {
+          x: {
+            beginAtZero: true // Começa o eixo Y em zero
+          }
+        }
+      }
+    };
+
+    const ctx = document.getElementById('graficoFilmes').getContext('2d');
+    if (ctx) {
+      new Chart(ctx, config);
+    } else {
+      console.error('Elemento canvas não encontrado');
+    }
+  }
+
+
+
+
+
 </script>

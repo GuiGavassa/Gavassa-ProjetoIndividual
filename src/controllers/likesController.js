@@ -168,6 +168,48 @@ function removerLikeFilmes(req, res) {
     }
 }
 
+function contarLikeFilmes(req, res) {
+    likesModel.contarLikeFilmes()
+      .then(function (resultadoContarLike) {
+        console.log(`\nResultados encontrados: ${resultadoContarLike.length}`);
+        console.log(`Resultados: ${JSON.stringify(resultadoContarLike)}`);
+  
+        // Criando um objeto para armazenar os dados formatados para o gráfico
+        let dadosFormatados = [];
+
+        // Loop sobre os resultados e adicionando os dados formatados ao objeto
+        resultadoContarLike.forEach(function(resultado) {
+            dadosFormatados.push({
+                titulo: resultado.titulo,
+                QtdVisualizacoes: resultado.QtdLikes ? resultado.QtdLikes : 0 // Atribuir 0 se QtdLikes for null
+            });
+        });
+
+        console.log('Dados formatados para o gráfico:', dadosFormatados);
+
+        // Enviar os dados formatados como resposta
+        res.json(dadosFormatados);
+      })
+      .catch(function (erro) {
+        console.error(erro);
+        console.error("\nHouve um erro ao tentar obter os dados dos likes de filmes:", erro.sqlMessage);
+        res.status(500).json({ error: erro.sqlMessage });
+      });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function adicionarLikeJogos(req, res) {
     var usuario = req.body.usuarioID;
     var like = req.body.like;
@@ -258,21 +300,29 @@ function contarLikeJogos(req, res) {
         console.log(`\nResultados encontrados: ${resultadoContarLike.length}`);
         console.log(`Resultados: ${JSON.stringify(resultadoContarLike)}`);
   
-        if (resultadoContarLike.length == 1) {
-          console.log(resultadoContarLike);
-  
-          res.json({
-            jogo: resultadoContarLike[0].titulo,
-            qtdLikes: resultadoContarLike[0].QtdLikes
-          });
-        }
+        // Criando um objeto para armazenar os dados formatados para o gráfico
+        let dadosFormatados = [];
+
+        // Loop sobre os resultados e adicionando os dados formatados ao objeto
+        resultadoContarLike.forEach(function(resultado) {
+            dadosFormatados.push({
+                titulo: resultado.titulo,
+                QtdLikes: resultado.QtdLikes ? resultado.QtdLikes : 0 // Atribuir 0 se QtdLikes for null
+            });
+        });
+
+        console.log('Dados formatados para o gráfico:', dadosFormatados);
+
+        // Enviar os dados formatados como resposta
+        res.json(dadosFormatados);
       })
       .catch(function (erro) {
-        console.log(erro);
-        console.log("\nHouve um erro ao tentar adicionar o like! Erro: ", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
+        console.error(erro);
+        console.error("\nHouve um erro ao tentar obter os dados dos likes de jogos:", erro.sqlMessage);
+        res.status(500).json({ error: erro.sqlMessage });
       });
-  }
+}
+
   
 
 
@@ -281,6 +331,7 @@ module.exports = {
     removerLikeCarros,
     adicionarLikeFilmes,
     removerLikeFilmes,
+    contarLikeFilmes,
     adicionarLikeJogos,
     removerLikeJogos,
     contarLikeJogos

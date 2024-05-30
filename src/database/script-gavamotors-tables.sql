@@ -92,6 +92,19 @@ CREATE TABLE gavamotors.likes_filmes (
 );
 
 
+SELECT
+    fm.titulo AS "titulo",
+    COUNT(lf.filme_id) AS "QtdLikes"
+FROM
+    gavamotors.filmes fm
+LEFT JOIN
+    gavamotors.likes_filmes lf ON lf.filme_id = fm.id
+GROUP BY
+    fm.titulo
+ORDER BY
+    COUNT(lf.filme_id) DESC; -- Ordenando pelo número de likes em ordem decrescente
+
+
 -- ---------------------------------------------------------------------------------------------------------------------------- --
 -- ---------------------------------------------------------------------------------------------------------------------------- --
 -- ----------------------------------------------------- JOGOS ---------------------------------------------------------------- --
@@ -139,6 +152,23 @@ from gavamotors.jogos jg
 join gavamotors.likes_jogos lj on lj.jogo_id = jg.id
 join gavamotors.usuario us on lj.usuario_id = us.id
 group by jg.titulo;
+
+-- Gera dados dos likes dos carros.
+SELECT
+    jg.titulo AS "titulo",
+    COUNT(lj.jogo_id) AS "QtdLikes"
+FROM
+    gavamotors.jogos jg
+LEFT JOIN
+    gavamotors.likes_jogos lj ON lj.jogo_id = jg.id
+LEFT JOIN
+    gavamotors.usuario us ON lj.usuario_id = us.id
+GROUP BY
+    jg.titulo
+ORDER BY
+    COUNT(lj.jogo_id) DESC; -- Ordenando pelo número de likes em ordem decrescente
+
+
 
 
 

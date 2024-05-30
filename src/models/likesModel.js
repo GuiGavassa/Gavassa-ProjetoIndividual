@@ -51,6 +51,35 @@ function removerLikeFilmes(usuario, like) {
     return database.executar(instrucaoSql);
 }
 
+function contarLikeFilmes(usuario, like) {
+    console.log("ACESSEI O LIKES MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", usuario, like);
+
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucaoSql = `
+    SELECT
+    fm.titulo AS "titulo",
+    COUNT(lf.filme_id) AS "QtdLikes"
+    FROM
+    gavamotors.filmes fm
+    LEFT JOIN
+    gavamotors.likes_filmes lf ON lf.filme_id = fm.id
+    GROUP BY
+    fm.titulo
+    ORDER BY
+    COUNT(lf.filme_id) DESC;
+
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
+
+
+
+
+
 
 
 function adicionarLikeJogos(usuario, like) {
@@ -84,13 +113,20 @@ function contarLikeJogos(usuario, like) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-    select
-    jg.titulo as "titulo",
-    count(jg.titulo) as "QtdLikes"
-    from gavamotors.jogos jg
-    join gavamotors.likes_jogos lj on lj.jogo_id = jg.id
-    join gavamotors.usuario us on lj.usuario_id = us.id
-    group by jg.titulo;
+    SELECT
+    jg.titulo AS "titulo",
+    COUNT(lj.jogo_id) AS "QtdLikes"
+    FROM
+    gavamotors.jogos jg
+    LEFT JOIN
+    gavamotors.likes_jogos lj ON lj.jogo_id = jg.id
+    LEFT JOIN
+    gavamotors.usuario us ON lj.usuario_id = us.id
+    GROUP BY
+    jg.titulo
+    ORDER BY
+    COUNT(lj.jogo_id) DESC; -- Ordenando pelo número de likes em ordem decrescente
+
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -101,6 +137,7 @@ module.exports = {
     removerLikeCarros,
     adicionarLikeFilmes,
     removerLikeFilmes,
+    contarLikeFilmes,
     adicionarLikeJogos,
     removerLikeJogos,
     contarLikeJogos

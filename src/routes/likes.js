@@ -19,6 +19,12 @@ router.post("/removerLikeFilmes", function (req, res) {
     likesController.removerLikeFilmes(req, res);
 })
 
+router.get("/contarLikeFilmes", function (req, res) {
+    console.log('Rota /likes/contarLikeFilmes acessada');
+    likesController.contarLikeFilmes(req, res);
+})
+
+
 router.post("/adicionarLikeJogos", function (req, res) {
     likesController.adicionarLikeJogos(req, res);
 })
