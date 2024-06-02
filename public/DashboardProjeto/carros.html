@@ -56,6 +56,73 @@
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
+    window.onload = buscarCarros()
+
+    function buscarCarros() {
+        fetch("/carros/buscarCarros", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO buscarCarros()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    let id = [];
+                    let modelo = [];
+                    let marca = [];
+                    let potencia = [];
+                    let ano = [];
+
+                    // Itera sobre os dados e preenche os arrays
+                    json.forEach(carro => {
+                        id.push(carro.id);
+                        modelo.push(carro.modelo);
+                        marca.push(carro.marca);
+                        potencia.push(carro.potencia);
+                        ano.push(carro.ano);
+                    });
+
+                    // Armazena os arrays no session storage
+                    sessionStorage.setItem('ID_CARRO', JSON.stringify(id));
+                    sessionStorage.setItem('MODELO_CARRO', JSON.stringify(modelo));
+                    sessionStorage.setItem('MARCA_CARRO', JSON.stringify(marca));
+                    sessionStorage.setItem('POTENCIA_CARRO', JSON.stringify(potencia));
+                    sessionStorage.setItem('ANO_CARRO', JSON.stringify(ano));
+                    
+                    // sessionStorage.ID_CARRO = json.id;
+                    // sessionStorage.MODELO_CARRO = json.modelo;
+                    // sessionStorage.MARCA_CARRO = json.marca;
+                    // sessionStorage.POTENCIA_CARRO = json.potencia;
+                    // sessionStorage.ANO_CARRO = json.ano;
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar buscar os Carros!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    let nomeCarros = JSON.parse(sessionStorage.MODELO_CARRO)
+    let potenciaCarros = JSON.parse(sessionStorage.POTENCIA_CARRO)
+    let marcaCarros = JSON.parse(sessionStorage.MARCA_CARRO)
+    let anoCarros = JSON.parse(sessionStorage.ANO_CARRO)
+
     var imagens = [
         "../assets/imgs/FundoCarros/FundoCarros-1.png",
         "../assets/imgs/FundoCarros/FundoCarros-2.png",
@@ -65,14 +132,10 @@
         "../assets/imgs/FundoCarros/FundoCarros-6.png"
     ];
 
-    var nomeCarros = [
-        "Mitsubishi Lancer Evolution",
-        "Dodge Challenger SRT Demon",
-        "Toyota Supra Mk2",
-        "Nissan Skyline R34 Custom",
-        "Porsche 911",
-        "Mazda RX-7 Custom"
-    ];
+    var sonsMotor = 
+    [
+    "../assets/sounds/dodge-challenger.mp3"
+    ]
 
     var like = [
         "../assets/icon/LikeOff.svg",
@@ -95,11 +158,11 @@
 
         let potenciaCarro = document.createElement('p');
         potenciaCarro.className = 'potencia-carro';
-        potenciaCarro.textContent = `Potência : (500) hp`;
+        potenciaCarro.textContent = `Potência : ${potenciaCarros[i]}hp`;
 
         let anoLancamento = document.createElement('p');
         anoLancamento.className = 'ano-lancamento';
-        anoLancamento.textContent = `Ano de Lançamento: 2024`
+        anoLancamento.textContent = `Ano de Lançamento: ${anoCarros[i]}`
 
         cardContent.appendChild(tituloCard)
 
@@ -132,7 +195,7 @@
 
         let playButton = document.createElement('img');
         playButton.className = 'play-button'
-        playButton.id = `play-button-${i}`
+        playButton.dataset.id = i;
         playButton.src = '../assets/icon/Play.svg'
         playButton.onclick = reproduzirSom;
 
@@ -224,18 +287,22 @@
 
 
 
-    let audio;
+    let currentAudio = null;
 
-    function reproduzirSom() {
-        if (audio) {
-            // Se o áudio já estiver tocando, pause e reinicie-o
-            audio.pause();
-            audio.currentTime = 0;
-        } else {
-            // Cria um novo objeto de áudio se não existir
-            audio = new Audio('../assets/sounds/motor1.mp3');
+    function reproduzirSom(event) {
+            const id = event.target.dataset.id;
+            const newAudio = new Audio(`../assets/sounds/${marcaCarros[id]}.mp3`);
+
+            if (currentAudio) {
+                // Pause o áudio atual e reinicie-o
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+
+            // Atualize currentAudio para o novo áudio
+            currentAudio = newAudio;
+
+            // Reproduz o novo áudio
+            currentAudio.play();
         }
-        // Reproduz o áudio
-        audio.play();
-    }
 </script>
