@@ -55,7 +55,7 @@ CREATE TABLE gavamotors.likes_carros (
     UNIQUE (usuario_id, carro_id) -- Garante que cada usuário só pode dar um like por carro
 );
 
-
+select * from gavamotors.likes_carros;
 
 -- ---------------------------------------------------------------------------------------------------------------------------- --
 -- ---------------------------------------------------------------------------------------------------------------------------- --
@@ -84,6 +84,8 @@ INSERT INTO gavamotors.filmes (titulo, descricao, ano) VALUES
 SELECT * FROM gavamotors.filmes;
 
 
+
+
 CREATE TABLE gavamotors.likes_filmes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT,
@@ -92,6 +94,8 @@ CREATE TABLE gavamotors.likes_filmes (
     FOREIGN KEY (filme_id) REFERENCES filmes(id),
     UNIQUE (usuario_id, filme_id) -- Garante que cada usuário só pode dar um like por filme
 );
+
+select * from gavamotors.likes_filmes;
 
 
 SELECT

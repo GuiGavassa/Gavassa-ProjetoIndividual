@@ -16,6 +16,11 @@ router.get("/contarLikeCarros", function (req, res) {
     likesController.contarLikeCarros(req, res);
 })
 
+router.post("/obterLikeCarros", function (req, res) {
+    console.log('Rota /likes/obterLikeCarros acessada');
+    likesController.obterLikeCarros(req, res);
+})
+
 
 
 router.post("/adicionarLikeFilmes", function (req, res) {
@@ -31,11 +36,17 @@ router.get("/contarLikeFilmes", function (req, res) {
     likesController.contarLikeFilmes(req, res);
 })
 
+router.post("/obterLikesFilmes", function (req, res) {
+    console.log('Rota /likes/obterLikeFilmes acessada');
+    likesController.obterLikeFilmes(req, res);
+})
+
+
 
 router.post("/adicionarLikeJogos", function (req, res) {
     likesController.adicionarLikeJogos(req, res);
 })
-
+ 
 router.post("/removerLikeJogos", function (req, res) {
     likesController.removerLikeJogos(req, res);
 })

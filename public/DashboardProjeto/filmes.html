@@ -42,6 +42,8 @@
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
+  window.onload = carregarFilmesAssistidos()
+
 
   imagensFundo = [
     "../assets/imgs/img-filmes/filmes-SpeedRacer.png",
@@ -218,4 +220,41 @@
       inserirDadoNoBanco(buttonId);
     }
   }
+
+
+
+  function carregarFilmesAssistidos() {
+    fetch("/likes/obterLikesFilmes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        usuarioID: sessionStorage.ID_USUARIO
+      }),
+    })
+      .then(function (resposta) {
+        return resposta.json();
+      })
+      .then(function (dados) {
+        console.log(dados);
+        // Ativa os botões correspondentes aos filmes assistidos
+        dados.forEach(function (idFilme) {
+          // Verifica se o botão com o ID correspondente existe no DOM
+          const button = document.getElementById(idFilme.filme_id); // Ajuste aqui
+          if (button) {
+            // Se o botão existir, tenta adicionar a classe 'btn-joguei-on'
+            button.classList.add("btn-joguei-on");
+          } else {
+            // Se o botão não for encontrado, registra um erro no console para depuração
+            console.error(`Botão com ID ${idFilme.filme_id} não encontrado.`);
+          }
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+
 </script>

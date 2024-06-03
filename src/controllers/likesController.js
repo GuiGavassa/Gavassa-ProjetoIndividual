@@ -15,7 +15,7 @@ function adicionarLikeCarros(req, res) {
                     console.log(`\nResultados encontrados: ${resultadoAdicionarLike.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoAdicionarLike)}`); // transforma JSON em String
 
-                    if (resultadoAdicionarLike.length == 1) {
+                    if (resultadoAdicionarLike.length > 0) {
                         console.log(resultadoAutenticar);
 
                         res.json({
@@ -57,7 +57,7 @@ function removerLikeCarros(req, res) {
                     console.log(`\nResultados encontrados: ${resultadoRemoverLike.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoRemoverLike)}`); // transforma JSON em String
 
-                    if (resultadoRemoverLike.length == 1) {
+                    if (resultadoRemoverLike.length > 0) {
                         console.log(resultadoAutenticar);
 
                         res.json({
@@ -112,6 +112,25 @@ function contarLikeCarros(req, res) {
       });
 }
 
+function obterLikeCarros(req, res){
+    usuarioID = req.body.usuarioID
+
+    likesModel.obterLikeCarros(usuarioID)
+      .then(function (resultadObterLike) {
+        console.log(`\nResultados encontrados: ${resultadObterLike.length}`);
+        console.log(`Resultados: ${JSON.stringify(resultadObterLike)}`);
+   
+
+        // Enviar os dados como resposta
+        res.json(resultadObterLike);
+      })
+      .catch(function (erro) {
+        console.error(erro);
+        console.error("\nHouve um erro ao tentar obter os dados dos likes de filmes:", erro.sqlMessage);
+        res.status(500).json({ error: erro.sqlMessage });
+      });
+}
+
 
 
 
@@ -139,7 +158,7 @@ function adicionarLikeFilmes(req, res) {
                     console.log(`\nResultados encontrados: ${resultadoAdicionarLike.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoAdicionarLike)}`); // transforma JSON em String
 
-                    if (resultadoAdicionarLike.length == 1) {
+                    if (resultadoAdicionarLike.length > 0) {
                         console.log(resultadoAutenticar);
 
                         res.json({
@@ -181,7 +200,7 @@ function removerLikeFilmes(req, res) {
                     console.log(`\nResultados encontrados: ${resultadoRemoverLike.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoRemoverLike)}`); // transforma JSON em String
 
-                    if (resultadoRemoverLike.length == 1) {
+                    if (resultadoRemoverLike.length > 0) {
                         console.log(resultadoAutenticar);
 
                         res.json({
@@ -238,6 +257,26 @@ function contarLikeFilmes(req, res) {
 
 
 
+function obterLikeFilmes(req, res){
+    usuarioID = req.body.usuarioID
+
+    likesModel.obterLikeFilmes(usuarioID)
+      .then(function (resultadObterLike) {
+        console.log(`\nResultados encontrados: ${resultadObterLike.length}`);
+        console.log(`Resultados: ${JSON.stringify(resultadObterLike)}`);
+  
+
+        // Enviar os dados como resposta
+        res.json(resultadObterLike);
+      })
+      .catch(function (erro) {
+        console.error(erro);
+        console.error("\nHouve um erro ao tentar obter os dados dos likes de filmes:", erro.sqlMessage);
+        res.status(500).json({ error: erro.sqlMessage });
+      });
+}
+
+
 
 
 
@@ -264,7 +303,7 @@ function adicionarLikeJogos(req, res) {
                     console.log(`\nResultados encontrados: ${resultadoAdicionarLike.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoAdicionarLike)}`); // transforma JSON em String
 
-                    if (resultadoAdicionarLike.length == 1) {
+                    if (resultadoAdicionarLike.length > 0) {
                         console.log(resultadoAutenticar);
 
                         res.json({
@@ -306,7 +345,7 @@ function removerLikeJogos(req, res) {
                     console.log(`\nResultados encontrados: ${resultadoRemoverLike.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoRemoverLike)}`); // transforma JSON em String
 
-                    if (resultadoRemoverLike.length == 1) {
+                    if (resultadoRemoverLike.length > 0) {
                         console.log(resultadoAutenticar);
 
                         res.json({
@@ -369,9 +408,11 @@ module.exports = {
     adicionarLikeCarros,
     removerLikeCarros,
     contarLikeCarros,
+    obterLikeCarros,
     adicionarLikeFilmes,
     removerLikeFilmes,
     contarLikeFilmes,
+    obterLikeFilmes,
     adicionarLikeJogos,
     removerLikeJogos,
     contarLikeJogos

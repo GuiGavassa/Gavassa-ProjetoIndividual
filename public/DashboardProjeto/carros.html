@@ -56,7 +56,7 @@
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    window.onload = buscarCarros()
+    window.onload = buscarCarros(), carregarLikesCarros()
 
     function buscarCarros() {
         fetch("/carros/buscarCarros", {
@@ -95,7 +95,7 @@
                     sessionStorage.setItem('MARCA_CARRO', JSON.stringify(marca));
                     sessionStorage.setItem('POTENCIA_CARRO', JSON.stringify(potencia));
                     sessionStorage.setItem('ANO_CARRO', JSON.stringify(ano));
-                    
+
                     // sessionStorage.ID_CARRO = json.id;
                     // sessionStorage.MODELO_CARRO = json.modelo;
                     // sessionStorage.MARCA_CARRO = json.marca;
@@ -132,10 +132,10 @@
         "../assets/imgs/FundoCarros/FundoCarros-6.png"
     ];
 
-    var sonsMotor = 
-    [
-    "../assets/sounds/dodge-challenger.mp3"
-    ]
+    var sonsMotor =
+        [
+            "../assets/sounds/dodge-challenger.mp3"
+        ]
 
     var like = [
         "../assets/icon/LikeOff.svg",
@@ -195,7 +195,7 @@
 
         let playButton = document.createElement('img');
         playButton.className = 'play-button'
-        playButton.dataset.id = i;
+        playButton.dataset.id = i + 1;
         playButton.src = '../assets/icon/Play.svg'
         playButton.onclick = reproduzirSom;
 
@@ -284,25 +284,62 @@
     }
 
 
+    function carregarLikesCarros() {
+        fetch("/likes/obterLikeCarros", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                usuarioID: sessionStorage.ID_USUARIO
+            }),
+        })
+            .then(function (resposta) {
+                return resposta.json();
+            })
+            .then(function (dados) {
+                console.log(dados);
+                // Seleciona todos os botões "Like" e os itera para atualizar as imagens
+                const buttons = document.querySelectorAll('.like-button');
+                buttons.forEach(function (button) {
+                    const carroID = parseInt(button.dataset.id); // Obtém o ID do carro do atributo 'data-id'
+                    const likedCar = dados.find(function (item) {
+                        return item.carro_id === carroID;
+                    });
+                    if (likedCar) {
+                        // Se o carro estiver na lista de carros curtidos, muda a imagem do botão para ativo
+                        button.src = like[1];
+                    } else {
+                        // Caso contrário, mantém a imagem do botão como inativo
+                        button.src = like[0];
+                    }
+                });
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
+
+
 
 
 
     let currentAudio = null;
 
     function reproduzirSom(event) {
-            const id = event.target.dataset.id;
-            const newAudio = new Audio(`../assets/sounds/${marcaCarros[id]}.mp3`);
+        const id = event.target.dataset.id;
+        const newAudio = new Audio(`../assets/sounds/${marcaCarros[id]}.mp3`);
 
-            if (currentAudio) {
-                // Pause o áudio atual e reinicie-o
-                currentAudio.pause();
-                currentAudio.currentTime = 0;
-            }
-
-            // Atualize currentAudio para o novo áudio
-            currentAudio = newAudio;
-
-            // Reproduz o novo áudio
-            currentAudio.play();
+        if (currentAudio) {
+            // Pause o áudio atual e reinicie-o
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
         }
+
+        // Atualize currentAudio para o novo áudio
+        currentAudio = newAudio;
+
+        // Reproduz o novo áudio
+        currentAudio.play();
+    }
 </script>
