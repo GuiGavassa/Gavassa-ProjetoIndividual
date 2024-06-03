@@ -96,11 +96,6 @@
                     sessionStorage.setItem('POTENCIA_CARRO', JSON.stringify(potencia));
                     sessionStorage.setItem('ANO_CARRO', JSON.stringify(ano));
 
-                    // sessionStorage.ID_CARRO = json.id;
-                    // sessionStorage.MODELO_CARRO = json.modelo;
-                    // sessionStorage.MARCA_CARRO = json.marca;
-                    // sessionStorage.POTENCIA_CARRO = json.potencia;
-                    // sessionStorage.ANO_CARRO = json.ano;
                 });
 
             } else {
@@ -123,19 +118,7 @@
     let marcaCarros = JSON.parse(sessionStorage.MARCA_CARRO)
     let anoCarros = JSON.parse(sessionStorage.ANO_CARRO)
 
-    var imagens = [
-        "../assets/imgs/FundoCarros/FundoCarros-1.png",
-        "../assets/imgs/FundoCarros/FundoCarros-2.png",
-        "../assets/imgs/FundoCarros/FundoCarros-3.png",
-        "../assets/imgs/FundoCarros/FundoCarros-4.png",
-        "../assets/imgs/FundoCarros/FundoCarros-5.png",
-        "../assets/imgs/FundoCarros/FundoCarros-6.png"
-    ];
-
-    var sonsMotor =
-        [
-            "../assets/sounds/dodge-challenger.mp3"
-        ]
+    
 
     var like = [
         "../assets/icon/LikeOff.svg",
@@ -146,8 +129,8 @@
     const cards = document.querySelectorAll(".card-carros");
 
 
-    for (var i = 0; i < cards.length && i < imagens.length; i++) {
-        cards[i].style.backgroundImage = `url(${imagens[i]})`;
+    for (var i = 0; i < cards.length; i++) {
+        cards[i].style.backgroundImage = `url("../assets/imgs/FundoCarros/${marcaCarros[i]}.png")`;
 
         let cardContent = document.createElement('div');
         cardContent.className = 'card-carros-content';
@@ -328,7 +311,7 @@
 
     function reproduzirSom(event) {
         const id = event.target.dataset.id;
-        const newAudio = new Audio(`../assets/sounds/${marcaCarros[id]}.mp3`);
+        const newAudio = new Audio(`../assets/sounds/${marcaCarros[id-1]}.mp3`);
 
         if (currentAudio) {
             // Pause o áudio atual e reinicie-o

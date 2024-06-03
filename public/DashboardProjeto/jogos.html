@@ -41,7 +41,7 @@
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-  window.onload = buscarJogos(), carregarJogosJogados()
+  window.onload = carregarJogosJogados(), buscarJogos()
 
   function buscarJogos() {
     fetch("/jogos/buscarJogos", {
