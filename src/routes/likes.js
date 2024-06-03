@@ -56,4 +56,9 @@ router.get("/contarLikeJogos", function (req, res) {
     likesController.contarLikeJogos(req, res);
 })
 
+router.post("/obterLikeJogos", function (req, res) {
+    console.log('Rota /likes/obterLikeJogos acessada');
+    likesController.obterLikeJogos(req, res);
+})
+
 module.exports = router;

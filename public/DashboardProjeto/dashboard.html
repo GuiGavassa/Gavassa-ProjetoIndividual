@@ -29,7 +29,6 @@
   <div class="main-section">
     <div class="section-conteudo">
       <div class="card" id="ranking-container">
-
       </div>
       <div>
         <div class="grafico">
@@ -39,6 +38,16 @@
           <canvas id="graficoFilmes"></canvas>
         </div>
       </div>
+      <section class="KPIs">
+        <div class="KpiJogos">
+          <b>Jogo Mais Jogado:</b>
+          <span id="jogoMaisJogado">NOME DO JOGO</span>
+        </div>
+        <div class="KpiFilmes">
+          <b>Filme Mais Assistido:</b>
+          <span id="filmeMaisAssistido">NOME DO FILME</span>
+        </div>
+      </section>
     </div>
   </div>
 </body>
@@ -54,6 +63,8 @@
     document.getElementById("b_usuario").innerHTML = sessionStorage.NOME_USUARIO;
   }
 
+
+
   function obterLikesJogo() {
     console.log('Chamando API para obter dados de likes de jogos');
     fetch('/likes/contarLikeJogos', { cache: 'no-store' })
@@ -66,7 +77,12 @@
         }
       })
       .then(resposta => {
+        let jogoMaisJogado = resposta[0].titulo
+        sessionStorage.setItem('JOGO_MAIS_JOGADO', JSON.stringify(jogoMaisJogado));
+        let KpiJogo = document.getElementById("jogoMaisJogado")
+        KpiJogo.textContent = sessionStorage.JOGO_MAIS_JOGADO
         console.log('Dados recebidos da API:', resposta);
+
         plotarGraficoJogo(resposta);
       })
       .catch(error => {
@@ -149,6 +165,10 @@
       })
       .then(resposta => {
         console.log('Dados recebidos da API:', resposta);
+        let filmeMaisAssistido = resposta[0].titulo
+        sessionStorage.setItem('FILME_MAIS_ASSISTIDO', JSON.stringify(filmeMaisAssistido));
+        let KpiFilme = document.getElementById("filmeMaisAssistido")
+        KpiFilme.textContent = sessionStorage.FILME_MAIS_ASSISTIDO
         plotarGraficoFilmes(resposta);
       })
       .catch(error => {
@@ -190,21 +210,16 @@
         plugins: {
           title: {
             display: true,
-            text: 'Gráfico de Audiência: Filmes Mais Assistidos', // Texto do título do gráfico
+            text: 'Gráfico de Audiência: Filmes Mais Assistidos',
             font: {
-              size: 18 // Tamanho da fonte do título
+              size: 18
             }
           }
         },
-        indexAxis: 'y', // Define o eixo X para o eixo vertical
+        indexAxis: 'y',
         scales: {
           x: {
-            beginAtZero: true, // Começa o eixo Y em zero
-            ticks: {
-              font: {
-                size: 1 // Definindo o tamanho da fonte dos rótulos para 12
-              }
-            }
+            beginAtZero: true,
           }
         }
       }
@@ -242,10 +257,10 @@
 
   function mostrarRankingCarros(data) {
     const rankingContainer = document.getElementById('ranking-container');
-    
+
     // Limpa o conteúdo anterior
     rankingContainer.innerHTML = '';
-    
+
     // Cria a tabela
     const table = document.createElement('table');
     table.border = '1'; // Adiciona uma borda à tabela
@@ -265,20 +280,20 @@
     // Corpo da tabela
     const tbody = document.createElement('tbody');
     data.forEach(carro => {
-        const row = document.createElement('tr');
-        const modeloCell = document.createElement('td');
-        modeloCell.textContent = carro.modelo;
-        const likesCell = document.createElement('td');
-        likesCell.textContent = carro.QtdLikes;
-        row.appendChild(modeloCell);
-        row.appendChild(likesCell);
-        tbody.appendChild(row);
+      const row = document.createElement('tr');
+      const modeloCell = document.createElement('td');
+      modeloCell.textContent = carro.modelo;
+      const likesCell = document.createElement('td');
+      likesCell.textContent = carro.QtdLikes;
+      row.appendChild(modeloCell);
+      row.appendChild(likesCell);
+      tbody.appendChild(row);
     });
     table.appendChild(tbody);
 
     // Adiciona a tabela ao contêiner
     rankingContainer.appendChild(table);
-} 
+  }
 
 
 

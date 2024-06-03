@@ -401,6 +401,25 @@ function contarLikeJogos(req, res) {
       });
 }
 
+function obterLikeJogos(req, res){
+    usuarioID = req.body.usuarioID
+
+    likesModel.obterLikeJogos(usuarioID)
+      .then(function (resultadObterLike) {
+        console.log(`\nResultados encontrados: ${resultadObterLike.length}`);
+        console.log(`Resultados: ${JSON.stringify(resultadObterLike)}`);
+  
+
+        // Enviar os dados como resposta
+        res.json(resultadObterLike);
+      })
+      .catch(function (erro) {
+        console.error(erro);
+        console.error("\nHouve um erro ao tentar obter os dados dos likes de filmes:", erro.sqlMessage);
+        res.status(500).json({ error: erro.sqlMessage });
+      });
+}
+
   
 
 
@@ -409,11 +428,14 @@ module.exports = {
     removerLikeCarros,
     contarLikeCarros,
     obterLikeCarros,
+
     adicionarLikeFilmes,
     removerLikeFilmes,
     contarLikeFilmes,
     obterLikeFilmes,
+
     adicionarLikeJogos,
     removerLikeJogos,
-    contarLikeJogos
+    contarLikeJogos,
+    obterLikeJogos
 }

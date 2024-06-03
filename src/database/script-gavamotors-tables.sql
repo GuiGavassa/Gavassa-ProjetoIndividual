@@ -1,9 +1,4 @@
-
 create database gavamotors;
-
-use gavamotors;
-
-
 
 -- ---------------------------------------------------------------------------------------------------------------------------- --
 -- ---------------------------------------------------------------------------------------------------------------------------- --
@@ -34,7 +29,6 @@ CREATE TABLE gavamotors.carros (
     ano INT NOT NULL
 );
 
-
 INSERT INTO gavamotors.carros (modelo, marca, potencia, ano) VALUES
 ('Mitsubishi Lancer Evolution', 'Mitsubishi', 276, 2005),
 ('Dodge Challenger SRT Demon', 'Dodge', 808, 2018),
@@ -44,7 +38,6 @@ INSERT INTO gavamotors.carros (modelo, marca, potencia, ano) VALUES
 ('Mazda RX-7 Custom', 'Mazda', 276, 1997);
 
 select * from gavamotors.carros;
-
 
 CREATE TABLE gavamotors.likes_carros (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -83,9 +76,6 @@ INSERT INTO gavamotors.filmes (titulo, descricao, ano) VALUES
 
 SELECT * FROM gavamotors.filmes;
 
-
-
-
 CREATE TABLE gavamotors.likes_filmes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT,
@@ -97,7 +87,7 @@ CREATE TABLE gavamotors.likes_filmes (
 
 select * from gavamotors.likes_filmes;
 
-
+ -- SELECT DOS DADOS PARA O GRÁFICO DOS FILMES
 SELECT
     fm.titulo AS "titulo",
     COUNT(lf.filme_id) AS "QtdLikes"
@@ -108,8 +98,7 @@ LEFT JOIN
 GROUP BY
     fm.titulo
 ORDER BY
-    COUNT(lf.filme_id) DESC; -- Ordenando pelo número de likes em ordem decrescente
-
+    COUNT(lf.filme_id) DESC;
 
 -- ---------------------------------------------------------------------------------------------------------------------------- --
 -- ---------------------------------------------------------------------------------------------------------------------------- --
@@ -147,8 +136,11 @@ CREATE TABLE gavamotors.likes_jogos (
 
 select * from gavamotors.likes_jogos;
 
-DELETE FROM gavamotors.likes_jogos where usuario_id = 1 and jogo_id = 1;
-
+-- ---------------------------------------------------------------------------------------------------------------------------- --
+-- ---------------------------------------------------------------------------------------------------------------------------- --
+-- -------------------------------------------------------- SELECTS ----------------------------------------------------------- --
+-- ---------------------------------------------------------------------------------------------------------------------------- --
+-- ---------------------------------------------------------------------------------------------------------------------------- --
 
 -- Gera o numero de jogadores por jogo.
 select
@@ -174,10 +166,6 @@ GROUP BY
 ORDER BY
     COUNT(lj.jogo_id) DESC; -- Ordenando pelo número de likes em ordem decrescente
 
-
-
-
-
 -- Likes em Jogos
 SELECT
     us.nome AS usuario_nome,
@@ -188,8 +176,6 @@ SELECT
 FROM gavamotors.jogos jg
 JOIN gavamotors.likes_jogos lj ON lj.jogo_id = jg.id
 JOIN gavamotors.usuario us ON lj.usuario_id = us.id;
-
-
 
 -- Likes em Filmes
 SELECT
@@ -202,7 +188,6 @@ FROM gavamotors.filmes fl
 JOIN gavamotors.likes_filmes lf ON lf.filme_id = fl.id
 JOIN gavamotors.usuario us ON lf.usuario_id = us.id;
 
-
 -- Likes em Carros
 SELECT
     us.nome AS usuario_nome,
@@ -213,9 +198,3 @@ SELECT
 FROM gavamotors.carros cr
 JOIN gavamotors.likes_carros lc ON lc.carro_id = cr.id
 JOIN gavamotors.usuario us ON lc.usuario_id = us.id;
-
-
-
-
-
-

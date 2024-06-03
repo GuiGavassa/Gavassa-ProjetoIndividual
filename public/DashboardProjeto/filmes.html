@@ -20,7 +20,7 @@
       <a href="filmes.html"><button id="filmes-btn">Filmes</button></a>
       <a href="jogos.html"><button>Jogos</button></a>
     </div>
-    <a href=""><button onclick="limparSessao()" class="btn-sair">Sair</button></a>
+    <button onclick="limparSessao()" class="btn-sair">Sair</button>
   </div>
   <div class="main-section-filmes">
     <div class="section-filmes">
@@ -42,7 +42,58 @@
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-  window.onload = carregarFilmesAssistidos()
+  window.onload = buscarFilmes(), carregarFilmesAssistidos()
+
+
+  function buscarFilmes() {
+    fetch("/filmes/buscarFilmes", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO buscarCarros()!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+
+          let id = [];
+          let titulo = [];
+          let descricao = [];
+          let ano = [];
+
+          json.forEach(filme => {
+            id.push(filme.id);
+            titulo.push(filme.titulo);
+            descricao.push(filme.descricao);
+            ano.push(filme.ano);
+          });
+
+          sessionStorage.setItem('ID_FILME', JSON.stringify(id));
+          sessionStorage.setItem('TITULO_FILME', JSON.stringify(titulo));
+          sessionStorage.setItem('DESCRICAO_FILME', JSON.stringify(descricao));
+          sessionStorage.setItem('ANO_FILME', JSON.stringify(ano));
+
+        });
+
+      } else {
+
+        console.log("Houve um erro ao tentar buscar os filmes!");
+        resposta.text().then(texto => {
+          console.error(texto);
+        });
+      }
+
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+
+    return false;
+  }
 
 
   imagensFundo = [
@@ -57,40 +108,11 @@
     "../assets/imgs/img-filmes/filmes-Velozes_e_Furiosos5.png"
   ];
 
-  var nomeFilmes = [
-    "SpeedRacer",
-    "Carros",
-    "Carros 2",
-    "Carros 3",
-    "Velozes e Furiosos",
-    "Velozes e Furiosos 2",
-    "Velozes e Furiosos - Tokyo",
-    "Velozes e Furiosos 4",
-    "Velozes e Furiosos 5"];
+  let nomeFilmes = JSON.parse(sessionStorage.TITULO_FILME);
+  let descricaoDosFilmes = JSON.parse(sessionStorage.DESCRICAO_FILME);
+  let anoLancamentoFilmes = JSON.parse(sessionStorage.ANO_FILME);
 
-  var anoLancamentoFilmes = [
-    '2008',
-    '2006',
-    '2011',
-    '2017',
-    '2001',
-    '2003',
-    '2006',
-    '2009',
-    '2011'
-  ]
-
-  var descricaoDosFilmes = [
-    "Piloto de corridas enfrenta desafios em competições de alta velocidade com seu carro especial.",
-    "Relâmpago McQueen descobre amizade e humildade em uma pequena cidade após acidente inesperado.",
-    "Relâmpago McQueen e Mate participam de um campeonato mundial de corridas com espionagem internacional.",
-    "Relâmpago McQueen enfrenta novos corredores e busca provar que ainda é competitivo.",
-    "Piloto de rua e policial infiltrado enfrentam crimes e corridas ilegais em Los Angeles.",
-    "Brian O'Conner e amigo se unem para derrubar um traficante de drogas em Miami.",
-    "Jovem piloto americano se envolve no mundo das corridas de drift em Tóquio.",
-    "Dominic Toretto e Brian O'Conner reúnem-se para combater um traficante de drogas.",
-    "Grupo de corredores planeja um grande assalto no Brasil enquanto foge das autoridades."
-  ]
+  
 
   const cards = document.querySelectorAll(".card-filmes");
 

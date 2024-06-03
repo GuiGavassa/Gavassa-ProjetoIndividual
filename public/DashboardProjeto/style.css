@@ -117,8 +117,6 @@ body {
 
     width: 84vw;
     height: 100vh;
-
-
 }
 
 
@@ -133,6 +131,37 @@ body {
     height: 100vh;
 }
 
+.KPIs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 26vw;
+    height: 81vh;
+    margin-top: 10vh;
+}
+
+.KpiJogos, .KpiFilmes{
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(239, 227, 255, 0.8);
+    border: var(--GavaPurplePrincipal) 3px solid;
+    border-radius: 30px;
+}
+
+.KpiJogos b, .KpiFilmes b{
+    margin-bottom: 10%;
+    margin-top: 10%;
+}
+
+.KpiJogos span, .KpiFilmes span{
+    font-size: 30px;
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -141,7 +170,7 @@ body {
     background-color: rgba(239, 227, 255, 0.8);
     border: var(--GavaPurplePrincipal) 3px solid;
     border-radius: 30px;
-    width: 30vw;
+    width: 22vw;
     height: 80vh;
 
     margin-top: 10vh;
@@ -181,7 +210,7 @@ body {
 
     border-radius: 30px;
 
-    width: 40vw;
+    width: 30vw;
     height: 35vh;
     margin-top: 10vh;
 }
@@ -437,7 +466,7 @@ body {
 
 /* --------------------------------------------------------------------------------------------------------------- */
 /* --------------------------------------------------------------------------------------------------------------- */
-/* ----------------------------------------------- Tela de Filmes ------------------------------------------------ */
+/* ----------------------------------------------- Tela de Jogos ------------------------------------------------- */
 /* --------------------------------------------------------------------------------------------------------------- */
 /* --------------------------------------------------------------------------------------------------------------- */
 .main-section-jogos {

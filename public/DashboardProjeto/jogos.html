@@ -20,7 +20,7 @@
       <a href="filmes.html"><button>Filmes</button></a>
       <a href="jogos.html"><button id="jogos-btn">Jogos</button></a>
     </div>
-    <a href=""><button onclick="limparSessao()" class="btn-sair">Sair</button></a>
+    <button onclick="limparSessao()" class="btn-sair">Sair</button>
   </div>
   <div class="main-section-jogos">
     <div class="section-jogos">
@@ -41,6 +41,64 @@
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
+  window.onload = buscarJogos(), carregarJogosJogados()
+
+  function buscarJogos() {
+    fetch("/jogos/buscarJogos", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO buscarCarros()!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+
+          let id = [];
+          let titulo = [];
+          let desenvolvedor = [];
+          let ano = [];
+
+          json.forEach(jogo => {
+            id.push(jogo.id);
+            titulo.push(jogo.titulo);
+            desenvolvedor.push(jogo.desenvolvedor);
+            ano.push(jogo.ano);
+          });
+
+
+          sessionStorage.setItem('ID_JOGO', JSON.stringify(id));
+          sessionStorage.setItem('TITULO_JOGO', JSON.stringify(titulo));
+          sessionStorage.setItem('DESENVOLVEDOR_JOGO', JSON.stringify(desenvolvedor));
+          sessionStorage.setItem('ANO_JOGO', JSON.stringify(ano));
+
+        });
+
+      } else {
+
+        console.log("Houve um erro ao tentar buscar os Carros!");
+        resposta.text().then(texto => {
+          console.error(texto);
+        });
+      }
+
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+
+    return false;
+  }
+
+  let nomeJogos = JSON.parse(sessionStorage.TITULO_JOGO)
+  let desenvolvedorJogos = JSON.parse(sessionStorage.DESENVOLVEDOR_JOGO)
+  let anoJogos = JSON.parse(sessionStorage.ANO_JOGO)
+
+
   imagensFundoJogos = [
     "../assets/imgs/img-jogos/Jogos(1).png",
     "../assets/imgs/img-jogos/Jogos(2).png",
@@ -50,17 +108,6 @@
     "../assets/imgs/img-jogos/Jogos(6).png",
     "../assets/imgs/img-jogos/Jogos(7).png",
     "../assets/imgs/img-jogos/Jogos(8).png",
-  ];
-
-  var nomeJogos = [
-    "MidnightClub L.A Remix",
-    "MidnightClub 3 DUB Edition",
-    "NeedForSpeed Underground 2",
-    "GrandTheftAuto V",
-    "GranTurismo 4",
-    "Forza Horizon 2",
-    "GrandTheftAuto IV",
-    "GrandTheftAuto San Andreas"
   ];
 
   const cards = document.querySelectorAll(".card-jogos");
@@ -78,20 +125,20 @@
     tituloCard.className = "titulo-card-jogos";
     tituloCard.textContent = nomeJogos[i];
 
-    let descricaoJogo = document.createElement("p");
-    descricaoJogo.className = "descricao-jogo";
-    descricaoJogo.textContent = `Gameplay Avançada`;
+    let desenvolvedorJogo = document.createElement("p");
+    desenvolvedorJogo.className = "descricao-jogo";
+    desenvolvedorJogo.textContent = desenvolvedorJogos[i];
 
     let anoLancamento = document.createElement("p");
     anoLancamento.className = "ano-lancamento";
-    anoLancamento.textContent = `Ano de Lançamento: 2024`;
+    anoLancamento.textContent = `Ano de Lançamento: ${anoJogos[i]}`;
 
     cardContent.appendChild(tituloCard);
 
     let cardDescricaoJogo = document.createElement("div");
     cardDescricaoJogo.className = "card-descricao-jogos";
 
-    cardDescricaoJogo.appendChild(descricaoJogo);
+    cardDescricaoJogo.appendChild(desenvolvedorJogo);
     cardDescricaoJogo.appendChild(anoLancamento);
 
     cardContent.appendChild(cardDescricaoJogo);
@@ -193,19 +240,53 @@
 
   // Função para enviar dado para o banco e alternar a cor do botão
   function enviarDadoProBanco(event) {
-  const button = event.target;
-  const buttonId = button.id;
+    const button = event.target;
+    const buttonId = button.id;
 
-  if (button.classList.contains("btn-joguei-on")) {
-    // Botão está atualmente ligado, então desativar e remover do banco
-    button.classList.remove("btn-joguei-on");
-    removerDadoDoBanco(buttonId);
-  } else {
-    // Botão está atualmente desligado, então ativar e inserir no banco
-    button.classList.add("btn-joguei-on");
-    inserirDadoNoBanco(buttonId);
+    if (button.classList.contains("btn-joguei-on")) {
+      // Botão está atualmente ligado, então desativar e remover do banco
+      button.classList.remove("btn-joguei-on");
+      removerDadoDoBanco(buttonId);
+    } else {
+      // Botão está atualmente desligado, então ativar e inserir no banco
+      button.classList.add("btn-joguei-on");
+      inserirDadoNoBanco(buttonId);
+    }
   }
-}
+
+
+  function carregarJogosJogados() {
+    fetch("/likes/obterLikeJogos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        usuarioID: sessionStorage.ID_USUARIO
+      }),
+    })
+      .then(function (resposta) {
+        return resposta.json();
+      })
+      .then(function (dados) {
+        console.log(dados);
+        // Ativa os botões correspondentes aos filmes assistidos
+        dados.forEach(function (idJogo) {
+          // Verifica se o botão com o ID correspondente existe no DOM
+          const button = document.getElementById(idJogo.jogo_id); // Ajuste aqui
+          if (button) {
+            // Se o botão existir, tenta adicionar a classe 'btn-joguei-on'
+            button.classList.add("btn-joguei-on");
+          } else {
+            // Se o botão não for encontrado, registra um erro no console para depuração
+            console.error(`Botão com ID ${idJogo.jogo_id} não encontrado.`);
+          }
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
 
 
 
