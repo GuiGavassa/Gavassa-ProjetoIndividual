@@ -160,6 +160,7 @@ body {
 
 .KpiJogos span, .KpiFilmes span{
     font-size: 30px;
+    text-align: center;
 }
 
 .card {
