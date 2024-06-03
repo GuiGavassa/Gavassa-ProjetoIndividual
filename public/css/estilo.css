@@ -118,7 +118,7 @@ li a:hover::after {
 }
 
 
-li a.active{
+li a.active {
   height: 100%;
   color: var(--GavaWhite);
   background-color: var(--GavaPurpleDark);
@@ -134,7 +134,7 @@ nav li {
 nav a {
   color: var(--GavaPurpleDark);
 
-  
+
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
@@ -196,7 +196,7 @@ header .botoes-acesso {
   font-weight: 500;
   font-size: 20px;
   text-decoration: none;
-  
+
   width: 40%;
   height: 3rem;
 
@@ -343,7 +343,7 @@ header .botoes-acesso {
   color: var(--GavaWhite);
 }
 
-.filmes{
+.filmes {
   text-align: center;
   margin-bottom: 10px;
 }
@@ -357,7 +357,7 @@ header .botoes-acesso {
 
 .card-filmes {
   display: flex;
-  
+
   flex-direction: column;
   width: 20vw;
   height: 60vh;
@@ -370,7 +370,7 @@ header .botoes-acesso {
   align-items: center;
 }
 
-.card-filmes a{
+.card-filmes a {
   width: 100%;
   display: flex;
   text-decoration: none;
@@ -378,24 +378,24 @@ header .botoes-acesso {
 }
 
 
-.card-content{
+.card-content {
   flex-direction: column;
   display: none;
   width: 100%;
   height: 100%;
   justify-content: space-between;
   align-items: center;
-  opacity: 0; 
+  opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  
+
 }
 
-.card-content:hover{
-  opacity: 1; 
+.card-content:hover {
+  opacity: 1;
   visibility: visible;
 }
 
-.card-filmes .titulos{
+.card-filmes .titulos {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -516,7 +516,7 @@ header .botoes-acesso {
   border-radius: 50px;
   flex-wrap: wrap;
   justify-content: center;
-  
+
 
   -webkit-box-shadow: inset 0px 0px 26px 0px rgba(0, 0, 0, 0.54);
   -moz-box-shadow: inset 0px 0px 26px 0px rgba(0, 0, 0, 0.54);
@@ -537,15 +537,15 @@ header .botoes-acesso {
   background-color: var(--GavaPurpleDark);
 }
 
-.card-jogos{
+.card-jogos {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.card-jogos img{
-  
+.card-jogos img {
+
   margin: 1em 1em;
   width: 20vw;
   height: 50vh;
@@ -554,14 +554,14 @@ header .botoes-acesso {
   border: var(--GavaWhite) 4px solid;
 }
 
-#imagens-container{
+#imagens-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-#imagens-container img{
+#imagens-container img {
   margin: 1em 1em;
   width: 20vw;
   height: 50vh;
@@ -594,7 +594,7 @@ header .botoes-acesso {
   justify-content: center;
   align-items: center;
 
-  flex: 0 0 100%; 
+  flex: 0 0 100%;
   text-align: center;
 }
 
@@ -633,7 +633,7 @@ header .botoes-acesso {
   transition: ease-in-out 0.2s;
 }
 
-.slide article button:hover{
+.slide article button:hover {
   background-color: var(--GavaPurplePrincipal);
   color: var(--GavaWhite);
   cursor: pointer;
@@ -669,7 +669,8 @@ header .botoes-acesso {
 }
 
 
-.prev, .next {
+.prev,
+.next {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -714,97 +715,112 @@ header .botoes-acesso {
 }
 
 /* -----------------------------------------CONTATO---------------------------------------------- */
-
-.section-contato{
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  align-items: center;
-
-  background-color: var(--GavaPurpleSecondary);
+.modal {
+  display: none; /* Escondido por padrão */
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: var(--GavaWhite); 
+  background-color: rgba(0,0,0,0.4); 
+  padding-top: 60px;
 }
 
-.container-contato{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-
-  width: 50vw;
-  height: 80vh;
- 
-  
-  border-radius: 20px 20px 0 0;
-
+.modal-content {
   background-color: var(--GavaWhite);
-}
-
-.section-contato p{
-  margin: 0;
-  font-weight: 600;
-}
-
-.section-contato h1{
-  font-size: 50px;
-}
-
-.section-contato input{
-  margin: 0;
-  width: 24vw;
-  height: 2em;
-  padding: 2px 10px ;
-  
-  border: none;
-  border-left: var(--GavaPurpleDark) 5px solid;
-
-  background-color: var(--GavaGrey);
-  
-  -webkit-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
-  -moz-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
-  box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
-}
-
-.section-contato textarea{
-  resize: none;
-
-  margin: 0;
-  padding: 10px;
-  width: 24vw;
-
-  border: none;
-  border-left: var(--GavaPurpleDark) 5px solid;
-
-  background-color: var(--GavaGrey);
-
-  -webkit-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
-  -moz-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
-  box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
-}
-
-.section-contato button{
-  border: none;
+  margin: 5% auto; 
+  padding: 20px;
+  border: var(--GavaPurplePrincipal) 3px solid;
   border-radius: 20px;
-
-  margin-top: 1em;
-
-  background-color: var(--GavaPurpleDark);
-  color: var(--GavaWhite);
-  font-weight: 500;
-  box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.54);
-
-  padding: 0.5em 2em;
-  transition: ease-in-out 0.2s;
+  width: 80%; 
 }
 
-.section-contato button:hover{
-  background-color: var(--GavaPurpleSecondary);
+.close {
+  color: var(--GavaBlack);
+  float: right;
+  font-size: 56px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
   cursor: pointer;
 }
 
-footer{
+/* Estilos para os cards */
+.cards-onu div {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.section-onu {
+  width: 100vw;
+  height: 90vh;
+  background-color: var(--GavaWhite);
+  padding-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.section-onu h1{
+  font-size: 2.5em;
+}
+
+.cards-onu{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw;
+}
+
+.cards-onu1,
+.cards-onu2,
+.cards-onu3 {
+  border-radius: 10px;
+  width: 20vw;
+  height: 40vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: ease-in-out 0.3s;
+}
+
+.cards-onu1 {
+  background-image: url("../assets/imgs/ods/SDG-9.svg");
+}
+
+.cards-onu2 {
+  background-image: url("../assets/imgs/ods/SDG-11.svg");
+}
+
+.cards-onu3 {
+  background-image: url("../assets/imgs/ods/SDG-12.svg");
+}
+
+.cards-onu1:hover,
+.cards-onu2:hover,
+.cards-onu3:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+
+
+
+
+footer {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -813,16 +829,16 @@ footer{
   background-color: var(--GavaBlack);
 }
 
-footer div{
+footer div {
   width: 28%;
 }
 
-footer p{
+footer p {
   color: var(--GavaWhite);
   font-size: medium;
 }
 
-.linkedin_gavassa{
+.linkedin_gavassa {
   color: var(--GavaPurpleDark);
   font-weight: 700;
   background-color: var(--GavaWhite);
@@ -831,25 +847,25 @@ footer p{
   margin: 0;
 }
 
-footer img{
+footer img {
   width: 10vw;
   height: 10vh;
-  margin:0px 100px ;
+  margin: 0px 100px;
 }
 
-.linkedin{
+.linkedin {
   margin: 0;
   text-decoration: none;
- 
+
 }
 
-footer a{
+footer a {
   text-decoration: none;
   width: 28%;
   text-align: center;
 }
 
-footer h2{
+footer h2 {
   color: var(--GavaWhite);
   background-color: var(--GavaPurplePrincipal);
   padding: 20px 30px;
@@ -869,7 +885,7 @@ footer h2{
 /* -------------------------------------------------------------------- */
 /* -------------------------------------------------------------------- */
 
-.section-cadastro{
+.section-cadastro {
   padding-top: 10vh;
   width: 100vw;
   height: 80vh;
@@ -886,7 +902,7 @@ footer h2{
   background-size: cover;
 }
 
-.alerta_erro{
+.alerta_erro {
   display: flex;
   justify-content: flex-end;
 }
@@ -902,7 +918,7 @@ footer h2{
   text-align: center;
 }
 
-.card_erro #mensagem_erro{
+.card_erro #mensagem_erro {
   font-weight: 600;
   color: red;
   font-size: 16px;
@@ -915,7 +931,7 @@ footer h2{
 
 
 
-.card-section{
+.card-section {
   width: 30vw;
   height: fit-content;
   min-height: 50vh;
@@ -933,23 +949,23 @@ footer h2{
 
 }
 
-.card-section input{
+.card-section input {
   margin: 0;
   width: 24vw;
   height: 2em;
   padding: 0.3em;
-  
+
   border: none;
   border-left: var(--GavaPurpleDark) 5px solid;
 
   background-color: var(--GavaGrey);
-  
-  -webkit-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
-  -moz-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
-  box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.20);
+
+  -webkit-box-shadow: inset 0px 0px 8px 0px rgba(0, 0, 0, 0.20);
+  -moz-box-shadow: inset 0px 0px 8px 0px rgba(0, 0, 0, 0.20);
+  box-shadow: inset 0px 0px 8px 0px rgba(0, 0, 0, 0.20);
 }
 
-.card-section button{
+.card-section button {
   border: none;
   border-radius: 20px;
 
@@ -964,18 +980,18 @@ footer h2{
   transition: ease-in-out 0.2s;
 }
 
-.card-section button:hover{
+.card-section button:hover {
   background-color: var(--GavaPurpleSecondary);
   cursor: pointer;
 }
 
-.card-section p{
+.card-section p {
   font-weight: 600;
   margin-top: 1em;
-  
+
 }
 
-.card-section a{
+.card-section a {
   color: var(--GavaPurpleDark);
   font-weight: 700;
   font-size: 18px;
@@ -983,7 +999,7 @@ footer h2{
   transition: ease-in-out 0.2s;
 }
 
-.card-section a:hover{
+.card-section a:hover {
   cursor: pointer;
   color: var(--GavaPurplePrincipal);
 }
@@ -993,7 +1009,7 @@ footer h2{
 
 
 
-.footer-cadastro{
+.footer-cadastro {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1001,8 +1017,7 @@ footer h2{
   background-color: var(--GavaBlack);
 }
 
-.footer-cadastro img{
+.footer-cadastro img {
   width: 6vw;
   height: 6vh;
 }
-

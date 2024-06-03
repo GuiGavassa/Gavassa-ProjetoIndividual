@@ -20,13 +20,13 @@
 
 <body>
   <header id="#home">
-    <a href="./index.html#banner"><img src="assets/imgs/Logo-Header.png"  alt="Imagem de Logo GavaMotors Roxa"></a>
+    <a href="./index.html#banner"><img src="assets/imgs/Logo-Header.png" alt="Imagem de Logo GavaMotors Roxa"></a>
     <nav>
       <li><a href="#banner">Home</a></li>
       <li><a href="#filmes">Filmes</a></li>
       <li><a href="#jogos">Jogos</a></li>
       <li><a href="#carros">Carros</a></li>
-      <li><a href="#contato">Contato</a></li>
+      <li><a href="#onu">Onu</a></li>
     </nav>
     <div class="botoes-acesso">
       <a href="./login.html" class="btn-login">Login</a>
@@ -37,7 +37,7 @@
   <section id="banner" class="banner">
     <div class="main-section">
       <div class="card">
-        
+
         <h1>Mitsubishi Lancer Custom:</h1>
         <a href="login.html"><button class="btn-saiba-mais">Saiba Mais</button></a>
       </div>
@@ -46,7 +46,8 @@
         <p>
           Comecei a gostar de carros, através dos filmes, vendo corridas do Brian O'Connor e Dominic Toretto.
           <br><br>
-          Ao longo dos tempos, aprendi o que eram os video-games, e com isso, eu poderia "fingir" que eu era o Brian e atingir velocidades absurdas com o meu Skyline Azul.
+          Ao longo dos tempos, aprendi o que eram os video-games, e com isso, eu poderia "fingir" que eu era o Brian e
+          atingir velocidades absurdas com o meu Skyline Azul.
           <br><br>
           Hoje em dia, tenho meu sonho de comprar o meu Mitsubishi Lancer, e customizá-lo para deixar do meu jeitinho.
         </p>
@@ -61,7 +62,8 @@
       <p>Jogos que marcaram a minha infância e adolescência, aumentando a minha paixão por carros.</p>
     </div>
     <div class="cards">
-      <div onmouseenter="apareceInfosFilmes('Card1')" onmouseleave="someInfosFilmes('Card1')" class="card-filmes" id="card-filme-1">
+      <div onmouseenter="apareceInfosFilmes('Card1')" onmouseleave="someInfosFilmes('Card1')" class="card-filmes"
+        id="card-filme-1">
         <div class="card-content" id="Card1" style="display: none;">
           <div class="titulos">
             <h1>SpeedRacer</h1>
@@ -70,7 +72,8 @@
           <a href="login.html"><button>Saiba mais</button></a>
         </div>
       </div>
-      <div onmouseenter="apareceInfosFilmes('Card2')" onmouseleave="someInfosFilmes('Card2')" class="card-filmes" id="card-filme-2">
+      <div onmouseenter="apareceInfosFilmes('Card2')" onmouseleave="someInfosFilmes('Card2')" class="card-filmes"
+        id="card-filme-2">
         <div class="card-content" id="Card2" style="display: none;">
           <div class="titulos">
             <h1>Filmes "Carros"</h1>
@@ -79,7 +82,8 @@
           <a href="login.html"><button>Saiba mais</button></a>
         </div>
       </div>
-      <div onmouseenter="apareceInfosFilmes('Card3')" onmouseleave="someInfosFilmes('Card3')" class="card-filmes" id="card-filme-3">
+      <div onmouseenter="apareceInfosFilmes('Card3')" onmouseleave="someInfosFilmes('Card3')" class="card-filmes"
+        id="card-filme-3">
         <div class="card-content" id="Card3" style="display: none;">
           <div class="titulos">
             <h1>Filmes "Velozes e Furiosos"</h1>
@@ -195,41 +199,94 @@
       <button class="next" onclick="nextSlide()">&#10095;</button>
     </div>
     <div class="slide-indicators"></div>
-    <a href="#contato"><img class="img-seta-carros" src="assets/icon/chevron-down-solid.svg" alt="" /></a>
+    <a href="#onu"><img class="img-seta-carros" src="assets/icon/chevron-down-solid.svg" alt="" /></a>
   </section>
 
-  <section class="section-contato" id="contato">
-    <div class="container-contato">
-      <h1>Entre em contato!</h1>
-      <p>Insira o seu e-mail:</p>
-      <input type="email" id="email_contato" />
-      <p>Insira o Assunto:</p>
-      <input type="text" id="assunto_contato" />
-      <p>Insira a sua mensagem:</p>
-      <textarea id="mensagem_contato" cols="30" rows="10"></textarea>
-      <button>Enviar</button>
+  <section class="section-onu" id="onu">
+    <h1>Objetivos de Desenvolvimento Sustentáveis da ONU</h1>
+    <div class="cards-onu">
+      <div class="cards-onu1" onclick="mostrarModal(
+        `
+        <h1>Objetivo de Desenvolvimento Sustentável 9:</h1>
+        <br>
+        <h2>Indústria, Inovação e Infraestrutura</h2>
+        <br>
+        <p>Escolhido pois, ao pensarmos em carros, pensamos em evolução com a tecnologia para com os mesmos. A evolução das tecnologias para a produção dos carros, de anos recentes, demonstram a preocupação com o meio ambiente, pensando sempre na melhoria da eficiência do gasto do combustível, e da performance dos automóveis. E pensando além, temos também o surgimento dos carros elétricos, que possibilita um ambiente muito mais favorável, a partir destas evoluções.</p>
+        `)">
+      </div>
+
+      <div class="cards-onu2" onclick="mostrarModal(`
+      <h1>Objetivo de Desenvolvimento Sustentável 11:</h1>
+      <br>
+      <h2>Cidades e Comunidades Sustentáveis</h2>
+      <br>
+      <p>Uma comunidade depende de meios de transporte sustentáveis para a fácil locomoção dos cidadãos. De tempos para cá, os automóveis tiveram melhorias no quesito de eficiência e sustentabilidade, pela evolução da indústria automobilística, provisionando carros com mais fácil acesso às pessoas das comunidades.</p>
+      `)">
+      </div>
+
+      <div class="cards-onu3" onclick="mostrarModal(`
+      <h1>Objetivo de Desenvolvimento Sustentável 12:</h1>
+      <br>
+      <h2>Consumo e Produção Responsáveis</h2>
+      <br>
+      <p>Atualmente os carros têm se desenvolvido com o intuito de, além de melhorar sua eficiência energética, melhorar também a eficiência do consumo de combustíveis fósseis, diminuindo assim o impacto ambiental. Isso tem acontecido, principalmente após o desenvolvimento dos carros elétricos de empresas como a Tesla, e BYD.</p>
+      `)">
+      </div>
+
     </div>
   </section>
 
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="fecharModal()">&times;</span>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+
   <!-- Footer do Site -->
   <footer id="footer">
-    <div><p>Feito por <a class="linkedin_gavassa" href="https://www.linkedin.com/in/gavassa/" target="_blank">Guilherme Gavassa 1ADS-C 24/1 </a></p></div>
-    
+    <div>
+      <p>Feito por <a class="linkedin_gavassa" href="https://www.linkedin.com/in/gavassa/" target="_blank">Guilherme
+          Gavassa 1ADS-C 24/1 </a></p>
+    </div>
+
     <img src="assets/imgs/Logo-GavaMotors-White.png" alt="" />
-    <a href="index.html#banner"><h2>Voltar ao início</h2></a>
+    <a href="index.html#banner">
+      <h2>Voltar ao início</h2>
+    </a>
   </footer>
 </body>
 
 </html>
 
 <script>
-function apareceInfosFilmes(cardId) {
-  document.getElementById(cardId).style.display = "flex";
-}
 
-function someInfosFilmes(cardId) {
-  document.getElementById(cardId).style.display = "none";
-}
+  function mostrarModal(content) {
+    document.getElementById('modal-text').innerHTML = content;
+    document.getElementById('modal').style.display = "block";
+  }
+
+  function fecharModal() {
+    document.getElementById('modal').style.display = "none";
+  }
+
+  // Fechar o modal quando o usuário clicar fora dele
+  window.onclick = function (event) {
+    var modal = document.getElementById('modal');
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+
+
+  function apareceInfosFilmes(cardId) {
+    document.getElementById(cardId).style.display = "flex";
+  }
+
+  function someInfosFilmes(cardId) {
+    document.getElementById(cardId).style.display = "none";
+  }
 
   var imagens = [
     "assets/imgs/img-jogos/Jogos(1).png",
