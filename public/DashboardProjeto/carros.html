@@ -56,7 +56,7 @@
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    window.onload = buscarCarros(), carregarLikesCarros()
+    window.onload = buscarCarros()
 
     function buscarCarros() {
         fetch("/carros/buscarCarros", {
@@ -96,6 +96,7 @@
                     sessionStorage.setItem('POTENCIA_CARRO', JSON.stringify(potencia));
                     sessionStorage.setItem('ANO_CARRO', JSON.stringify(ano));
 
+
                 });
 
             } else {
@@ -118,12 +119,13 @@
     let marcaCarros = JSON.parse(sessionStorage.MARCA_CARRO)
     let anoCarros = JSON.parse(sessionStorage.ANO_CARRO)
 
-    
+
 
     var like = [
         "../assets/icon/LikeOff.svg",
         "../assets/icon/LikeOn.svg"
     ];
+
 
 
     const cards = document.querySelectorAll(".card-carros");
@@ -187,6 +189,8 @@
         cards[i].appendChild(divInteracaoCarros)
         cards[i].appendChild(cardContent)
     }
+    carregarLikesCarros()
+
 
     function mudarBotaoLike() {
         let id = event.target.dataset.id;
@@ -311,7 +315,7 @@
 
     function reproduzirSom(event) {
         const id = event.target.dataset.id;
-        const newAudio = new Audio(`../assets/sounds/${marcaCarros[id-1]}.mp3`);
+        const newAudio = new Audio(`../assets/sounds/${marcaCarros[id - 1]}.mp3`);
 
         if (currentAudio) {
             // Pause o áudio atual e reinicie-o

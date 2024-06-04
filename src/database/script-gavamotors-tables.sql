@@ -13,6 +13,9 @@ CREATE TABLE gavamotors.usuario (
     senha VARCHAR(255) NOT NULL
 );
 
+insert into gavamotors.usuario values
+(null,'Guilherme', 'guilherme@gmail.com','123123123');
+
 select * from gavamotors.usuario;
 
 
