@@ -136,13 +136,13 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 26vw;
-    height: 81vh;
+    width: 22vw;
+    height: 80vh;
     margin-top: 10vh;
 }
 
 .KpiJogos, .KpiFilmes{
-    height: 35vh;
+    height: 36vh;
     display: flex;
     flex-direction: column;
     justify-content: top;
@@ -201,6 +201,15 @@ body {
 }
 
 
+.graficos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+    margin-top: 10vh;
+}
+
+
 .grafico {
     display: flex;
     flex-direction: row;
@@ -211,9 +220,8 @@ body {
 
     border-radius: 30px;
 
-    width: 30vw;
-    height: 35vh;
-    margin-top: 10vh;
+    width: 36vw;
+    height: 36vh;
 }
 
 #dashboard-btn,
