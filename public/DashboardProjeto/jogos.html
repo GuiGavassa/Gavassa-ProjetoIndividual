@@ -113,7 +113,7 @@
   const cards = document.querySelectorAll(".card-jogos");
   console.log(cards);
 
-  // Loop através dos cards e define o background para cada um
+  
   for (var i = 0; i < cards.length; i++) {
     cards[i].style.backgroundImage = `url("${imagensFundoJogos[i]}")`;
 
@@ -153,9 +153,6 @@
     cardContent.appendChild(button);
     cards[i].appendChild(cardContent);
 
-
-
-    // Adiciona eventos de mouse ao card
     cards[i].addEventListener("mouseenter", function () {
       cardContent.classList.add("show");
     });
@@ -169,7 +166,7 @@
 
   function inserirDadoNoBanco(id) {
     console.log(`Inserir no banco: ${id} e ${sessionStorage.ID_USUARIO}`);
-    // Lógica para inserir no banco de dados
+    
     fetch("/likes/adicionarLikeJogos", {
       method: "POST",
       headers: {
@@ -244,11 +241,11 @@
     const buttonId = button.id;
 
     if (button.classList.contains("btn-joguei-on")) {
-      // Botão está atualmente ligado, então desativar e remover do banco
+      
       button.classList.remove("btn-joguei-on");
       removerDadoDoBanco(buttonId);
     } else {
-      // Botão está atualmente desligado, então ativar e inserir no banco
+      
       button.classList.add("btn-joguei-on");
       inserirDadoNoBanco(buttonId);
     }
@@ -270,15 +267,15 @@
       })
       .then(function (dados) {
         console.log(dados);
-        // Ativa os botões correspondentes aos filmes assistidos
+        
         dados.forEach(function (idJogo) {
-          // Verifica se o botão com o ID correspondente existe no DOM
-          const button = document.getElementById(idJogo.jogo_id); // Ajuste aqui
+          
+          const button = document.getElementById(idJogo.jogo_id); 
           if (button) {
-            // Se o botão existir, tenta adicionar a classe 'btn-joguei-on'
+            
             button.classList.add("btn-joguei-on");
           } else {
-            // Se o botão não for encontrado, registra um erro no console para depuração
+           
             console.error(`Botão com ID ${idJogo.jogo_id} não encontrado.`);
           }
         });
