@@ -170,9 +170,10 @@
 
           if (resposta.ok) {
             cardErro.style.display = "block";
+            mensagem_erro.style.color = "green";
 
             mensagem_erro.innerHTML =
-              "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+              "Cadastro realizado com sucesso! <br> Redirecionando para tela de Login...";
 
             setTimeout(() => {
               window.location = "login.html";
